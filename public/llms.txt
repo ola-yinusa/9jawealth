@@ -1,0 +1,11 @@
+9jawealth
+
+Summary: Trust-first financial clarity assessment for visitors exploring wealth-building paths in money markets and real estate.
+URL: https://9jawealth.vercel.app/
+
+Primary page:
+- https://9jawealth.vercel.app/ : Financial clarity assessment landing page
+
+Notes:
+- Assessment submissions are captured for follow-up.
+- Backend report delivery and workflow plumbing are not yet wired.

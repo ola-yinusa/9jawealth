@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600;1,700&family=DM+Sans:wght@400;500;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #142133;
+  --color-navy-soft: #1d304a;
+  --color-gold: #b4903a;
+  --color-gold-light: #d3b46a;
+  --color-cream: #f6f1e8;
+  --color-cream-deep: #ece3d4;
+  --color-paper: #fdf9f2;
+  --color-white: #fffdf9;
+  --color-charcoal: #263244;
+  --color-ink: #39465a;
+  --color-muted: #677489;
+  --color-border: rgba(92, 74, 31, 0.16);
+  --color-border-strong: rgba(92, 74, 31, 0.28);
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 18px 40px rgba(23, 34, 52, 0.09);
+  --shadow-elevated: 0 30px 80px rgba(20, 33, 51, 0.16);
+
+  --transition-fast: 150ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-base: 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-charcoal font-sans antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(180, 144, 58, 0.14), transparent 28%),
+      linear-gradient(180deg, rgba(255, 253, 249, 0.95), rgba(246, 241, 232, 0.92));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    background: rgba(180, 144, 58, 0.22);
+    color: #142133;
+  }
+
+  a, button, input, textarea, select {
+    @apply transition-colors duration-200;
+  }
+
+  button, [role="button"], a, input, textarea, select {
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  .surface-panel {
+    background: linear-gradient(180deg, rgba(255, 253, 249, 0.92), rgba(248, 243, 235, 0.92));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .deep-panel {
+    background:
+      radial-gradient(circle at top left, rgba(211, 180, 106, 0.08), transparent 28%),
+      linear-gradient(180deg, rgba(20, 33, 51, 0.98), rgba(20, 33, 51, 0.92));
+  }
+
+  .ink-border {
+    border-color: var(--color-border);
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/70 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+
+  .section-shell {
+    @apply relative mx-auto w-full max-w-7xl px-6 md:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-display uppercase tracking-[0.24em] text-gold;
+  }
+
+  .balance-text {
+    text-wrap: balance;
+  }
+
+  .text-soft-shadow {
+    text-shadow: 0 10px 30px rgba(20, 33, 51, 0.16);
+  }
+
+  .card-outline {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      0 18px 48px rgba(20, 33, 51, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

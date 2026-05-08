@@ -1,0 +1,10 @@
+{
+  "name": "9jawealth",
+  "short_name": "9jawealth",
+  "description": "Trust-first financial clarity assessment for 9jawealth with live submission capture.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf9f2",
+  "theme_color": "#142133",
+  "icons": []
+}

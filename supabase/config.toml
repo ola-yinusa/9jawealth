@@ -1,0 +1,4 @@
+project_id = "9jawealth"
+
+[functions.capture-assessment]
+verify_jwt = false
