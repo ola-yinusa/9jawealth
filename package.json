@@ -8,19 +8,23 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "node --import tsx --test"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
+    "@vercel/blob": "^0.27.1",
     "@vitejs/plugin-react": "^5.0.4",
     "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "nodemailer": "^9.0.3",
     "react": "^19.0.1",
-    "react-dom": "^19.0.1",
-    "vite": "^6.2.3",
-    "motion": "^12.23.24"
+    "react-dom": "^19.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "@types/nodemailer": "^8.0.1",
+    "@vercel/node": "^5.1.8",
     "autoprefixer": "^10.4.21",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",

@@ -15,5 +15,5 @@ Prerequisite: Node.js
 
 ## Notes
 
-- Assessment submissions are wired to a Supabase Edge Function capture endpoint.
-- Automated report email delivery is intended as a later layer on top of the current submission path.
+- Assessment submissions are sent through WhoGoHost GO54 Cloud Mail SMTP from the server-side `/api/send-report` function.
+- Store the SMTP credentials in deployment environment variables; never expose them in the frontend.
