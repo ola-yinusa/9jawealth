@@ -16,22 +16,16 @@ export interface AssessmentSubmissionResponse {
   message: string;
 }
 
-const defaultEndpoint =
-  "https://uxyfogqiogurnykrxwqx.functions.supabase.co/capture-assessment";
-
 export async function submitAssessment(
   payload: AssessmentSubmissionPayload,
 ): Promise<AssessmentSubmissionResponse> {
-  const response = await fetch(
-    import.meta.env.VITE_ASSESSMENT_SUBMISSION_URL || defaultEndpoint,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
+  const response = await fetch("/api/send-report", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
+    body: JSON.stringify(payload),
+  });
 
   if (!response.ok) {
     const data = (await response.json().catch(() => null)) as { error?: string } | null;

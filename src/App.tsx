@@ -8,7 +8,6 @@ import Hero from "./components/Hero";
 import Pillars from "./components/Pillars";
 import Quiz from "./components/Quiz";
 import MeetOla from "./components/MeetOla";
-import SocialProof from "./components/SocialProof";
 import Paths from "./components/Paths";
 import Footer from "./components/Footer";
 import WhatsApp from "./components/WhatsApp";
@@ -33,7 +32,6 @@ export default function App() {
         <Pillars />
         <Quiz />
         <MeetOla />
-        <SocialProof />
         <Paths />
       </main>
       <Footer />

@@ -14,13 +14,17 @@ export default function MeetOla() {
           >
             <div className="absolute -inset-6 rounded-[3rem] border border-gold/14 bg-[radial-gradient(circle_at_top,_rgba(180,144,58,0.14),_transparent_56%)]" />
             <img
-              src="/images/olaohms-award-portrait.jpg"
-              alt="Olaohms holding a recognition award in front of a patterned event backdrop."
+              src="/images/olaohms-award-portrait-v2.jpg"
+              alt="Olanrewaju at the Zylus thanksgiving and awards 2026."
               width="1080"
               height="1080"
               className="relative z-10 aspect-[4/5] w-full rounded-[2.6rem_1.25rem_2.6rem_1.25rem] object-cover shadow-[0_34px_80px_rgba(20,33,51,0.18)]"
               loading="lazy"
             />
+            <div className="absolute bottom-6 left-6 right-6 z-20 rounded-[1.5rem] border border-white/14 bg-[rgba(20,33,51,0.78)] px-5 py-4 backdrop-blur-md">
+              <p className="eyebrow mb-1 text-gold-light">Zylus Thanksgiving & Awards 2026</p>
+              <p className="text-sm leading-relaxed text-white/82">5 years of advising investors in the real estate sector.</p>
+            </div>
           </motion.div>
         </div>
 
@@ -31,28 +35,17 @@ export default function MeetOla() {
             viewport={{ once: true }}
           >
             <span className="eyebrow mb-4 block">
-              Your guide
+              About us
             </span>
             <h2 className="balance-text mb-6 text-4xl font-medium leading-[1.08] text-navy md:text-5xl">
-              Olaohms frames wealth through clarity first, then action.
+              Your guide
             </h2>
             <p className="mb-6 max-w-2xl text-[17px] leading-relaxed text-ink">
-              Olanrewaju Yinusa has spent more than five years helping Nigerians think more deliberately about financial growth. Through money-markets guidance and land-led investment conversations, he has built a brand that links opportunity with structure instead of noise.
+              Olanrewaju has spent 5 years helping Nigerians like you think more deliberately about financial growth. Through gold trading guidance and property investment conversations, he has built a brand that links financial opportunity with plug-and-play structure.
             </p>
             <p className="mb-10 max-w-2xl text-[17px] leading-relaxed text-ink">
-              This assessment exists as a front door for that philosophy: understand your current position, notice the weak points, and then move into the path that fits you best.
+              Olanrewaju frames wealth through clarity first, then action. This assessment exists as the front door for that philosophy: understand your current position, notice the weak points, and then move into the path that fits you best.
             </p>
-
-            <div className="mb-10 flex flex-wrap gap-4">
-              <div className="surface-panel card-outline inline-flex min-h-11 items-center gap-3 rounded-full border border-border px-5 py-3">
-                <span className="text-xl font-bold text-gold">500+</span>
-                <span className="text-sm text-navy">Signal members guided</span>
-              </div>
-              <div className="surface-panel card-outline inline-flex min-h-11 items-center gap-3 rounded-full border border-border px-5 py-3">
-                <span className="text-xl font-bold text-gold">₦200M+</span>
-                <span className="text-sm text-navy">Property transaction value</span>
-              </div>
-            </div>
 
             <a
               href="#paths"

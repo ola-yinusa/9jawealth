@@ -11,7 +11,7 @@ export default function Paths() {
             Two Paths Forward
           </h2>
           <p className="max-w-2xl text-lg leading-relaxed text-ink">
-            Once the assessment gives someone clarity, the page should make the next decision feel structured and credible.
+            Once the assessment gives you clarity, choose the path that fits your goals.
           </p>
         </div>
 
@@ -30,11 +30,10 @@ export default function Paths() {
             >
               <div
                 aria-hidden="true"
-                className={`absolute inset-0 ${
-                  path.id === "money-markets"
+                className={`absolute inset-0 ${path.id === "real-estate"
                     ? "bg-[radial-gradient(circle_at_top_left,_rgba(180,144,58,0.42),_transparent_34%),linear-gradient(180deg,_rgba(20,33,51,0.82),_rgba(20,33,51,0.96))]"
                     : "bg-[radial-gradient(circle_at_top_right,_rgba(242,226,187,0.28),_transparent_34%),linear-gradient(180deg,_rgba(28,45,33,0.76),_rgba(16,26,20,0.94))]"
-                }`}
+                  }`}
               />
               <div
                 aria-hidden="true"

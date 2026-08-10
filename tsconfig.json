@@ -23,7 +23,11 @@
     "allowImportingTsExtensions": true,
     "noEmit": true
   },
+  "include": [
+    "src",
+    "tests"
+  ],
   "exclude": [
-    "supabase"
+    "api"
   ]
 }

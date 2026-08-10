@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You! — The Salary-To-Zero Man | 9jaWealth</title>
+<meta name="description" content="Your purchase is confirmed. Welcome to The Salary-To-Zero Man community. Here's how to get started immediately." />
+<meta name="robots" content="noindex, nofollow" />
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2362758610915315');
+fbq('track', 'PageView');
+fbq('track', 'Purchase', {value: 8900, currency: 'NGN'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2362758610915315&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #F8F9FC;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #1a1a2e;
+    min-height: 100vh;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+  @keyframes scale-in {
+    0% { transform: scale(0.5); opacity: 0; }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 20px rgba(255,204,0,0.3); }
+    50% { box-shadow: 0 4px 40px rgba(255,204,0,0.6), 0 0 60px rgba(255,204,0,0.15); }
+  }
+  @keyframes checkmark-draw {
+    0% { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+  }
+
+  /* ===== BLOG HEADER BANNER ===== */
+  .blog-banner {
+    background: linear-gradient(135deg, #050e1f 0%, #0A1F44 40%, #0f2d5e 70%, #0A1F44 100%);
+    padding: 28px 20px;
+    text-align: center;
+    border-bottom: 3px solid #FFCC00;
+    position: relative;
+  }
+  .blog-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #FFCC00, #FFE066, #FFCC00, transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  .blog-banner .blog-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 700;
+    color: #FFCC00;
+    letter-spacing: 0.5px;
+  }
+  .blog-banner .blog-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ===== CONFETTI OVERLAY ===== */
+  .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+  }
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    animation: confetti-fall linear forwards;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .thank-you-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+
+  /* ===== SUCCESS ICON ===== */
+  .success-icon-wrap {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: scale-in 0.6s ease-out 0.3s both;
+  }
+  .success-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+  }
+  .success-circle svg {
+    width: 50px;
+    height: 50px;
+  }
+  .success-circle svg path {
+    stroke: white;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: checkmark-draw 0.6s ease-out 0.8s forwards;
+  }
+
+  /* ===== THANK YOU HEADLINE ===== */
+  .thank-you-headline {
+    text-align: center;
+    animation: fade-up 0.6s ease-out 0.5s both;
+  }
+  .thank-you-headline h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #0A1F44;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .thank-you-headline h1 span {
+    color: #FFCC00;
+    background: linear-gradient(135deg, #FFCC00, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .thank-you-headline .subtitle {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ===== CONFIRMATION CARD ===== */
+  .confirmation-card {
+    background: linear-gradient(135deg, #0A1F44, #0f2d5e);
+    border-radius: 16px;
+    padding: 30px;
+    margin: 35px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    animation: fade-up 0.6s ease-out 0.7s both;
+  }
+  .confirmation-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,204,0,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .confirmation-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    color: #FFCC00;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .confirmation-card p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .confirmation-card .order-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+  }
+  .confirmation-card .order-detail:last-child {
+    border-bottom: none;
+  }
+  .confirmation-card .order-detail .label {
+    color: rgba(255,255,255,0.6);
+  }
+  .confirmation-card .order-detail .value {
+    color: #FFCC00;
+    font-weight: 700;
+  }
+
+  /* ===== NEXT STEPS ===== */
+  .next-steps {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 30px 0;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    animation: fade-up 0.6s ease-out 0.9s both;
+  }
+  .next-steps h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    color: #0A1F44;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .step-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .step-item:last-child {
+    margin-bottom: 0;
+  }
+  .step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFCC00, #D4AF37);
+    color: #0A1F44;
+    font-weight: 800;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0A1F44;
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.65;
+  }
+
+  /* ===== MOTIVATIONAL BLOCK ===== */
+  .motivation-block {
+    background: linear-gradient(135deg, #fffdf0, #fff9e0);
+    border-left: 4px solid #FFCC00;
+    border-radius: 0 12px 12px 0;
+    padding: 25px 28px;
+    margin: 30px 0;
+    animation: fade-up 0.6s ease-out 1.1s both;
+  }
+  .motivation-block p {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    color: #333;
+    line-height: 1.8;
+    font-style: italic;
+  }
+  .motivation-block .signature {
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A1F44;
+    margin-top: 14px;
+  }
+
+  /* ===== SUPPORT BOX ===== */
+  .support-box {
+    text-align: center;
+    margin: 30px 0;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    animation: fade-up 0.6s ease-out 1.3s both;
+  }
+  .support-box p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+  }
+  .support-box a {
+    color: #0A1F44;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .support-box a:hover {
+    color: #FFCC00;
+  }
+  .whatsapp-support-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .whatsapp-support-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    color: white !important;
+  }
+  .whatsapp-support-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  /* ===== BACK LINK ===== */
+  .back-link {
+    text-align: center;
+    margin-top: 30px;
+    animation: fade-up 0.6s ease-out 1.4s both;
+  }
+  .back-link a {
+    font-size: 14px;
+    color: #0A1F44;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .back-link a:hover {
+    color: #D4AF37;
+  }
+
+  /* ===== FOOTER ===== */
+  .page-footer {
+    background-color: #F0F0F0;
+    padding: 24px 20px;
+    text-align: center;
+    margin-top: 60px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 12px;
+    color: #888888;
+    line-height: 1.7;
+  }
+  .page-footer p {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .thank-you-headline h1 { font-size: 24px; }
+    .confirmation-card { padding: 22px; }
+    .next-steps { padding: 22px; }
+    .blog-banner .blog-name { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     BLOG HEADER BANNER
+     ============================================================ -->
+<div class="blog-banner">
+  <div class="blog-name">Salary to Zero With Ola</div>
+  <div class="blog-tagline">No. 1 Men's Wealth Blog in Africa &nbsp;|&nbsp; Real Talk. Real Money. Real Solutions.</div>
+</div>
+
+<!-- ============================================================
+     CONFETTI ANIMATION (Auto-plays on load)
+     ============================================================ -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- ============================================================
+     MAIN CONTENT
+     ============================================================ -->
+<div class="thank-you-wrap">
+
+  <!-- SUCCESS ICON -->
+  <div class="success-icon-wrap">
+    <div class="success-circle">
+      <svg viewBox="0 0 52 52">
+        <path d="M14 27 L22 35 L38 17" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- HEADLINE -->
+  <div class="thank-you-headline">
+    <h1>Payment Confirmed! <span>Welcome Aboard.</span></h1>
+    <p class="subtitle">You just made one of the smartest financial decisions of your life. The Salary-To-Zero Man is now yours. Your salary will never disappear the same way again.</p>
+  </div>
+
+  <!-- ORDER CONFIRMATION CARD -->
+  <div class="confirmation-card">
+    <h3>📦 Your Order Summary</h3>
+    <div class="order-detail">
+      <span class="label">Product</span>
+      <span class="value">The Salary-To-Zero Man</span>
+    </div>
+    <div class="order-detail">
+      <span class="label">Bonuses Included</span>
+      <span class="value">✅ Expense Calculator + Financial Assessment</span>
+    </div>
+    <div class="order-detail">
+      <span class="label">Amount Paid</span>
+      <span class="value">₦8,900</span>
+    </div>
+    <div class="order-detail">
+      <span class="label">Delivery</span>
+      <span class="value">Instant Digital Download</span>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="next-steps">
+    <h3>📋 What Happens Next</h3>
+
+    <div class="step-item">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h4>Check Your Email</h4>
+        <p>Your download link has been sent to the email address you used during checkout. Check your inbox (and spam/promotions folder just in case).</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h4>Download Your Guide + Bonuses</h4>
+        <p>Click the link in the email to download "The Salary-To-Zero Man" PDF, the Nigerian Salary Expense Calculator, and your Free Personal Financial Assessment form.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h4>Start With the Payday Architecture (Page 8)</h4>
+        <p>If your next payday is coming soon, skip straight to Page 8. Set up the Payday Architecture before the money lands. This one step alone changes everything.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h4>Commit to the 90-Day Hold</h4>
+        <p>The first 90 days are critical. Follow the system. Trust the structure. By the third week of next month, you will see the difference in your account, and so will your wife.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOTIVATIONAL MESSAGE -->
+  <div class="motivation-block">
+    <p>"You are no longer the man who opens his banking app and closes it fast. From today, you are the man who knows exactly where every naira goes and why. The structure is now in your hands. Use it."</p>
+    <div class="signature">— Ola, Creator of The Salary-To-Zero Man</div>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="support-box">
+    <p>Having trouble accessing your download? Need help getting started?<br>
+    Reach out to us anytime on WhatsApp.</p>
+
+    <a href="https://wa.me/2347018464025" class="whatsapp-support-btn" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24">
+         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+      </svg>
+      Chat with Support
+    </a>
+  </div>
+
+  <!-- BACK LINK -->
+  <div class="back-link">
+    <a href="/">← Back to Salary to Zero With Ola</a>
+  </div>
+
+</div><!-- end thank-you-wrap -->
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<div class="page-footer">
+  <p>© 2026 Salary to Zero With Ola &nbsp;|&nbsp; All Rights Reserved</p>
+  <p style="margin-top:6px;">This is a digital product. Results described are based on real experiences but individual results will vary. This guide is for educational and informational purposes only and does not constitute professional financial advice.</p>
+  <p style="margin-top:10px;font-weight:600;color:#666;">📋 Digital Product Policy</p>
+  <p style="margin-top:4px;">This is a <strong>digital product</strong>. Once purchased and downloaded, this product is <strong>non-refundable</strong>. By completing your purchase, you acknowledge and agree that due to the instant-access, downloadable nature of this product, all sales are final. No refunds, returns, or exchanges will be issued after the product has been accessed or downloaded.</p>
+  <p style="margin-top:10px;font-weight:600;color:#666;">©️ Copyright &amp; Redistribution Notice</p>
+  <p style="margin-top:4px;">All content within "The Salary-To-Zero Man" guide, including text, graphics, templates, and frameworks, is the exclusive intellectual property of 9jaWealth and is protected under Nigerian and international copyright law. <strong>Unauthorised reproduction, redistribution, resale, sharing, or republication</strong> of this material — in whole or in part, in any format (digital or print) — is <strong>strictly prohibited</strong> and may result in legal action. This product is licensed for personal, single-user use only. You may not share, forward, upload, or distribute this guide or any of its contents to any third party without prior written consent from the copyright holder.</p>
+  <p style="margin-top:6px;">For support, contact: <strong>support@9jawealth.com</strong></p>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT — Confetti Animation
+     ============================================================ -->
+<script>
+  (function() {
+    var container = document.getElementById('confettiContainer');
+    if (!container) return;
+
+    var colors = ['#FFCC00', '#D4AF37', '#0A1F44', '#25D366', '#FF6B6B', '#FFE066', '#4ECDC4', '#FF9F43'];
+    var shapes = ['square', 'circle'];
+
+    for (var i = 0; i < 60; i++) {
+      var piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+
+      var color = colors[Math.floor(Math.random() * colors.length)];
+      var shape = shapes[Math.floor(Math.random() * shapes.length)];
+      var size = Math.random() * 8 + 6;
+      var left = Math.random() * 100;
+      var delay = Math.random() * 2;
+      var duration = Math.random() * 2 + 2.5;
+
+      piece.style.left = left + '%';
+      piece.style.width = size + 'px';
+      piece.style.height = size + 'px';
+      piece.style.backgroundColor = color;
+      piece.style.borderRadius = shape === 'circle' ? '50%' : '2px';
+      piece.style.animationDelay = delay + 's';
+      piece.style.animationDuration = duration + 's';
+
+      container.appendChild(piece);
+    }
+
+    // Remove confetti after animation completes
+    setTimeout(function() {
+      container.style.transition = 'opacity 1s';
+      container.style.opacity = '0';
+      setTimeout(function() {
+        container.remove();
+      }, 1000);
+    }, 5000);
+  })();
+</script>
+
+</body>
+</html>

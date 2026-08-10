@@ -99,7 +99,7 @@ export default function Popup() {
               Before you leave, complete your financial assessment.
             </h2>
             <p id="popup-description" className="mb-8 text-base leading-relaxed text-ink">
-              Take the assessment to receive a captured submission and a clear picture of where you stand financially.
+              Take the assessment to receive your full results by email and get a clear picture of where you stand financially.
             </p>
 
             <div className="space-y-4">

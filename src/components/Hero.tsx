@@ -54,7 +54,7 @@ export default function Hero() {
             variants={itemVariants}
             className="balance-text mb-8 max-w-[38rem] text-lg leading-relaxed text-ink md:text-[1.2rem]"
           >
-            A calm, guided assessment built to help visitors reflect on readiness, habits, and long-term direction before choosing a financial path.
+            Diagnose your financial health with our guided assessment built to help you reflect on readiness, habits, and long-term direction.
           </motion.p>
           <motion.div variants={itemVariants} className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <motion.a
@@ -82,11 +82,11 @@ export default function Hero() {
             </div>
             <div className="min-w-0">
               <p className="eyebrow mb-2">What it avoids</p>
-              <p className="text-sm leading-relaxed text-ink">No hype, no artificial urgency, and no fake promises about what has been delivered.</p>
+              <p className="text-sm leading-relaxed text-ink">No hype, no noise, and no artificial urgency — just a grounded initial diagnosis.</p>
             </div>
             <div className="min-w-0">
               <p className="eyebrow mb-2">What comes next</p>
-              <p className="text-sm leading-relaxed text-ink">Automated report delivery can layer on next without changing the user journey again.</p>
+              <p className="text-sm leading-relaxed text-ink">Automated report delivery is active, sending your results straight to your inbox.</p>
             </div>
           </motion.div>
         </motion.div>
@@ -111,7 +111,7 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-[1.7rem]">
               <img
                 src="/images/olaohms-portrait-suit.webp"
-                alt="Olaohms standing in a dark suit while holding an award plaque."
+                alt="Olanrewaju standing in a dark suit while holding an award plaque."
                 width="1080"
                 height="1080"
                 className="aspect-[4/5] w-full object-cover"
@@ -122,7 +122,7 @@ export default function Hero() {
                 <div className="max-w-sm rounded-[1.5rem] border border-white/14 bg-[rgba(20,33,51,0.78)] px-5 py-4 backdrop-blur-md">
                   <p className="eyebrow mb-2 text-gold-light">A better first impression</p>
                   <p className="balance-text text-base leading-relaxed text-white/90">
-                    The experience should make visitors feel guided, respected, and ready to take the next step.
+                    The experience is designed to make you feel guided, respected, and ready to take the next step.
                   </p>
                 </div>
               </div>

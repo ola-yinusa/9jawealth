@@ -9,7 +9,10 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "test": "node --import tsx --test"
+    "test": "node --import tsx --test",
+    "build:all": "npm run build && npm --prefix moneymarkets run build",
+    "lint:all": "npm run lint && npm --prefix moneymarkets run lint",
+    "verify:all": "npm run lint:all && npm test && npm run build:all"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",

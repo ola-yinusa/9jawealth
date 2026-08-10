@@ -79,12 +79,12 @@ export default function Quiz() {
     <section id="quiz" className="py-24 md:py-32">
       <div className="section-shell">
         <div className="mb-12 max-w-3xl">
-          <p className="eyebrow mb-3">Assessment flow</p>
+          <p className="eyebrow mb-3">Your financial clarity assessment</p>
           <h2 className="balance-text mb-4 text-4xl font-medium leading-tight text-navy md:text-5xl">
-            Make the quiz feel guided, premium, and ready to capture real intent.
+            Before you choose a path, know your starting point.
           </h2>
           <p className="max-w-2xl text-lg leading-relaxed text-ink">
-            The assessment now captures real submissions while leaving report automation for the next phase.
+            Take the 2-minute financial clarity assessment to understand where you stand before making any decisions.
           </p>
         </div>
 
@@ -94,21 +94,21 @@ export default function Quiz() {
             <ol className="space-y-6">
               <li>
                 <p className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-navy">01. Reflect</p>
-                <p className="mt-2 text-sm leading-relaxed text-ink">Visitors answer structured questions around awareness, habits, planning, and income direction.</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink">You answer structured questions around awareness, habits, planning, and income direction.</p>
               </li>
               <li>
                 <p className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-navy">02. Understand</p>
-                <p className="mt-2 text-sm leading-relaxed text-ink">The experience derives a bracket and explanatory summary so each visitor leaves with a clear sense of standing.</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink">The experience derives a bracket and explanatory summary so you leave with a clear sense of where you stand.</p>
               </li>
               <li>
-                <p className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-navy">03. Capture</p>
-                <p className="mt-2 text-sm leading-relaxed text-ink">The final step stores the assessment for follow-up while automated email delivery is connected next.</p>
+                <p className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-navy">03. Receive</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink">Your results are delivered to your inbox along with a recommended next step for your financial journey.</p>
               </li>
             </ol>
             <div className="mt-8 rounded-[1.5rem] border border-gold/16 bg-gold/8 px-5 py-4">
               <p className="text-sm font-semibold text-navy">What happens after submission</p>
               <p className="mt-2 text-sm leading-relaxed text-ink">
-                Your assessment is captured now. Automated report email delivery is the next operational layer to be added.
+                Your assessment results are emailed to you immediately so you can review and act on them at your own pace.
               </p>
             </div>
           </aside>
@@ -129,9 +129,10 @@ export default function Quiz() {
                 </div>
                 <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
                   <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: progress / 100 }}
                     transition={{ duration: prefersReducedMotion ? 0.1 : 0.35 }}
+                    style={{ transformOrigin: "left" }}
                     className="h-full rounded-full bg-gold"
                   />
                 </div>
@@ -183,11 +184,10 @@ export default function Quiz() {
                               whileHover={prefersReducedMotion ? undefined : { y: -2 }}
                               whileTap={prefersReducedMotion ? undefined : { scale: 0.99 }}
                               onClick={() => handleAnswer(option)}
-                              className={`focus-ring min-h-11 rounded-[1.4rem] border px-5 py-4 text-left transition-all ${
-                                isSelected
-                                  ? "border-gold bg-gold text-navy"
-                                  : "border-white/12 bg-white/6 text-white/88 hover:border-gold/70 hover:bg-white/10"
-                              }`}
+                              className={`focus-ring min-h-11 rounded-[1.4rem] border px-5 py-4 text-left transition-all ${isSelected
+                                ? "border-gold bg-gold text-navy"
+                                : "border-white/12 bg-white/6 text-white/88 hover:border-gold/70 hover:bg-white/10"
+                                }`}
                             >
                               <span className="block font-display text-[15px] font-semibold uppercase tracking-[0.08em]">
                                 {option}
@@ -221,7 +221,7 @@ export default function Quiz() {
                           Next step
                         </p>
                         <p className="mt-3 text-sm leading-relaxed text-white/68">
-                          Submit the form to save this assessment for follow-up. Email automation will be connected next without changing the submission path.
+                          Submit the form to receive your full assessment results by email and start your financial path.
                         </p>
                       </div>
                     </div>
@@ -229,7 +229,7 @@ export default function Quiz() {
                     <div className="surface-panel card-outline rounded-[2rem] border border-border p-6 md:p-7">
                       <h4 className="mb-2 text-2xl font-medium text-navy">Save your assessment</h4>
                       <p id={helperId} className="mb-6 text-sm leading-relaxed text-ink">
-                        Fill in your details to save the assessment now. The automated report email will be layered on next.
+                        Fill in your details to receive your assessment results by email.
                       </p>
 
                       <form onSubmit={handleAssessmentSubmit} className="space-y-4" aria-describedby={helperId}>
@@ -289,8 +289,8 @@ export default function Quiz() {
                         <div className="mt-5 rounded-[1.4rem] border border-gold/20 bg-gold/10 px-4 py-4">
                           <p className="text-sm font-semibold text-navy">Assessment received</p>
                           <p className="mt-2 text-sm leading-relaxed text-ink">
-                            Your assessment has been saved successfully. Reference:{" "}
-                            <span className="font-semibold">{submissionReference}</span>. Automated email delivery will be connected next.
+                            Your assessment has been saved and results emailed to you. Reference:{" "}
+                            <span className="font-semibold">{submissionReference}</span>.
                           </p>
                         </div>
                       ) : null}

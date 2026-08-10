@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://forex.9jawealth.com/sitemap.xml

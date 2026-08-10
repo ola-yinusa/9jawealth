@@ -89,11 +89,9 @@ function buildEmailHtml(payload: SubmissionPayload, reference: string): string {
               <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="padding-right:16px;">
-                    <a href="https://moneymarkets.9jawealth.com" style="font-size:13px;color:#b4903a;text-decoration:underline;">Money markets</a>
+                    <a href="https://forex.9jawealth.com" style="font-size:13px;color:#b4903a;text-decoration:underline;">Forex education</a>
                   </td>
-                  <td>
-                    <a href="https://realestate.9jawealth.com" style="font-size:13px;color:#b4903a;text-decoration:underline;">Real estate</a>
-                  </td>
+                  <td style="font-size:13px;color:#677489;">Real estate path coming soon</td>
                 </tr>
               </table>
             </td>

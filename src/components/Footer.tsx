@@ -13,7 +13,7 @@ export default function Footer() {
             <span className="text-2xl font-serif font-bold text-white">9jawealth</span>
           </div>
           <p className="mb-8 max-w-sm text-[15px] leading-relaxed text-white/58">
-            A trust-first frontend experience for financial self-assessment, disciplined opportunity, and long-view wealth conversations.
+            A trust-first experience for financial self-assessment, disciplined opportunity, and long-view wealth conversations.
           </p>
           <div className="flex gap-3">
             {socialLinks.map((social) => {
