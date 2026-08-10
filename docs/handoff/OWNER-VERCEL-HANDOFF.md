@@ -137,7 +137,7 @@ Deploy each product as its own Vercel project under the owner account:
 | PalmVille | `/palmville` | No build command | Static files | `palmville.9jawealth.com` |
 | Salaryman | `/salaryman` | No build command | Static files | `salaryman.9jawealth.com` |
 
-Money Markets exposes `/` and `/course`. PalmVille and Salaryman are static multi-page sites with local assets and external form or payment destinations. Review the duplicate top-level snapshot files before choosing whether to deploy them. Each product requires its own domain mapping, content review, and ownership check.
+Money Markets exposes `/` and `/course`. PalmVille and Salaryman are static multi-page sites with local assets and external form or payment destinations. PalmVille's large video is intentionally excluded from GitHub; set PALMVILLE_VIDEO_URL in palmville/index.html to the externally hosted media URL before launch. Review the duplicate top-level snapshot files before choosing whether to deploy them. Each product requires its own domain mapping, content review, and ownership check.
 
 ## Stage 1 completion criteria
 

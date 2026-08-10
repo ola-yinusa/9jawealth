@@ -24,7 +24,7 @@ This repository is a monorepo containing four independently deployable products:
 
 - Root 9jawealth assessment: the main Vite/React app and `/api/send-report`.
 - `moneymarkets/`: React app with `/` and `/course` routes.
-- `palmville/`: static PalmVille landing page and local video assets.
+- `palmville/`: static PalmVille landing page. Its large video is intentionally hosted outside GitHub; set `PALMVILLE_VIDEO_URL` in `palmville/index.html` before launch.
 - `salaryman/`: static Salary-to-Zero sales funnel and product assets.
 
 ## Verification
