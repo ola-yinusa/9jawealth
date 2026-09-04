@@ -1,0 +1,787 @@
+<!-- ============================================================
+  LEKKI AVANA SIGNATURE — Landing Page
+  Built for signature.9jawealth.com
+  Paste into an Elementor "HTML" widget (full width section).
+  Read the HTML comments marked "ACTION NEEDED" before publishing.
+============================================================= -->
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1806933857388333');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1806933857388333&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<div id="las-root">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+#las-root{
+  --forest:#122A1C;
+  --forest-2:#1C4029;
+  --forest-3:#25532F;
+  --gold:#C9A227;
+  --gold-light:#E7C766;
+  --cream:#FBF7EE;
+  --cream-2:#F1E9D6;
+  --ink:#1B1A15;
+  --ink-soft:#5B5848;
+  --line: rgba(28,64,41,0.14);
+  --radius: 2px;
+  font-family:'Manrope',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+#las-root *{box-sizing:border-box; margin:0; padding:0;}
+#las-root img{max-width:100%; display:block;}
+#las-root h1,#las-root h2,#las-root h3,#las-root h4{
+  font-family:'Fraunces',serif; font-weight:400; line-height:1.08; letter-spacing:-0.01em;
+}
+#las-root .eyebrow{
+  font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--gold);
+}
+#las-root .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+#las-root section{position:relative;}
+#las-root a{text-decoration:none; color:inherit;}
+#las-root ul{list-style:none;}
+
+/* ---------- buttons ---------- */
+#las-root .btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.04em;
+  text-transform:uppercase; padding:17px 34px; border-radius:var(--radius);
+  cursor:pointer; border:1px solid transparent; transition:all .25s ease;
+}
+#las-root .btn-gold{background:var(--gold); color:var(--forest);}
+#las-root .btn-gold:hover{background:var(--gold-light); transform:translateY(-2px);}
+#las-root .btn-outline{border-color:rgba(251,247,238,0.4); color:var(--cream);}
+#las-root .btn-outline:hover{border-color:var(--cream); background:rgba(251,247,238,0.08);}
+#las-root .btn-outline-dark{border-color:var(--forest-2); color:var(--forest);}
+#las-root .btn-outline-dark:hover{background:var(--forest); color:var(--cream);}
+
+/* ---------- nav ---------- */
+#las-nav{
+  position:sticky; top:0; z-index:500; background:rgba(18,42,28,0.96);
+  backdrop-filter:blur(6px); border-bottom:1px solid rgba(201,162,39,0.25);
+}
+#las-nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+#las-nav .brand{font-family:'Fraunces',serif; color:var(--cream); font-size:20px; letter-spacing:0.02em;}
+#las-nav .brand span{color:var(--gold); font-style:italic;}
+#las-nav .btn{padding:11px 22px; font-size:12px;}
+
+/* ---------- hero ---------- */
+#las-hero{min-height:96vh; display:flex; align-items:flex-end; background:var(--forest);}
+#las-hero-media{position:absolute; inset:0; overflow:hidden;}
+#las-hero-media video{
+  width:100%; height:100%; object-fit:cover; opacity:0.55;
+}
+#las-hero-media::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(18,42,28,0.35) 0%, rgba(18,42,28,0.55) 55%, rgba(18,42,28,0.96) 100%);
+}
+#las-hero .wrap{position:relative; z-index:2; padding-bottom:88px; padding-top:180px;}
+#las-hero .eyebrow{color:var(--gold-light); display:flex; align-items:center; gap:12px; margin-bottom:22px;}
+#las-hero .eyebrow::before{content:""; width:36px; height:1px; background:var(--gold-light);}
+#las-hero h1{color:var(--cream); font-size:clamp(38px,6vw,74px); max-width:850px;}
+#las-hero h1 em{color:var(--gold-light); font-style:italic;}
+#las-hero p.lede{color:rgba(251,247,238,0.78); font-size:18px; max-width:560px; margin-top:26px; line-height:1.6;}
+#las-hero .hero-actions{display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;}
+#las-hero .hero-stats{
+  display:flex; gap:0; margin-top:64px; border-top:1px solid rgba(251,247,238,0.18); padding-top:28px;
+  flex-wrap:wrap;
+}
+#las-hero .stat{padding-right:44px; margin-right:44px; border-right:1px solid rgba(251,247,238,0.18);}
+#las-hero .stat:last-child{border-right:none;}
+#las-hero .stat b{display:block; font-family:'Fraunces',serif; font-size:30px; color:var(--gold-light); font-weight:400;}
+#las-hero .stat span{font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(251,247,238,0.6);}
+
+/* ---------- intro / trust strip ---------- */
+#las-trust{background:var(--cream-2); border-bottom:1px solid var(--line);}
+#las-trust .wrap{padding:54px 28px; display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:center;}
+#las-trust h2{font-size:clamp(26px,3vw,36px); max-width:520px;}
+#las-trust p{color:var(--ink-soft); margin-top:16px; line-height:1.75; max-width:520px;}
+#las-trust .facts{display:grid; grid-template-columns:1fr 1fr; gap:24px 32px;}
+#las-trust .fact b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); margin-bottom:6px;}
+#las-trust .fact span{font-family:'Fraunces',serif; font-size:19px;}
+
+/* ---------- narrative / why land ---------- */
+#las-why{background:var(--forest); color:var(--cream); padding:120px 0;}
+#las-why .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px;}
+#las-why h2{font-size:clamp(30px,4vw,46px); color:var(--cream);}
+#las-why h2 em{color:var(--gold-light); font-style:italic;}
+#las-why .lead-col p{color:rgba(251,247,238,0.7); line-height:1.75; margin-top:20px; font-size:16px;}
+#las-why .reasons{display:flex; flex-direction:column; gap:0;}
+#las-why .reason{padding:28px 0; border-top:1px solid rgba(251,247,238,0.16); display:grid; grid-template-columns:70px 1fr; gap:20px;}
+#las-why .reason:last-child{border-bottom:1px solid rgba(251,247,238,0.16);}
+#las-why .reason .num{font-family:'Fraunces',serif; font-size:34px; color:var(--gold-light); font-style:italic;}
+#las-why .reason h4{color:var(--cream); font-size:19px; margin-bottom:8px; font-weight:400;}
+#las-why .reason p{color:rgba(251,247,238,0.68); font-size:15px; line-height:1.65;}
+
+/* ---------- plot showcases ---------- */
+#las-plots{padding:120px 0 60px;}
+#las-plots .head{max-width:640px; margin:0 auto 70px; text-align:center;}
+#las-plots .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
+#las-plots .plot-block{
+  display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+  padding:70px 0; border-top:1px solid var(--line);
+}
+#las-plots .plot-block:nth-child(even) .media{order:2;}
+#las-plots .plot-block:nth-child(even) .copy{order:1;}
+#las-plots .media{
+  position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3;
+  background:var(--forest); box-shadow:0 30px 60px -20px rgba(18,42,28,0.35);
+}
+#las-plots .media iframe{width:100%; height:100%; border:0;}
+#las-plots .tag{display:inline-block; background:var(--cream-2); color:var(--forest-2); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; padding:7px 14px; margin-bottom:18px;}
+#las-plots .copy h3{font-size:clamp(26px,3vw,36px);}
+#las-plots .copy .size{color:var(--gold); font-family:'Fraunces',serif; font-style:italic; font-size:20px; display:block; margin-top:6px;}
+#las-plots .copy p{color:var(--ink-soft); line-height:1.75; margin-top:18px;}
+#las-plots .price-row{display:flex; gap:38px; margin-top:26px; flex-wrap:wrap;}
+#las-plots .price-row div b{display:block; font-family:'Fraunces',serif; font-size:22px;}
+#las-plots .price-row div span{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
+
+/* ---------- price / payment tables ---------- */
+#las-pricing{background:var(--cream-2); padding:110px 0;}
+#las-pricing .head{max-width:640px; margin:0 auto 60px; text-align:center;}
+#las-pricing .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
+#las-pricing table{width:100%; border-collapse:collapse; background:var(--cream); box-shadow:0 20px 50px -30px rgba(18,42,28,0.3);}
+#las-pricing th,#las-pricing td{padding:20px 24px; text-align:left; border-bottom:1px solid var(--line); font-size:15px;}
+#las-pricing th{font-family:'Manrope',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); background:var(--forest); color:var(--gold-light);}
+#las-pricing td b{font-family:'Fraunces',serif; font-size:17px; font-weight:400;}
+#las-pricing tr:last-child td{border-bottom:none;}
+#las-pricing .table-note{font-size:13px; color:var(--ink-soft); margin-top:18px; line-height:1.6;}
+
+/* ---------- VIP offer ---------- */
+#las-vip{padding:0; position:relative;}
+#las-vip .inner{
+  background:linear-gradient(135deg, var(--forest) 0%, #0D2015 100%);
+  color:var(--cream); border-radius:var(--radius); margin:0 28px; padding:80px 60px;
+  position:relative; overflow:hidden;
+  max-width:1124px; margin-left:auto; margin-right:auto;
+}
+#las-vip .inner::before{
+  content:""; position:absolute; top:-120px; right:-120px; width:340px; height:340px;
+  border:1px solid rgba(201,162,39,0.35); border-radius:50%;
+}
+#las-vip .inner::after{
+  content:""; position:absolute; bottom:-160px; left:-90px; width:280px; height:280px;
+  border:1px solid rgba(201,162,39,0.2); border-radius:50%;
+}
+#las-vip .grid{display:grid; grid-template-columns:1.2fr 1fr; gap:60px; position:relative; z-index:2;}
+#las-vip .eyebrow{color:var(--gold-light);}
+#las-vip h2{color:var(--cream); font-size:clamp(28px,3.6vw,42px); margin-top:16px;}
+#las-vip h2 em{color:var(--gold-light); font-style:italic;}
+#las-vip p{color:rgba(251,247,238,0.72); margin-top:18px; line-height:1.75;}
+#las-vip .perks{margin-top:28px; display:flex; flex-direction:column; gap:14px;}
+#las-vip .perks li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(251,247,238,0.85);}
+#las-vip .perks li::before{content:"—"; color:var(--gold-light); flex-shrink:0;}
+#las-vip .price-card{background:rgba(251,247,238,0.06); border:1px solid rgba(201,162,39,0.3); padding:38px; align-self:start;}
+#las-vip .price-card .label{font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light);}
+#las-vip .price-card .amount{font-family:'Fraunces',serif; font-size:52px; color:var(--cream); margin:14px 0 6px;}
+#las-vip .price-card .amount sup{font-size:20px; vertical-align:super; color:var(--gold-light);}
+#las-vip .price-card .sub{font-size:13px; color:rgba(251,247,238,0.6); margin-bottom:26px;}
+#las-vip .price-card .btn{width:100%; justify-content:center;}
+
+/* ---------- gallery ---------- */
+#las-gallery{padding:110px 0;}
+#las-gallery .head{max-width:640px; margin:0 auto 50px; text-align:center;}
+#las-gallery .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
+#las-carousel{position:relative; overflow:hidden;}
+#las-carousel .track{display:flex; gap:20px; transition:transform .5s cubic-bezier(.65,0,.35,1);}
+#las-carousel .slide{flex:0 0 calc(33.333% - 14px); aspect-ratio:4/3; overflow:hidden; border-radius:var(--radius); background:var(--cream-2); position:relative;}
+#las-carousel .slide img{width:100%; height:100%; object-fit:cover;}
+#las-carousel .slide .cap{position:absolute; bottom:0; left:0; right:0; padding:16px 18px; background:linear-gradient(0deg, rgba(18,42,28,0.85), transparent); color:var(--cream); font-size:12px; letter-spacing:0.05em; text-transform:uppercase;}
+#las-carousel-nav{display:flex; justify-content:center; gap:14px; margin-top:34px;}
+#las-carousel-nav button{
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--forest-2); background:transparent;
+  cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--forest-2); transition:.2s;
+}
+#las-carousel-nav button:hover{background:var(--forest); color:var(--cream);}
+@media (max-width:820px){#las-carousel .slide{flex:0 0 calc(85% - 14px);}}
+
+/* ---------- FAQ ---------- */
+#las-faq{background:var(--cream-2); padding:110px 0;}
+#las-faq .head{max-width:640px; margin:0 auto 50px; text-align:center;}
+#las-faq .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
+#las-faq .faq-list{max-width:840px; margin:0 auto;}
+#las-faq .faq-item{border-bottom:1px solid var(--line);}
+#las-faq .faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:26px 4px; display:flex; justify-content:space-between; align-items:center; gap:20px;
+  font-family:'Fraunces',serif; font-size:19px; color:var(--ink);
+}
+#las-faq .faq-q .plus{font-family:'Manrope',sans-serif; font-size:22px; color:var(--gold); transition:transform .3s; flex-shrink:0;}
+#las-faq .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+#las-faq .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+#las-faq .faq-a p{color:var(--ink-soft); line-height:1.75; padding:0 4px 26px; font-size:15px;}
+
+/* ---------- lead form ---------- */
+#las-form-section{padding:110px 0; background:var(--forest); position:relative;}
+#las-form-section .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
+#las-form-section .eyebrow{color:var(--gold-light);}
+#las-form-section h2{color:var(--cream); font-size:clamp(28px,3.6vw,44px); margin-top:16px;}
+#las-form-section h2 em{color:var(--gold-light); font-style:italic;}
+#las-form-section p{color:rgba(251,247,238,0.7); margin-top:18px; line-height:1.75;}
+#las-form-section .mini-facts{margin-top:34px; display:flex; flex-direction:column; gap:14px;}
+#las-form-section .mini-facts li{color:rgba(251,247,238,0.82); font-size:14.5px; display:flex; gap:12px;}
+#las-form-section .mini-facts li::before{content:"✓"; color:var(--gold-light);}
+#las-form{background:var(--cream); padding:44px; border-radius:var(--radius);}
+#las-form .row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+#las-form label{display:block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; margin-top:18px;}
+#las-form input, #las-form select, #las-form textarea{
+  width:100%; padding:14px 16px; border:1px solid var(--line); background:var(--cream-2);
+  font-family:'Manrope',sans-serif; font-size:15px; color:var(--ink); border-radius:var(--radius);
+}
+#las-form input:focus, #las-form select:focus, #las-form textarea:focus{outline:none; border-color:var(--gold);}
+#las-form button{margin-top:28px; width:100%; justify-content:center; border:none;}
+#las-form .form-note{font-size:12px; color:var(--ink-soft); margin-top:14px; text-align:center;}
+#las-form-msg{display:none; margin-top:18px; font-size:14px; padding:14px 16px; border-radius:var(--radius);}
+
+/* ---------- footer ---------- */
+#las-footer{background:#0D2015; color:rgba(251,247,238,0.55); padding:60px 0 30px;}
+#las-footer .wrap{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:50px;}
+#las-footer h4{color:var(--cream); font-family:'Fraunces',serif; font-size:18px; font-weight:400; margin-bottom:16px;}
+#las-footer p, #las-footer li{font-size:13.5px; line-height:1.8;}
+#las-footer .bank{margin-top:10px;}
+#las-footer .legal{
+  max-width:1180px; margin:50px auto 0; padding:0 28px 0; border-top:1px solid rgba(251,247,238,0.12); padding-top:30px;
+}
+#las-footer .legal p{font-size:12px; line-height:1.8; color:rgba(251,247,238,0.4);}
+
+/* ---------- floating whatsapp ---------- */
+#las-whatsapp{
+  position:fixed; bottom:26px; right:26px; z-index:900;
+  width:60px; height:60px; border-radius:50%; background:#25D366;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3); transition:transform .2s ease;
+}
+#las-whatsapp:hover{transform:scale(1.08);}
+#las-whatsapp svg{width:30px; height:30px;}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  #las-trust .wrap, #las-why .wrap, #las-plots .plot-block, #las-vip .grid, #las-form-section .wrap, #las-footer .wrap{
+    grid-template-columns:1fr !important;
+  }
+  #las-plots .plot-block:nth-child(even) .media, #las-plots .plot-block:nth-child(even) .copy{order:initial;}
+  #las-form .row{grid-template-columns:1fr;}
+  #las-vip .inner{padding:50px 28px; margin:0 16px;}
+  #las-nav .btn{display:none;}
+}
+</style>
+
+<!-- ================= FLOATING WHATSAPP ================= -->
+<a id="las-whatsapp" href="https://wa.link/6fjyon" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.376 3 4 8.373 4 15c0 2.393.703 4.62 1.912 6.49L4 29l7.69-1.877A11.93 11.93 0 0 0 16.001 27C22.627 27 28 21.627 28 15S22.627 3 16.001 3zm0 21.75c-2.02 0-3.906-.573-5.507-1.566l-.395-.235-4.564 1.114 1.157-4.44-.257-.408A9.71 9.71 0 0 1 5.25 15c0-5.936 4.815-10.75 10.751-10.75 5.935 0 10.75 4.814 10.75 10.75S21.936 24.75 16.001 24.75zm5.895-8.05c-.323-.162-1.912-.943-2.208-1.05-.296-.108-.512-.162-.727.162-.216.323-.836 1.05-1.025 1.267-.188.216-.377.243-.7.081-.323-.162-1.364-.503-2.598-1.603-.96-.856-1.609-1.914-1.797-2.237-.188-.323-.02-.497.142-.658.146-.145.324-.377.485-.566.162-.19.216-.323.324-.539.108-.216.054-.404-.027-.566-.081-.162-.727-1.752-.996-2.4-.262-.63-.529-.545-.727-.555-.188-.009-.404-.011-.62-.011-.216 0-.566.081-.862.404-.296.323-1.13 1.104-1.13 2.693 0 1.589 1.157 3.124 1.318 3.34.162.216 2.278 3.477 5.519 4.875.771.333 1.372.532 1.841.68.774.246 1.478.211 2.035.128.621-.093 1.912-.782 2.182-1.537.27-.755.27-1.402.189-1.537-.081-.135-.297-.216-.62-.378z"/></svg>
+</a>
+
+<!-- ================= NAV ================= -->
+<nav id="las-nav">
+  <div class="wrap">
+    <div class="brand">Lekki Avana <span>Signature</span></div>
+    <a href="#las-reserve" class="btn btn-gold">Reserve Your Plot</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section id="las-hero">
+  <div id="las-hero-media">
+    <!--
+      ACTION NEEDED: Google Drive video embeds are unreliable for true autoplay
+      (Google frequently blocks or throttles autoplay on Drive-hosted video, and
+      hotlinking Drive files is not built for production traffic). For the smoothest,
+      guaranteed-autoplay hero background, export this same overview video as an MP4
+      and upload it to your WordPress/Elementor media library, then point the <source>
+      below at that file. Left as a Drive-based fallback iframe underneath in case you
+      want to keep it Drive-hosted for now.
+    -->
+    <video autoplay muted loop playsinline poster="">
+      <!-- <source src="REPLACE-WITH-UPLOADED-MP4-URL.mp4" type="video/mp4"> -->
+    </video>
+    <!-- Drive fallback (autoplay not guaranteed by Google) -->
+    <iframe style="position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0.55;pointer-events:none;"
+      src="https://drive.google.com/file/d/1zh_fn1v0lP_-ZI-nk3yQnEGHeukXudfp/preview?autoplay=1&mute=1&loop=1"
+      allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Elerangbe · Lekki–Epe Expressway · Ibeju Lekki</div>
+    <h1>A quiet plot of land today.<br><em>A whole legacy</em> tomorrow.</h1>
+    <p class="lede">Lekki Avana Signature sits on government-allocated land in the fastest-growing corridor of New Lagos, a place to build the home you've always wanted, or simply let the land grow in value while you decide.</p>
+    <div class="hero-actions">
+      <a href="#las-reserve" class="btn btn-gold">Reserve a Plot Today</a>
+      <a href="#las-plots" class="btn btn-outline">See What You Can Build</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>300–1000</b><span>SQM Plot Sizes</span></div>
+      <div class="stat"><b>Govt.</b><span>Allocation Title</span></div>
+      <div class="stat"><b>Zylus</b><span>Homes &amp; Property Ltd</span></div>
+      <div class="stat"><b>4</b><span>Build Clusters</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<section id="las-trust">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--forest-3)">Built on solid ground</div>
+      <h2>Ready to build land you can hand down, not just hold onto.</h2>
+      <p>Every plot at Lekki Avana Signature sits on land free from known government acquisition, encumbrance or adverse claim; developed by Zylus Homes and Property Ltd, a subsidiary of Zylus Group International.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>Location</b><span>Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A.</span></div>
+      <div class="fact"><b>Title</b><span>Government Allocation</span></div>
+      <div class="fact"><b>Access Road</b><span>Motorable</span></div>
+      <div class="fact"><b>Development</b><span>Already commenced on site</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY LAND ================= -->
+<section id="las-why">
+  <div class="wrap">
+    <div class="lead-col">
+      <div class="eyebrow">Why land, why now</div>
+      <h2>One plot can quietly become <em>three</em> different plans.</h2>
+      <p>Land on the Lekki-Epe corridor has consistently been where families in Lagos put down a marker for the future, because it can flex into whichever plan matters most to you, without you having to choose today.</p>
+    </div>
+    <div class="reasons">
+      <div class="reason">
+        <div class="num">01</div>
+        <div><h4>Your future home</h4><p>Hold the land, plan your build in your own time, and put up the house you actually want; on your terms, in a section already zoned for it.</p></div>
+      </div>
+      <div class="reason">
+        <div class="num">02</div>
+        <div><h4>An investment you can walk on</h4><p>Unlike a savings account you can't see, a plot of titled land is something tangible; a piece of New Lagos that's yours to build on, lease, or sell down the line.</p></div>
+      </div>
+      <div class="reason">
+        <div class="num">03</div>
+        <div><h4>Something to leave your children</h4><p>Land is one of the few assets that transfers cleanly from one generation to the next; a starting point for your children that you never had to inherit yourself.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLOT SHOWCASES ================= -->
+<section id="las-plots">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Choose your footprint</div>
+      <h2>Three plot sizes. Three different lives.</h2>
+    </div>
+
+    <!-- 300sqm -->
+    <div class="plot-block">
+      <div class="media">
+        <iframe src="https://drive.google.com/file/d/1oxKTugwP9WAtq06iqwF4y6w0ZxvEBZM6/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="copy">
+        <span class="tag">Starter Plot</span>
+        <h3>300 SQM<span class="size">Room enough for a real family home</span></h3>
+        <p>Comfortably fits a 3 or 4-bedroom fully detached duplex; the plot most first-time land owners start with, without stretching the budget or the ambition.</p>
+        <div class="price-row">
+          <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
+          <div><b>From ₦16,200,000</b><span>Total (6-Month Plan)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 500sqm -->
+    <div class="plot-block">
+      <div class="media">
+        <iframe src="https://drive.google.com/file/d/1elJyFJEINiz1Z1RDkC87ehH9RbNcjgzC/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="copy">
+        <span class="tag">Signature Plot</span>
+        <h3>500 SQM<span class="size">Space to build something you'll be proud of</span></h3>
+        <p>Enough land for a full 5-bedroom fully detached duplex, with room to landscape, park properly, and give every corner of the home some breathing space.</p>
+        <div class="price-row">
+          <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
+          <div><b>From ₦27,000,000</b><span>Total (6-Month Plan)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1000sqm -->
+    <div class="plot-block">
+      <div class="media">
+        <iframe src="https://drive.google.com/file/d/10q2uQR3O8x7xAIzVpPltahINQ6AtW3FO/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="copy">
+        <span class="tag">Commercial &amp; Apartment Plot</span>
+        <h3>1000 SQM<span class="size">Built for income, not just living</span></h3>
+        <p>Sized for commercial development or a multi-unit apartment building, the plot for those thinking beyond one household, toward rental income or a mixed-use build.</p>
+        <div class="price-row">
+          <div><b>₦5,000,000</b><span>Initial Deposit</span></div>
+          <div><b>From ₦65,000,000</b><span>Total (6-Month Plan)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING TABLES ================= -->
+<section id="las-pricing">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="color:var(--forest-3)">Clear numbers, no surprises</div>
+      <h2>Payment structure</h2>
+    </div>
+    <div style="overflow-x:auto;">
+    <table style="min-width:760px;">
+      <thead>
+        <tr>
+          <th>Land Size</th>
+          <th>Initial Deposit</th>
+          <th>6-Month Plan<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / Total</span></th>
+          <th>12-Month Plan<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / Total</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>300 SQM</b></td>
+          <td>₦1,000,000</td>
+          <td>₦2,533,333 / mo — <b>₦16,200,000</b> total</td>
+          <td>₦1,433,333 / mo — <b>₦18,200,000</b> total</td>
+        </tr>
+        <tr>
+          <td><b>500 SQM</b></td>
+          <td>₦1,000,000</td>
+          <td>₦4,333,333 / mo — <b>₦27,000,000</b> total</td>
+          <td>₦2,333,333 / mo — <b>₦29,000,000</b> total</td>
+        </tr>
+        <tr>
+          <td><b>1000 SQM</b></td>
+          <td>₦5,000,000</td>
+          <td>₦10,000,000 / mo — <b>₦65,000,000</b> total</td>
+          <td>₦5,416,667 / mo — <b>₦70,000,000</b> total</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="table-note">Prices include survey plan, legal fee and preliminary development fee. Development fee covers perimeter fencing, gatehouse construction, approach road beautification and street lighting. An additional Infrastructure Fee applies separately once you're ready to commence construction, it covers internal road networks, electrical infrastructure and water/sewage systems, and is reviewed periodically. Prices are subject to change once further infrastructure development commences, figures above reflect current pricing at time of publishing.</p>
+  </div>
+</section>
+
+<!-- ================= VIP OFFER ================= -->
+<section id="las-vip">
+  <div class="inner">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">500 SQM · Signature Plot</div>
+        <h2>Reach <em>₦5,000,000</em> and your plot is physically allocated.</h2>
+        <p>You don't have to complete the full ₦27,000,000 before your 500sqm plot becomes real. Under the estate's allocation terms, physical allocation happens once your payments on a 500sqm plot reach ₦5,000,000, you keep paying the balance on schedule after that.</p>
+        <ul class="perks">
+          <li>500 SQM plots: physically allocated once payments reach ₦5,000,000</li>
+          <li>300 SQM plots: physically allocated once payments reach ₦3,000,000</li>
+          <li>1000 SQM plots: physically allocated once payments reach ₦7,000,000</li>
+          <li>Full title transfer follows once the plot is paid in full</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="label">Allocation Threshold</div>
+        <div class="amount"><sup>₦</sup>5,000,000</div>
+        <div class="sub">For the 500 SQM Signature Plot — balance continues on your chosen payment plan</div>
+        <a href="#las-reserve" class="btn btn-gold">Start My 500sqm Plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY / SITE PROGRESS ================= -->
+<section id="las-gallery">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="color:var(--forest-3)">See it for yourself</div>
+      <h2>Current progress on site</h2>
+    </div>
+    <div id="las-carousel">
+      <div class="track" id="las-track">
+        <!--
+          ACTION NEEDED: These are placeholder images. For each photo you want here:
+            1. Open the file in Drive, click Share, set to "Anyone with the link"
+            2. Copy its file ID from the URL (the part between /d/ and /view)
+            3. Replace the placeholder src below with:
+               https://drive.google.com/thumbnail?id=YOUR_FILE_ID&sz=w1600
+          (Switched from uc?export=view to thumbnail?id=... — the uc?export=view format
+          checks the page's referrer and Google frequently blocks/breaks it when the image
+          is embedded on another site, even though the same link opens fine in a new tab.
+          thumbnail?id=... is Google's own image-serving endpoint and holds up far better
+          under embedding.)
+          Even so, hotlinking Drive images is not built for production traffic and can still
+          break under load or if Google changes behavior. For a page that stays reliable long
+          term, download these photos and upload them to your WordPress/Elementor media
+          library instead.
+        -->
+        <div class="slide"><img src="https://drive.google.com/thumbnail?id=180-E7zYpQ9XX_eAAia3SkDdW40fK8oO3&sz=w1600" alt="Site progress photo"><div class="cap">Site Progress</div></div>
+        <div class="slide"><img src="https://drive.google.com/thumbnail?id=1tCs9okIq25hFaCfq8tN1EXepDMAaNOJQ&sz=w1600" alt="Site progress photo"><div class="cap">Site Progress</div></div>
+        <div class="slide"><img src="https://drive.google.com/thumbnail?id=1qs4idvnggoSDFoXLV9IFA3FYA2w7On8S&sz=w1600" alt="Site progress photo"><div class="cap">Site Progress</div></div>
+        <div class="slide"><img src="https://drive.google.com/thumbnail?id=12_NxGAC86gRexMnpGRAx9TP5GFLi5NWA&sz=w1600" alt="Site progress photo"><div class="cap">Site Progress</div></div>
+        <div class="slide"><img src="https://drive.google.com/thumbnail?id=1ge9H1kWy-YHrnq23BfUOSKZg9LpceFeK&sz=w1600" alt="Site progress photo"><div class="cap">Site Progress</div></div>
+        <div class="slide"><img src="https://drive.google.com/thumbnail?id=1gTGRQShql8nyElfz4LcM3_4yokAFBLzD&sz=w1600" alt="Site progress photo"><div class="cap">Site Progress</div></div>
+      </div>
+    </div>
+    <div id="las-carousel-nav">
+      <button id="las-prev" aria-label="Previous">←</button>
+      <button id="las-next" aria-label="Next">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="las-faq">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="color:var(--forest-3)">Good questions</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list" id="las-faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q"><span>Where exactly is Lekki Avana Signature?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>The estate is located in a developed environment on the Island, at Elerangbe, along the Lekki-Epe Expressway, Ibeju Lekki L.G.A.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>Who is developing it?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Zylus Homes and Property Ltd, a subsidiary of Zylus Group International.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>What title is on the land?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Government Allocation, and the land is free from every known government acquisition, encumbrance or adverse claim.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>What is the transaction sequence?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Payment of the initial deposit, then collection of your offer letter, receipt and contract of sale of land, followed by issuance of your deed of assignment and survey plan, and finally issuance of your allocation letter and physical allocation.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>Are there restrictions on what I can build?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. The estate layout is divided into sections, and building is limited to the designated design or plan for that section. All designs must conform to the estate's required setback and building control, and are approved by the company and the Lagos State Government.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>Can I resell my plot?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, a subscriber who has fully paid for their plot(s) can resell. The buyer inherits all assets and liabilities on the plot, and Zylus Homes and Properties requires the seller to furnish the company with the buyer's details.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>Can I pay cash to a consultant or agent?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>No. All payments must go directly to Zylus Homes and Property Ltd's designated account. Zylus Homes and Property Limited does not accept payments by bank transfer, deposit or cash to any realtor, consultant or associate of the company, and is not liable for any such loss.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>What happens if I default on my payment plan?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>In case of default or an expired contract, the client is automatically placed on the current payment plan as at the time of review. A 5% interest charge applies to overdue amounts, and missing two consecutive payments can lead to termination, with a refund less a 35% administrative fee.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>When can construction begin, and has development started on site?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Development on the estate has already commenced. Construction on your own plot can begin once payment is completed in full and all necessary building approvals are obtained from the relevant government authorities.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>What other facilities or benefits come with the estate?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>A separate Infrastructure Fee, determined once you're ready to commence construction and reviewed periodically, covers essential infrastructure for building; including internal road networks, walkways and drainage; electrical infrastructure such as streetlights and power lines; and water supply, boreholes, sewage treatment and waste disposal systems.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q"><span>Is the price fixed?</span><span class="plus">+</span></button>
+        <div class="faq-a"><p>Pricing is subject to change, and typically increases once infrastructure development on the estate commences, which is part of why early subscribers tend to secure the better entry price.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEAD FORM ================= -->
+<section id="las-form-section">
+  <div class="wrap" id="las-reserve">
+    <div>
+      <div class="eyebrow">Reserve your plot</div>
+      <h2>Tell us a little about you, and <em>we'll take it from there.</em></h2>
+      <p>Leave your details below and a member of the Lekki Avana Signature team will reach out to walk you through plot availability, payment plans, and the priority allocation option.</p>
+      <ul class="mini-facts">
+        <li>No obligation — this simply starts the conversation</li>
+        <li>We'll confirm current plot availability for your preferred size</li>
+        <li>All payments only ever go to Zylus Homes and Property Ltd's official account</li>
+      </ul>
+    </div>
+
+    <!--
+      ACTION NEEDED (one-time, important): this form posts to FormSubmit.co, addressed to
+      ola.yinusa.lanre@gmail.com. FormSubmit requires no signup or key, BUT the very first
+      submission triggers a confirmation email to that inbox — someone must click the
+      "Confirm" link in that email, or every submission after it will silently fail to
+      deliver. Send yourself one test submission after publishing and confirm it.
+    -->
+    <form id="las-form" action="https://formsubmit.co/ola.yinusa.lanre@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Lekki Avana Signature Enquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <label for="las-name">Full Name</label>
+      <input id="las-name" type="text" name="Full Name" placeholder="e.g. Adaeze Okonkwo" required>
+
+      <div class="row">
+        <div>
+          <label for="las-email">Email Address</label>
+          <input id="las-email" type="email" name="Email" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label for="las-phone">Phone Number</label>
+          <input id="las-phone" type="tel" name="Phone" placeholder="+234 ..." required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="las-size">Plot Size of Interest</label>
+          <select id="las-size" name="Plot Size">
+            <option value="300 SQM">300 SQM</option>
+            <option value="500 SQM">500 SQM</option>
+            <option value="1000 SQM">1000 SQM</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="las-plan">Preferred Payment Plan</label>
+          <select id="las-plan" name="Payment Plan">
+            <option value="Outright (0-3 months)">Outright (0–3 Months)</option>
+            <option value="6 Months">6 Months</option>
+            <option value="12 Months">12 Months</option>
+            <option value="Priority (5M Deposit)">Priority Allocation (₦5M Deposit)</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="las-msg">Anything you'd like us to know? (optional)</label>
+      <textarea id="las-msg" name="Message" rows="3" placeholder="Questions, timelines, budget notes..."></textarea>
+
+      <button type="submit" class="btn btn-gold">Submit My Details</button>
+      <div class="form-note">By submitting, you agree to be contacted by our team regarding Lekki Avana Signature.</div>
+      <div id="las-form-msg"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="las-footer">
+  <div class="wrap">
+    <div>
+      <h4>Lekki Avana Signature</h4>
+      <p>Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A., Lagos.<br>A development by Zylus Homes and Property Ltd, a member of Zylus Group International.</p>
+    </div>
+   <div> 
+      <h4>Payments</h4>
+      <p>All payments should be made only to Zylus Homes and Property Ltd's designated account.</p>
+      <div class="bank">
+        <p><strong>Bank:</strong> Keystone Bank<br>
+        <strong>Account Name:</strong> Zylus Homes and Property Ltd<br>
+        <strong>Account Number:</strong> 1012423890</p> 
+      </div> 
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="https://wa.link/6fjyon" target="_blank" rel="noopener">Chat with us on WhatsApp</a></li>
+        <li><a href="#las-reserve">Reserve your plot</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <p>This page is for informational purposes and does not constitute financial or investment advice; please make your own enquiries before committing to any payment plan. Land banking and real estate carry inherent market risk, and property values can rise or fall. All allotments are provisional until the purchaser executes the formal sales agreement. No refund of any money paid is made at any stage of the transaction except as set out in the terms of contract, which include a 35% administrative charge on approved refunds, payable within six months. Full terms of contract are provided in the official application form and are binding on execution.</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  // FAQ accordion
+  var items = document.querySelectorAll('#las-faq-list .faq-item');
+  items.forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Carousel
+  var track = document.getElementById('las-track');
+  var slides = track ? track.children.length : 0;
+  var index = 0;
+  function perView(){
+    return window.innerWidth <= 820 ? 1 : 3;
+  }
+  function update(){
+    var pv = perView();
+    var maxIndex = Math.max(0, slides - pv);
+    if(index > maxIndex) index = maxIndex;
+    var slideEl = track.children[0];
+    var slideWidth = slideEl.getBoundingClientRect().width + 20;
+    track.style.transform = 'translateX(-' + (index * slideWidth) + 'px)';
+  }
+  document.getElementById('las-next')?.addEventListener('click', function(){
+    var pv = perView();
+    var maxIndex = Math.max(0, slides - pv);
+    index = Math.min(index + 1, maxIndex);
+    update();
+  });
+  document.getElementById('las-prev')?.addEventListener('click', function(){
+    index = Math.max(index - 1, 0);
+    update();
+  });
+  window.addEventListener('resize', update);
+  if(track) update();
+
+  // Form submission via FormSubmit.co (plain POST + redirect back with a marker,
+  // since FormSubmit's documented flow is a normal form post rather than a JSON API
+  // whose exact response shape I can verify from here).
+  var form = document.getElementById('las-form');
+  var msg = document.getElementById('las-form-msg');
+  if(form){
+    var baseUrl = window.location.href.split('?')[0].split('#')[0];
+    form.querySelector('[name="_next"]').value = baseUrl + '?las_submitted=true#las-reserve';
+
+    if(window.location.search.indexOf('las_submitted=true') > -1){
+      msg.style.display = 'block';
+      msg.style.background = '#DCEFE0';
+      msg.style.color = '#1C4029';
+      msg.textContent = "Thank you — we've received your details and will be in touch shortly.";
+      var cleanUrl = baseUrl + window.location.hash;
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  }
+})();
+</script>
