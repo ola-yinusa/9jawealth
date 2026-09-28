@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Lock, ArrowRight, Loader2 } from "lucide-react";
 
 interface AccessGateProps {

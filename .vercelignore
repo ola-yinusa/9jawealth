@@ -1,3 +1,12 @@
 **/node_modules/
 **/dist/
 **/.git/
+# Legacy top-level snapshots — the canonical sources are palmville/ and
+# salaryman/. Kept in git for reference, never deployed.
+/palmville-landing-page.html
+/salary-to-zero-sales-page.html
+lekki-avana-signature/
+OlaOhms/
+moneymarkets/
+palmville/
+salaryman/

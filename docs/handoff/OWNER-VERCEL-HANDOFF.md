@@ -110,11 +110,20 @@ Then verify on the owner’s Vercel preview and production URLs:
 
 ## Current known blockers before calling this production-ready
 
-- The assessment API trusts client-provided result fields and needs stronger runtime validation.
-- User-controlled values are interpolated directly into the HTML email and should be escaped before production use.
-- Assessment backups are currently written as public Vercel Blob objects; this should be reviewed because submissions contain personal data.
-- There is no visible rate limiting or abuse protection on `/api/send-report`.
-- The main page says it has two wealth paths, but the React content currently exposes only the gold-trading path. Real estate is marked as coming soon.
+All Stage-1 blockers below were resolved in the hardening pass (server-recomputed
+results, escaped email HTML, strict validation, allowlisted CORS, per-IP rate
+limiting + honeypot + dwell-time check, redacted Blob backups, `api/` included
+in `tsc`, quiz back-navigation + localStorage resume, code-split below-fold
+sections, non-blocking fonts, CI workflow). Remaining owner actions:
+
+- Front `/api/send-report` with Vercel Firewall / KV-backed rate limits and add
+  Turnstile before high-traffic launch (in-instance limiting is best-effort on
+  serverless). Set `ALLOWED_ORIGINS` in production.
+- Blob backups store **no raw email** (hash + masked form only) because the
+  installed `@vercel/blob` SDK supports public objects only. For stricter needs,
+  set `BLOB_ENABLED=false` or migrate to private storage on SDK upgrade.
+- The main page says it has two wealth paths, but the React content currently
+  exposes only the gold-trading path. Real estate is marked as coming soon.
 - The Money Markets course gate is a frontend mock and must not be treated as paid-content security.
 
 ## Repository handoff rules

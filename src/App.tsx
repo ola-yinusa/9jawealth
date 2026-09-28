@@ -3,15 +3,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Pillars from "./components/Pillars";
 import Quiz from "./components/Quiz";
-import MeetOla from "./components/MeetOla";
-import Paths from "./components/Paths";
 import Footer from "./components/Footer";
 import WhatsApp from "./components/WhatsApp";
-import Popup from "./components/Popup";
+
+// Below-the-fold sections are code-split so the initial bundle stays lean.
+// Quiz, Hero and Navbar stay eager (core conversion path + LCP).
+const MeetOla = lazy(() => import("./components/MeetOla"));
+const Paths = lazy(() => import("./components/Paths"));
+const Popup = lazy(() => import("./components/Popup"));
+
+function SectionFallback() {
+  return <div aria-hidden="true" className="min-h-[12rem]" />;
+}
 
 export default function App() {
   return (
@@ -31,13 +39,17 @@ export default function App() {
         <Hero />
         <Pillars />
         <Quiz />
-        <MeetOla />
-        <Paths />
+        <Suspense fallback={<SectionFallback />}>
+          <MeetOla />
+          <Paths />
+        </Suspense>
       </main>
       <Footer />
 
       <WhatsApp />
-      <Popup />
+      <Suspense fallback={null}>
+        <Popup />
+      </Suspense>
     </div>
   );
 }

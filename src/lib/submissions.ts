@@ -8,6 +8,10 @@ export interface AssessmentSubmissionPayload {
     recommendation: string;
   };
   submittedAt: string;
+  /** Honeypot field — must stay empty. Bots fill it; humans never see it. */
+  website?: string;
+  /** ISO timestamp of when the quiz was started (bot dwell-time check). */
+  startedAt?: string;
 }
 
 export interface AssessmentSubmissionResponse {

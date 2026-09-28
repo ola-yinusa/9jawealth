@@ -25,9 +25,7 @@
   },
   "include": [
     "src",
+    "api",
     "tests"
-  ],
-  "exclude": [
-    "api"
   ]
 }

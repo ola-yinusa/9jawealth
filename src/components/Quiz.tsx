@@ -1,5 +1,4 @@
-import type { FormEvent } from "react";
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { quizQuestions } from "@/src/content/quiz";
 import { getChoiceSet, getQuizResult, type Answer } from "@/src/lib/quiz";
@@ -12,31 +11,96 @@ const sectionNames = {
   D: "Income direction",
 } as const;
 
+const STORAGE_KEY = "9jawealth-quiz-v1";
+
+interface PersistedQuiz {
+  answers: Record<number, Answer>;
+  currentIndex: number;
+  isFinished: boolean;
+  formData: { name: string; email: string };
+  startedAt: string;
+}
+
+function loadPersistedQuiz(): PersistedQuiz | null {
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<PersistedQuiz>;
+    if (!parsed || typeof parsed !== "object" || !parsed.answers) return null;
+    const currentIndex =
+      typeof parsed.currentIndex === "number" &&
+      parsed.currentIndex >= 0 &&
+      parsed.currentIndex < quizQuestions.length
+        ? Math.floor(parsed.currentIndex)
+        : 0;
+    return {
+      answers: parsed.answers as Record<number, Answer>,
+      currentIndex,
+      isFinished: parsed.isFinished === true,
+      formData: {
+        name: typeof parsed.formData?.name === "string" ? parsed.formData.name.slice(0, 80) : "",
+        email: typeof parsed.formData?.email === "string" ? parsed.formData.email.slice(0, 254) : "",
+      },
+      startedAt:
+        typeof parsed.startedAt === "string" && parsed.startedAt
+          ? parsed.startedAt
+          : new Date().toISOString(),
+    };
+  } catch {
+    return null;
+  }
+}
+
 export default function Quiz() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, Answer>>({});
+  const [currentIndex, setCurrentIndex] = useState(() => loadPersistedQuiz()?.currentIndex ?? 0);
+  const [answers, setAnswers] = useState<Record<number, Answer>>(() => loadPersistedQuiz()?.answers ?? {});
   const [isCheckpoint, setIsCheckpoint] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [isFinished, setIsFinished] = useState(() => loadPersistedQuiz()?.isFinished ?? false);
+  const [formData, setFormData] = useState(() => loadPersistedQuiz()?.formData ?? { name: "", email: "" });
+  const [startedAt] = useState(() => loadPersistedQuiz()?.startedAt ?? new Date().toISOString());
+  const [honeypot, setHoneypot] = useState("");
   const [submissionReference, setSubmissionReference] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const helperId = useId();
+  const timers = useRef<number[]>([]);
+
+  useEffect(() => {
+    const pending = timers.current;
+    return () => {
+      pending.forEach((id) => window.clearTimeout(id));
+      timers.current = [];
+    };
+  }, []);
+
+  // Persist progress so a refresh never loses answers.
+  useEffect(() => {
+    try {
+      const payload: PersistedQuiz = { answers, currentIndex, isFinished, formData, startedAt };
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    } catch {
+      // Storage full or unavailable — quiz still works in memory.
+    }
+  }, [answers, currentIndex, isFinished, formData, startedAt]);
 
   const currentQuestion = quizQuestions[currentIndex];
   const progress = ((currentIndex + 1) / quizQuestions.length) * 100;
   const result = useMemo(() => getQuizResult(answers), [answers]);
 
+  const later = (fn: () => void, ms: number) => {
+    timers.current.push(window.setTimeout(fn, ms));
+  };
+
   const handleAnswer = (answer: Answer) => {
     setAnswers((previous) => ({ ...previous, [currentQuestion.id]: answer }));
 
-    window.setTimeout(() => {
+    later(() => {
       if (currentIndex < quizQuestions.length - 1) {
         const nextQuestion = quizQuestions[currentIndex + 1];
         if (nextQuestion.sectionTitle) {
           setIsCheckpoint(true);
-          window.setTimeout(() => {
+          later(() => {
             setIsCheckpoint(false);
             setCurrentIndex((previous) => previous + 1);
           }, prefersReducedMotion ? 100 : 950);
@@ -47,6 +111,36 @@ export default function Quiz() {
         setIsFinished(true);
       }
     }, prefersReducedMotion ? 80 : 220);
+  };
+
+  const handleBack = () => {
+    if (isCheckpoint) {
+      setIsCheckpoint(false);
+      return;
+    }
+    if (isFinished) {
+      setIsFinished(false);
+      return;
+    }
+    setCurrentIndex((previous) => Math.max(0, previous - 1));
+  };
+
+  const handleRestart = () => {
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // ignore
+    }
+    timers.current.forEach((id) => window.clearTimeout(id));
+    timers.current = [];
+    setAnswers({});
+    setCurrentIndex(0);
+    setIsCheckpoint(false);
+    setIsFinished(false);
+    setFormData({ name: "", email: "" });
+    setHoneypot("");
+    setSubmissionReference(null);
+    setSubmissionError(null);
   };
 
   const handleAssessmentSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -63,9 +157,17 @@ export default function Quiz() {
         ),
         result,
         submittedAt: new Date().toISOString(),
+        startedAt,
+        website: honeypot,
       });
 
       setSubmissionReference(response.reference);
+      // Keep answers but stop re-prompting resume: submission is recorded.
+      try {
+        window.localStorage.removeItem(STORAGE_KEY);
+      } catch {
+        // ignore
+      }
     } catch (error) {
       setSubmissionError(
         error instanceof Error ? error.message : "Unable to submit the assessment right now.",
@@ -74,6 +176,8 @@ export default function Quiz() {
       setIsSubmitting(false);
     }
   };
+
+  const canGoBack = isFinished || currentIndex > 0;
 
   return (
     <section id="quiz" className="py-24 md:py-32">
@@ -111,6 +215,15 @@ export default function Quiz() {
                 Your assessment results are emailed to you immediately so you can review and act on them at your own pace.
               </p>
             </div>
+            {Object.keys(answers).length > 0 && !submissionReference ? (
+              <button
+                type="button"
+                onClick={handleRestart}
+                className="focus-ring mt-6 w-full rounded-full border border-border-strong px-5 py-3 font-display text-xs font-semibold uppercase tracking-[0.14em] text-navy"
+              >
+                Start over
+              </button>
+            ) : null}
           </aside>
 
           <div className="deep-panel overflow-hidden rounded-[2.3rem] border border-white/8 shadow-[0_34px_90px_rgba(20,33,51,0.18)]">
@@ -123,11 +236,17 @@ export default function Quiz() {
                       Section {currentQuestion.section}: {sectionNames[currentQuestion.section]}
                     </p>
                   </div>
-                  <p className="text-sm font-semibold text-white/82">
+                  <p className="text-sm font-semibold text-white/82" aria-live="polite">
                     {currentIndex + 1} / {quizQuestions.length}
                   </p>
                 </div>
-                <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                <div
+                  className="h-1.5 overflow-hidden rounded-full bg-white/10"
+                  role="progressbar"
+                  aria-valuemin={1}
+                  aria-valuemax={quizQuestions.length}
+                  aria-valuenow={currentIndex + 1}
+                >
                   <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: progress / 100 }}
@@ -167,9 +286,20 @@ export default function Quiz() {
                       transition={{ duration: prefersReducedMotion ? 0.12 : 0.35 }}
                       className="min-h-[28rem]"
                     >
-                      <p className="mb-6 text-sm uppercase tracking-[0.18em] text-white/54">
-                        Question {currentIndex + 1} of {quizQuestions.length}
-                      </p>
+                      <div className="mb-6 flex items-center justify-between gap-4">
+                        <p className="text-sm uppercase tracking-[0.18em] text-white/54">
+                          Question {currentIndex + 1} of {quizQuestions.length}
+                        </p>
+                        {currentIndex > 0 ? (
+                          <button
+                            type="button"
+                            onClick={handleBack}
+                            className="focus-ring rounded-full border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/80 hover:border-gold/70 hover:text-white"
+                          >
+                            ← Back
+                          </button>
+                        ) : null}
+                      </div>
                       <h3 className="balance-text mb-10 max-w-3xl text-2xl font-medium leading-[1.25] text-white md:text-[2rem]">
                         {currentQuestion.text}
                       </h3>
@@ -184,6 +314,7 @@ export default function Quiz() {
                               whileHover={prefersReducedMotion ? undefined : { y: -2 }}
                               whileTap={prefersReducedMotion ? undefined : { scale: 0.99 }}
                               onClick={() => handleAnswer(option)}
+                              aria-pressed={isSelected}
                               className={`focus-ring min-h-11 rounded-[1.4rem] border px-5 py-4 text-left transition-all ${isSelected
                                 ? "border-gold bg-gold text-navy"
                                 : "border-white/12 bg-white/6 text-white/88 hover:border-gold/70 hover:bg-white/10"
@@ -224,6 +355,15 @@ export default function Quiz() {
                           Submit the form to receive your full assessment results by email and start your financial path.
                         </p>
                       </div>
+                      {canGoBack && !submissionReference ? (
+                        <button
+                          type="button"
+                          onClick={handleBack}
+                          className="focus-ring mt-6 rounded-full border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white/80 hover:border-gold/70 hover:text-white"
+                        >
+                          ← Review my answers
+                        </button>
+                      ) : null}
                     </div>
 
                     <div className="surface-panel card-outline rounded-[2rem] border border-border p-6 md:p-7">
@@ -243,6 +383,8 @@ export default function Quiz() {
                             type="text"
                             autoComplete="name"
                             required
+                            minLength={2}
+                            maxLength={80}
                             value={formData.name}
                             onChange={(event) => setFormData((previous) => ({ ...previous, name: event.target.value }))}
                             className="focus-ring min-h-11 w-full rounded-[1rem] border border-border bg-white px-4 py-3 text-navy placeholder:text-muted"
@@ -260,6 +402,7 @@ export default function Quiz() {
                             type="email"
                             autoComplete="email"
                             required
+                            maxLength={254}
                             value={formData.email}
                             onChange={(event) => setFormData((previous) => ({ ...previous, email: event.target.value }))}
                             className="focus-ring min-h-11 w-full rounded-[1rem] border border-border bg-white px-4 py-3 text-navy placeholder:text-muted"
@@ -267,17 +410,31 @@ export default function Quiz() {
                           />
                         </div>
 
+                        {/* Honeypot — hidden from humans, catches bots */}
+                        <div aria-hidden="true" className="absolute h-px w-px overflow-hidden opacity-0">
+                          <label htmlFor="assessment-website">Website</label>
+                          <input
+                            id="assessment-website"
+                            name="website"
+                            type="text"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            value={honeypot}
+                            onChange={(event) => setHoneypot(event.target.value)}
+                          />
+                        </div>
+
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="focus-ring min-h-11 w-full rounded-full bg-navy px-5 py-4 font-display text-sm font-semibold uppercase tracking-[0.14em] text-white"
+                          className="focus-ring min-h-11 w-full rounded-full bg-navy px-5 py-4 font-display text-sm font-semibold uppercase tracking-[0.14em] text-white disabled:opacity-60"
                         >
                           {isSubmitting ? "Saving assessment..." : "Save my assessment"}
                         </button>
                       </form>
 
                       {submissionError ? (
-                        <div className="mt-5 rounded-[1.4rem] border border-red-200 bg-red-50 px-4 py-4">
+                        <div className="mt-5 rounded-[1.4rem] border border-red-200 bg-red-50 px-4 py-4" role="alert">
                           <p className="text-sm font-semibold text-red-700">Submission issue</p>
                           <p className="mt-2 text-sm leading-relaxed text-red-600">
                             {submissionError}
@@ -286,12 +443,19 @@ export default function Quiz() {
                       ) : null}
 
                       {submissionReference ? (
-                        <div className="mt-5 rounded-[1.4rem] border border-gold/20 bg-gold/10 px-4 py-4">
+                        <div className="mt-5 rounded-[1.4rem] border border-gold/20 bg-gold/10 px-4 py-4" role="status">
                           <p className="text-sm font-semibold text-navy">Assessment received</p>
                           <p className="mt-2 text-sm leading-relaxed text-ink">
                             Your assessment has been saved and results emailed to you. Reference:{" "}
                             <span className="font-semibold">{submissionReference}</span>.
                           </p>
+                          <button
+                            type="button"
+                            onClick={handleRestart}
+                            className="focus-ring mt-4 w-full rounded-full border border-border-strong px-5 py-3 font-display text-xs font-semibold uppercase tracking-[0.14em] text-navy"
+                          >
+                            Take it again
+                          </button>
                         </div>
                       ) : null}
                     </div>
