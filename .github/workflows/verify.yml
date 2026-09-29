@@ -14,4 +14,5 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm ci --prefix moneymarkets
       - run: npm run verify:all
