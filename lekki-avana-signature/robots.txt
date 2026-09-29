@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://signature.9jawealth.com/sitemap.xml

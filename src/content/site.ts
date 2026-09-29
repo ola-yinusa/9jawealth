@@ -55,6 +55,15 @@ export const pillars: PillarItem[] = [
 
 export const paths: PathItem[] = [
   {
+    id: "real-estate",
+    eyebrow: "Property in Ibeju Lekki",
+    title: "Explore Lekki Avana Signature plots and payment plans.",
+    body: "Compare published plot sizes and terms, read the developer's documents, and arrange a site inspection before deciding.",
+    cta: "Review Lekki Avana Signature",
+    href: "https://signature.9jawealth.com/",
+    image: "/images/olaohms-portrait-suit.webp",
+  },
+  {
     id: "gold-trading",
     eyebrow: "Why Gold?",
     title: "Gold is the premier, high-liquidity, safe-haven asset of 2026.",
