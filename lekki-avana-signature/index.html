@@ -26,7 +26,7 @@
   <link rel="preload" href="fonts/fraunces-roman-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/fraunces-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <!-- Keep product and FAQ facts aligned with the visible page when they change. -->
+  <!-- Keep structured product facts aligned with the visible page when they change. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,71 +47,16 @@
       "about": {
         "@type": "Place",
         "name": "Lekki Avana Signature",
-        "address": { "@type": "PostalAddress", "addressLocality": "Ibeju Lekki", "addressRegion": "Lagos", "addressCountry": "NG" }
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ibeju Lekki",
+          "addressRegion": "Lagos",
+          "addressCountry": "NG"
+        }
       },
       "citation": [
         "https://www.zylushomes.com/house/lekki-avana-signature",
         "https://www.zylushomes.com/house/lekki-avana-signature/lekki-avana-signature-form.pdf"
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Where exactly is Lekki Avana Signature?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The estate is located in a developed environment on the Island, at Elerangbe, along the Lekki-Epe Expressway, Ibeju Lekki L.G.A." }
-        },
-        {
-          "@type": "Question",
-          "name": "Who is developing it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Zylus Homes and Property Ltd, a subsidiary of Zylus Group International." }
-        },
-        {
-          "@type": "Question",
-          "name": "What title is on the land?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Zylus's acquisition form lists “Government Allocation,” while its property listing says “Government Allocated C of O.” Request the current title documents and have them independently checked before paying." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the transaction sequence?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Payment of the initial deposit, then collection of your offer letter, receipt and contract of sale of land, followed by issuance of your deed of assignment and survey plan, and finally issuance of your allocation letter and physical allocation." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are there restrictions on what I can build?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The estate layout is divided into sections, and building is limited to the designated design or plan for that section. All designs must conform to the estate's required setback and building control, and are approved by the company and the Lagos State Government." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I resell my plot?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, a subscriber who has fully paid for their plot(s) can resell. The buyer inherits all assets and liabilities on the plot, and Zylus Homes and Properties requires the seller to furnish the company with the buyer's details." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I pay cash to a consultant or agent?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. All payments must go directly to Zylus Homes and Property Ltd's designated account. Zylus Homes and Property Limited does not accept payments by bank transfer, deposit or cash to any realtor, consultant or associate of the company, and is not liable for any such loss." }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens if I default on my payment plan?",
-          "acceptedAnswer": { "@type": "Answer", "text": "In case of default or an expired contract, the client is automatically placed on the current payment plan as at the time of review. A 5% interest charge applies to overdue amounts, and missing two consecutive payments can lead to termination, with a refund less a 35% administrative fee." }
-        },
-        {
-          "@type": "Question",
-          "name": "When can construction begin, and has development started on site?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Development on the estate has already commenced. Construction on your own plot can begin once payment is completed in full and all necessary building approvals are obtained from the relevant government authorities." }
-        },
-        {
-          "@type": "Question",
-          "name": "What other facilities or benefits come with the estate?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A separate Infrastructure Fee, determined once you're ready to commence construction and reviewed periodically, covers essential infrastructure for building; including internal road networks, walkways and drainage; electrical infrastructure such as streetlights and power lines; and water supply, boreholes, sewage treatment and waste disposal systems." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the price fixed?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Prices may change. Request a current written price schedule from the developer before committing." }
-        }
       ]
     }
   ]
@@ -278,17 +223,6 @@ html{scroll-behavior:smooth;}
   #las-hero-media{aspect-ratio:16/10;}
 }
 
-/* ---------- intro / trust strip ---------- */
-#las-trust{background:var(--cream-2); border-bottom:1px solid var(--line);}
-#las-trust .wrap{padding:54px 28px; display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:center;}
-#las-trust h2{font-size:clamp(26px,3vw,36px); max-width:520px;}
-#las-trust p{color:var(--ink-soft); margin-top:16px; line-height:1.75; max-width:520px;}
-#las-trust .facts{display:grid; grid-template-columns:1fr 1fr; gap:24px 32px;}
-#las-trust .fact b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold-ink); margin-bottom:6px;}
-#las-trust .fact span{font-family:'Fraunces',serif; font-size:19px;}
-#las-trust .proof-links{display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:22px;}
-#las-trust .proof-links a{color:var(--forest-2); font-size:13px; font-weight:700; text-decoration:underline; text-underline-offset:3px;}
-
 /* ---------- narrative / why land ---------- */
 #las-why{background:var(--forest); color:var(--cream); padding:120px 0;}
 #las-why .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px;}
@@ -415,23 +349,6 @@ html{scroll-behavior:smooth;}
 @media (max-width:960px){#las-delivered .delivered-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:600px){#las-delivered .delivered-grid{grid-template-columns:1fr;}}
 
-/* ---------- FAQ ---------- */
-#las-faq{background:var(--cream-2); padding:110px 0;}
-#las-faq .head{max-width:640px; margin:0 auto 50px; text-align:center;}
-#las-faq .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
-#las-faq .faq-list{max-width:840px; margin:0 auto;}
-#las-faq .faq-item{border-bottom:1px solid var(--line);}
-#las-faq .faq-q{
-  width:100%; text-align:left; background:none; border:none; cursor:pointer;
-  padding:26px 4px; display:flex; justify-content:space-between; align-items:center; gap:20px;
-  font-family:'Fraunces',serif; font-size:19px; color:var(--ink);
-}
-#las-faq .faq-q .plus{font-family:'Manrope',sans-serif; font-size:22px; color:var(--gold-ink); transition:transform .3s; flex-shrink:0;}
-#las-faq .faq-item.open .faq-q .plus{transform:rotate(45deg);}
-#las-faq .faq-a{overflow:hidden;}
-.las-js #las-faq .faq-a{max-height:0; transition:max-height .35s ease;}
-#las-faq .faq-a p{color:var(--ink-soft); line-height:1.75; padding:0 4px 26px; font-size:15px;}
-
 /* ---------- lead form ---------- */
 #las-form-section{padding:110px 0; background:var(--forest); position:relative;}
 #las-form-section .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
@@ -488,7 +405,7 @@ html{scroll-behavior:smooth;}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  #las-trust .wrap, #las-why .wrap, #las-plots .plot-block, #las-vip .grid, #las-form-section .wrap, #las-footer .wrap{
+  #las-why .wrap, #las-plots .plot-block, #las-vip .grid, #las-form-section .wrap, #las-footer .wrap{
     grid-template-columns:1fr !important;
   }
   #las-plots .plot-block:nth-child(even) .media, #las-plots .plot-block:nth-child(even) .copy{order:initial;}
@@ -544,26 +461,6 @@ html{scroll-behavior:smooth;}
         title="Lekki Avana Signature site overview video" allow="encrypted-media; fullscreen" allowfullscreen hidden></iframe>
       <div class="video-badge">Watch: Site Overview</div>
       <a class="video-fallback" href="https://drive.google.com/file/d/1zh_fn1v0lP_-ZI-nk3yQnEGHeukXudfp/view" target="_blank" rel="noopener">Open video</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TRUST STRIP ================= -->
-<section id="las-trust">
-  <div class="wrap">
-    <div>
-      <h2>Check the developer’s documents before you decide.</h2>
-      <p>Zylus Homes and Property Ltd publishes the estate’s plot sizes, payment terms and acquisition form. The form describes the title as “Government Allocation”; Zylus’s property listing uses “Government Allocated C of O.” Ask to see the current title documents and have them independently checked before making a payment.</p>
-      <div class="proof-links">
-        <a href="https://www.zylushomes.com/house/lekki-avana-signature" target="_blank" rel="noopener">View the developer’s listing ↗</a>
-        <a href="https://www.zylushomes.com/house/lekki-avana-signature/lekki-avana-signature-form.pdf" target="_blank" rel="noopener">Read the acquisition form and terms (PDF) ↗</a>
-      </div>
-    </div>
-    <div class="facts">
-      <div class="fact"><b>Location</b><span>Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A.</span></div>
-      <div class="fact"><b>Title</b><span>Confirm from current documents</span></div>
-      <div class="fact"><b>Access Road</b><span>Motorable</span></div>
-      <div class="fact"><b>Development</b><span>Already commenced on site</span></div>
     </div>
   </div>
 </section>
@@ -780,74 +677,6 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
-<section id="las-faq">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow" style="color:var(--forest-3)">Good questions</div>
-      <h2>Frequently asked questions</h2>
-    </div>
-    <div class="faq-list" id="las-faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q"><span>Where exactly is Lekki Avana Signature?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>The estate is located in a developed environment on the Island, at Elerangbe, along the Lekki-Epe Expressway, Ibeju Lekki L.G.A.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>Who is developing it?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Zylus Homes and Property Ltd, a subsidiary of Zylus Group International.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>What title is on the land?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Zylus's <a href="https://www.zylushomes.com/house/lekki-avana-signature/lekki-avana-signature-form.pdf" target="_blank" rel="noopener">acquisition form</a> lists “Government Allocation,” while its <a href="https://www.zylushomes.com/house/lekki-avana-signature" target="_blank" rel="noopener">property listing</a> says “Government Allocated C of O.” Request the current title documents and have them independently checked before paying.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>What is the transaction sequence?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Payment of the initial deposit, then collection of your offer letter, receipt and contract of sale of land, followed by issuance of your deed of assignment and survey plan, and finally issuance of your allocation letter and physical allocation.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>Are there restrictions on what I can build?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Yes. The estate layout is divided into sections, and building is limited to the designated design or plan for that section. All designs must conform to the estate's required setback and building control, and are approved by the company and the Lagos State Government.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>Can I resell my plot?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Yes, a subscriber who has fully paid for their plot(s) can resell. The buyer inherits all assets and liabilities on the plot, and Zylus Homes and Properties requires the seller to furnish the company with the buyer's details.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>Can I pay cash to a consultant or agent?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>No. All payments must go directly to Zylus Homes and Property Ltd's designated account. Zylus Homes and Property Limited does not accept payments by bank transfer, deposit or cash to any realtor, consultant or associate of the company, and is not liable for any such loss.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>What happens if I default on my payment plan?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>In case of default or an expired contract, the client is automatically placed on the current payment plan as at the time of review. A 5% interest charge applies to overdue amounts, and missing two consecutive payments can lead to termination, with a refund less a 35% administrative fee.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>When can construction begin, and has development started on site?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Development on the estate has already commenced. Construction on your own plot can begin once payment is completed in full and all necessary building approvals are obtained from the relevant government authorities.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>What other facilities or benefits come with the estate?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>A separate Infrastructure Fee, determined once you're ready to commence construction and reviewed periodically, covers essential infrastructure for building; including internal road networks, walkways and drainage; electrical infrastructure such as streetlights and power lines; and water supply, boreholes, sewage treatment and waste disposal systems.</p></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q"><span>Is the price fixed?</span><span class="plus" aria-hidden="true">+</span></button>
-        <div class="faq-a"><p>Prices may change. Request a current written price schedule from the developer before committing.</p></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ================= LEAD FORM ================= -->
 <section id="las-form-section">
   <div class="wrap" id="las-reserve">
@@ -891,8 +720,8 @@ html{scroll-behavior:smooth;}
         <div>
           <label for="las-size">Plot Size of Interest</label>
           <select id="las-size" name="Plot Size">
+            <option value="500 SQM" selected>500 SQM</option>
             <option value="300 SQM">300 SQM</option>
-            <option value="500 SQM">500 SQM</option>
             <option value="1000 SQM">1000 SQM</option>
             <option value="Not sure yet">Not sure yet</option>
           </select>
@@ -986,32 +815,6 @@ html{scroll-behavior:smooth;}
       trackEvent('Contact', {content_name: a.textContent.trim().slice(0, 80) || 'WhatsApp'});
     });
   });
-  // FAQ accordion
-  var items = document.querySelectorAll('#las-faq-list .faq-item');
-  items.forEach(function(item, index){
-    var q = item.querySelector('.faq-q');
-    var a = item.querySelector('.faq-a');
-    a.id = 'las-faq-answer-' + (index + 1);
-    q.setAttribute('aria-controls', a.id);
-    q.setAttribute('aria-expanded', 'false');
-    a.setAttribute('aria-hidden', 'true');
-    q.addEventListener('click', function(){
-      var isOpen = item.classList.contains('open');
-      items.forEach(function(i){
-        i.classList.remove('open');
-        i.querySelector('.faq-a').style.maxHeight = null;
-        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        i.querySelector('.faq-a').setAttribute('aria-hidden', 'true');
-      });
-      if(!isOpen){
-        item.classList.add('open');
-        q.setAttribute('aria-expanded', 'true');
-        a.setAttribute('aria-hidden', 'false');
-        a.style.maxHeight = a.scrollHeight + 'px';
-      }
-    });
-  });
-
   // Carousel (2-up on desktop, 1-up on mobile, looping autoplay + dots)
   var track = document.getElementById('las-track');
   var dotsWrap = document.getElementById('las-carousel-dots');
