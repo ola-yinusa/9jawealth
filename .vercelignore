@@ -5,7 +5,9 @@
 # salaryman/. Kept in git for reference, never deployed.
 /palmville-landing-page.html
 /salary-to-zero-sales-page.html
-lekki-avana-signature/
+# NOTE: lekki-avana-signature/ must stay deployable — the `signature`
+# Vercel project builds it via Root Directory. (Main site is a framework
+# build served from dist/, so extra source files are never served there.)
 OlaOhms/
 moneymarkets/
 palmville/
