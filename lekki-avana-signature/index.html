@@ -223,18 +223,6 @@ html{scroll-behavior:smooth;}
   #las-hero-media{aspect-ratio:16/10;}
 }
 
-/* ---------- narrative / why land ---------- */
-#las-why{background:var(--forest); color:var(--cream); padding:120px 0;}
-#las-why .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px;}
-#las-why h2{font-size:clamp(30px,4vw,46px); color:var(--cream);}
-#las-why h2 em{color:var(--gold-light); font-style:italic;}
-#las-why .lead-col p{color:rgba(251,247,238,0.7); line-height:1.75; margin-top:20px; font-size:16px;}
-#las-why .reasons{display:flex; flex-direction:column; gap:0;}
-#las-why .reason{padding:28px 0; border-top:1px solid rgba(251,247,238,0.16);}
-#las-why .reason:last-child{border-bottom:1px solid rgba(251,247,238,0.16);}
-#las-why .reason h3{color:var(--cream); font-size:19px; margin-bottom:8px; font-weight:400;}
-#las-why .reason p{color:rgba(251,247,238,0.68); font-size:15px; line-height:1.65;}
-
 /* ---------- plot showcases ---------- */
 #las-plots{padding:120px 0 60px;}
 #las-plots .eyebrow{color:var(--gold-ink);}
@@ -405,7 +393,7 @@ html{scroll-behavior:smooth;}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  #las-why .wrap, #las-plots .plot-block, #las-vip .grid, #las-form-section .wrap, #las-footer .wrap{
+  #las-plots .plot-block, #las-vip .grid, #las-form-section .wrap, #las-footer .wrap{
     grid-template-columns:1fr !important;
   }
   #las-plots .plot-block:nth-child(even) .media, #las-plots .plot-block:nth-child(even) .copy{order:initial;}
@@ -441,7 +429,7 @@ html{scroll-behavior:smooth;}
     <div class="hero-copy">
       <div class="eyebrow">Elerangbe · Lekki–Epe Expressway · Ibeju Lekki</div>
       <h1>Lekki Avana Signature.<br><em>Land in Ibeju Lekki.</em></h1>
-      <p class="lede">Compare 300, 500 and 1000 SQM plots in Elerangbe, their published payment plans and the documents to check before you buy. Ask for current availability and a site inspection.</p>
+      <p class="lede">Compare 300, 500 and 1000 SQM plots in Elerangbe, with published payment plans and estate photos. Ask about current availability.</p>
       <div class="hero-actions">
         <a href="#las-reserve" class="btn btn-gold">Ask About Available Plots</a>
         <a href="#las-plots" class="btn btn-outline">Compare Plot Sizes</a>
@@ -465,33 +453,12 @@ html{scroll-behavior:smooth;}
   </div>
 </section>
 
-<!-- ================= WHY LAND ================= -->
-<section id="las-why">
-  <div class="wrap">
-    <div class="lead-col">
-      <h2>Three checks worth making <em>before you pay.</em></h2>
-      <p>The right plot depends on what you can build, the documents behind it and the full cost of ownership. Use the developer’s published material as a starting point, then check the details for your specific plot.</p>
-    </div>
-    <div class="reasons">
-      <div class="reason">
-        <div><h3>Walk the site</h3><p>Arrange an inspection, locate the plot on the estate layout and ask what type of building is allowed in its cluster.</p></div>
-      </div>
-      <div class="reason">
-        <div><h3>Review the paperwork</h3><p>Request the current title documents, survey, draft contract and allocation terms. Have an independent professional review them.</p></div>
-      </div>
-      <div class="reason">
-        <div><h3>Confirm every charge</h3><p>Get a written price schedule for your plot size, including deposit, instalments, infrastructure charges and the contract’s default and refund terms.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= PLOT SHOWCASES ================= -->
 <section id="las-plots">
   <div class="wrap">
     <div class="head">
       <h2>Compare the three published plot sizes.</h2>
-      <p style="color:var(--ink-soft); margin-top:16px; line-height:1.7;">The developer lists 300, 500 and 1000 SQM options. Confirm the building rules and current availability for a specific plot before choosing a size.</p>
+      <p style="color:var(--ink-soft); margin-top:16px; line-height:1.7;">Choose from 300, 500 and 1000 SQM plots. Ask about current availability and permitted building designs for each cluster.</p>
     </div>
 
     <!-- 300sqm -->
@@ -646,7 +613,7 @@ html{scroll-behavior:smooth;}
     <div class="head">
       <div class="eyebrow" style="color:var(--forest-3)">Track record</div>
       <h2>Other Zylus projects in Lagos</h2>
-      <p>Examples of other developments associated with Zylus Homes and Property Ltd. Check their current status directly with the developer.</p>
+      <p>Explore other named developments by Zylus Homes and Property Ltd across Lagos.</p>
     </div>
     <div class="delivered-grid">
       <div class="delivered-card">
