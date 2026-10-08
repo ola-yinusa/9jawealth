@@ -1,4 +1,4 @@
-import type { QuizResult } from "./assessment";
+import type { QuizResult } from "./assessment.js";
 
 const DEFAULT_API_BASE_URL = "https://open.larksuite.com";
 const TOKEN_SAFETY_WINDOW_SECONDS = 60;

@@ -1,15 +1,15 @@
 import { createHash } from "node:crypto";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getMailConfig, sendMail } from "../src/lib/mailer";
-import { createLarkLeadRecord, type LeadRecordInput } from "../src/lib/lark-base";
+import { getMailConfig, sendMail } from "../src/lib/mailer.js";
+import { createLarkLeadRecord, type LeadRecordInput } from "../src/lib/lark-base.js";
 import { put } from "@vercel/blob";
 import {
   computeQuizResult,
   escapeHtml,
   maskEmail,
   validateSubmission,
-} from "../src/lib/assessment";
-import { buildLeadNotification } from "../src/lib/lead-notification";
+} from "../src/lib/assessment.js";
+import { buildLeadNotification } from "../src/lib/lead-notification.js";
 
 /* ------------------------------------------------------------------ */
 /*  Rate limiting (per-instance, best-effort)                           */
