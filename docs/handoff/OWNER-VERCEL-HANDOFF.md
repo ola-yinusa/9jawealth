@@ -47,7 +47,7 @@ Do not commit passwords, SMTP tokens, Blob tokens, or local `.env` files.
 6. Set the output directory to `dist`.
 7. Add the production environment variables listed below.
 8. Deploy a preview first.
-9. Add `www.9jawealth.com` and the preferred apex-domain redirect.
+9. Add `www.9jawealth.com` with the DNS record below, then configure the preferred apex-domain redirect.
 10. Verify the assessment submission on the production domain.
 
 ## Required production environment variables
@@ -83,6 +83,22 @@ Create the Vercel Blob store under the owner’s account. Do not reuse a token f
 - Redirect the other hostname to the canonical hostname.
 - Confirm the SSL certificate is active.
 - Confirm the canonical and Open Graph URLs in `index.html` match the final hostname.
+
+### `www` Vercel DNS record
+
+At the external DNS provider (WhoGoHost), replace any existing `www` CNAME
+that points to `9jawealth.com` with:
+
+```text
+Type:  CNAME
+Host:  www
+Value: 839b90a0fee59a2f.vercel-dns-017.com
+TTL:   Auto (or 3600)
+```
+
+After DNS propagation, add and verify `www.9jawealth.com` in the `9jawealth`
+Vercel project. Until then, the working production URL is
+`https://9jawealth.com`.
 
 ## Verification checklist
 
