@@ -1,0 +1,93 @@
+9JAWEALTH.COM — RESEND DNS RECORDS
+===================================
+
+DNS provider: WhoGoHost
+Domain: 9jawealth.com
+
+Add these four records in the DNS manager for 9jawealth.com.
+
+
+1) DKIM
+-------
+Type:  TXT
+Host:  resend._domainkey
+TTL:   Auto (or 3600)
+Value: p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjhxYiN4avGVUvTyNyzz5h5tJlb96b6snK+A8Fl9uBDuiFORbA+Lk8ZktuQRJsxSxPoOc6SfoAT6fjDobAdZpzPB/d6B8pC5O6CMHRg8E1/lCA/qCgfZpgMXS8ch3QHf4jVcrgWEK6j0+F8MVqwna0TTPyki+h52ID8HKSKjSRnwIDAQAB
+
+
+2) RESEND FEEDBACK MX
+--------------------
+Type:     MX
+Host:     send
+TTL:      Auto (or 3600)
+Priority: 10
+Value:    feedback-smtp.us-east-1.amazonses.com
+
+
+3) RESEND SPF
+-------------
+Type:  TXT
+Host:  send
+TTL:   Auto (or 3600)
+Value: v=spf1 include:amazonses.com ~all
+
+
+4) RESEND RETURN-PATH
+---------------------
+Type:  CNAME
+Host:  rsend
+TTL:   Auto (or 3600)
+Value: send.forge.rmta.net
+
+
+5) VERCEL WWW HOST
+------------------
+Type:  CNAME
+Host:  www
+TTL:   Auto (or 3600)
+Value: 839b90a0fee59a2f.vercel-dns-017.com
+
+Replace any existing www CNAME that points to 9jawealth.com with the value
+above. After DNS propagation, add and verify www.9jawealth.com in the
+9jawealth Vercel project.
+
+
+IMPORTANT
+=========
+
+- Do not add these records at the root host (@).
+- Do not replace the existing root MX record yet.
+- Do not replace the existing root SPF record yet.
+- The Resend MX record belongs on send.9jawealth.com.
+- The Resend DKIM record belongs on resend._domainkey.9jawealth.com.
+- If WhoGoHost automatically appends .9jawealth.com, enter only the Host
+  values shown above (send, rsend, and resend._domainkey).
+- If it requires fully qualified names, use:
+    send.9jawealth.com
+    rsend.9jawealth.com
+    resend._domainkey.9jawealth.com
+
+
+CURRENT ROOT MAIL RECORDS — DO NOT CHANGE YET
+==============================================
+
+Current root MX:
+Type:     MX
+Host:     @
+Priority: 0
+Value:    9jawealth.com
+
+Current root SPF:
+Type:  TXT
+Host:  @
+Value: v=spf1 +a +mx +include:relay.mailchannels.net +include:spf.antispamcloud.com ~all
+
+These root records control inbound mail and existing mail delivery. Lark's
+inbox routing must be confirmed before changing them.
+
+
+AFTER PUBLISHING
+================
+
+Wait a few minutes, then trigger verification for 9jawealth.com in Resend.
+The domain is currently pending verification.
