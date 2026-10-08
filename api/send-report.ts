@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { sendMail } from "../src/lib/mailer";
+import { getMailConfig, sendMail } from "../src/lib/mailer";
+import { createLarkLeadRecord, type LeadRecordInput } from "../src/lib/lark-base";
 import { put } from "@vercel/blob";
 import {
   computeQuizResult,
@@ -8,6 +9,7 @@ import {
   maskEmail,
   validateSubmission,
 } from "../src/lib/assessment";
+import { buildLeadNotification } from "../src/lib/lead-notification";
 
 /* ------------------------------------------------------------------ */
 /*  Rate limiting (per-instance, best-effort)                           */
@@ -90,6 +92,17 @@ function slugify(value: string) {
 
 function hashEmail(email: string): string {
   return createHash("sha256").update(email.toLowerCase()).digest("hex");
+}
+
+export async function captureLeadInLark(input: LeadRecordInput): Promise<boolean> {
+  try {
+    await createLarkLeadRecord(input);
+    return true;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown Lark error";
+    console.error("[send-report] Lark lead capture failed", input.reference, message);
+    return false;
+  }
 }
 
 function buildEmailHtml(
@@ -246,7 +259,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const datePrefix = submittedAt.slice(0, 10);
     const blobPath = `submissions/${datePrefix}/${slugify(name) || "assessment"}-${reference}.json`;
 
-    // 1. Send email through GO54 Cloud Mail SMTP
+    // 1. Send email through Resend SMTP
     const emailHtml = buildEmailHtml(name, result, reference);
     const emailText = [
       `Hi ${name},`,
@@ -268,7 +281,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: "Unable to send the assessment email" });
     }
 
-    // 2. Store a redacted backup in Vercel Blob.
+    try {
+      const leadNotification = buildLeadNotification({ name, email, result, reference });
+      const mailConfig = getMailConfig();
+      await sendMail({
+        to: mailConfig.notifyTo,
+        subject: leadNotification.subject,
+        html: leadNotification.html,
+        text: leadNotification.text,
+        replyTo: leadNotification.replyTo,
+      });
+    } catch (notificationError) {
+      console.error("[send-report] Owner notification error:", notificationError);
+      return res.status(500).json({ error: "Unable to notify the assessment owner" });
+    }
+
+    await captureLeadInLark({ name, email, result, reference, submittedAt });
+
+    // 3. Store a redacted backup in Vercel Blob.
     // NOTE: @vercel/blob only supports public objects in this SDK version,
     // so the raw email address is never stored here — only a hash + masked
     // form. Use the delivered email for follow-up, and migrate to private
