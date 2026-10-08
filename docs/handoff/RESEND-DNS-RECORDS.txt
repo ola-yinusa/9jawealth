@@ -48,8 +48,22 @@ TTL:   Auto (or 3600)
 Value: 839b90a0fee59a2f.vercel-dns-017.com
 
 Replace any existing www CNAME that points to 9jawealth.com with the value
-above. After DNS propagation, add and verify www.9jawealth.com in the
-9jawealth Vercel project.
+above. The hostname is already added to the 9jawealth Vercel project and is
+waiting for the ownership TXT record in section 6.
+
+
+6) VERCEL DOMAIN OWNERSHIP VERIFICATION
+----------------------------------------
+Type:  TXT
+Host:  _vercel
+TTL:   Auto (or 3600)
+Value: vc-domain-verify=www.9jawealth.com,de9334922dc67c8aa70b
+
+This temporary Vercel ownership record is required before the www hostname
+can be activated on the 9jawealth Vercel project. Keep the existing www
+CNAME as well. Do not replace the existing _vercel TXT record; add this as
+a second TXT value at the same host. After Vercel verification, this new TXT
+record may be removed.
 
 
 IMPORTANT
@@ -89,5 +103,6 @@ inbox routing must be confirmed before changing them.
 AFTER PUBLISHING
 ================
 
-Wait a few minutes, then trigger verification for 9jawealth.com in Resend.
-The domain is currently pending verification.
+Wait a few minutes after adding the records, then trigger verification for
+9jawealth.com in Resend. For Vercel, the current blocker is the new _vercel
+TXT value above; once it propagates, rerun domain verification.
