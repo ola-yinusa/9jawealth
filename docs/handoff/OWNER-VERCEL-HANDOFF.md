@@ -19,7 +19,7 @@ All four products are included in the source handoff and should be deployed as s
 
 ## What the site does
 
-The site presents a financial clarity assessment with 31 questions. The first 26 questions determine one of four result brackets. After completion, the visitor can submit a name and email address. The server function sends the result through GO54 Cloud Mail SMTP and attempts to store a JSON backup in Vercel Blob.
+The site presents a financial clarity assessment with 31 questions. The first 26 questions determine one of four result brackets. After completion, the visitor can submit a name and email address. The server function sends the result through Resend SMTP, sends an owner notification to `RESEND_NOTIFY_TO` with Reply-To set to the visitor, and attempts to store a JSON backup in Vercel Blob.
 
 The site also contains a WhatsApp CTA, social links, an About section, and a gold-trading destination at `https://forex.9jawealth.com`.
 
@@ -30,7 +30,7 @@ The owner should create or control all of the following:
 - GitHub repository or equivalent source repository
 - Vercel team and production project
 - `9jawealth.com` domain and DNS
-- GO54/WhoGoHost mailbox used for assessment delivery
+- Resend account used for assessment delivery
 - Vercel Blob store used for submission backups
 - WhatsApp destination
 - Social accounts and external product domains
@@ -55,14 +55,23 @@ Do not commit passwords, SMTP tokens, Blob tokens, or local `.env` files.
 Configure these in Vercel Project Settings → Environment Variables. Add them to Production, and to Preview only if preview email delivery is intentionally enabled.
 
 ```text
-WHOGOHOST_SMTP_HOST=smtp.go54mail.com
-WHOGOHOST_SMTP_PORT=587
-WHOGOHOST_SMTP_USER=assessment@9jawealth.com
-WHOGOHOST_SMTP_PASSWORD=<owner-provided mailbox password>
-WHOGOHOST_MAIL_FROM=9jawealth <assessment@9jawealth.com>
-WHOGOHOST_REPLY_TO=hello@9jawealth.com
+RESEND_SMTP_HOST=smtp.resend.com
+RESEND_SMTP_PORT=465
+RESEND_SMTP_USER=resend
+RESEND_SMTP_PASSWORD=<owner-created Resend API key>
+RESEND_MAIL_FROM=9jawealth <assessment@9jawealth.com>
+RESEND_REPLY_TO=hello@9jawealth.com
+RESEND_NOTIFY_TO=hello@9jawealth.com
+LARK_APP_ID=<owner-created Lark app ID>
+LARK_APP_SECRET=<owner-copied Lark app secret>
+LARK_BASE_TOKEN=<9jawealth Leads Base token>
+LARK_TABLE_ID=<Assessment Leads table ID>
 BLOB_READ_WRITE_TOKEN=<owner-created Vercel Blob token>
 ```
+
+Before deployment, verify `9jawealth.com` in Resend and add Resend's SPF/DKIM records. Keep Lark's MX records unchanged so incoming mail and replies continue to reach Lark. The sender domain must be verified before the assessment endpoint can deliver production email.
+
+The Lark Base integration writes to the `Assessment Leads` table after the visitor and owner emails are sent. It does not add external visitors to the employee directory and does not copy the full assessment answer set into Base. The Lark app must have the Base read and record-create permissions, and the actual App Secret must be copied from the Lark developer console; a CLI keychain reference is not a valid Vercel environment value.
 
 Create the Vercel Blob store under the owner’s account. Do not reuse a token from another account without explicitly transferring ownership and rotating it.
 

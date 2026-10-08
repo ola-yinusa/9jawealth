@@ -15,8 +15,10 @@ Prerequisite: Node.js
 
 ## Notes
 
-- Assessment submissions are sent through WhoGoHost GO54 Cloud Mail SMTP from the server-side `/api/send-report` function.
-- Store the SMTP credentials in deployment environment variables; never expose them in the frontend.
+- Assessment submissions are sent through Resend SMTP from the server-side `/api/send-report` function. A separate owner notification is sent to `RESEND_NOTIFY_TO` with Reply-To set to the visitor, so replies from Lark go directly back to the lead.
+- Valid assessment submissions are also captured in the `Assessment Leads` table in the `9jawealth Leads` Lark Base. Only contact details, the server-calculated result, reference, timestamp, status, and source are stored; the full answer set remains out of Lark Base.
+- Store the Resend SMTP credentials in deployment environment variables; never expose them in the frontend.
+- Store the Lark app credentials and Base identifiers in server-only environment variables; never expose them in the frontend.
 
 ## Repository layout
 
@@ -35,7 +37,7 @@ Run the complete local check with:
 npm run verify:all
 ```
 
-The root app requires the SMTP and Vercel Blob variables listed in `.env.example` only when the submission API is exercised.
+The root app requires the Resend SMTP, Lark Base, and Vercel Blob variables listed in `.env.example` only when the submission API is exercised. Lark capture is best-effort after email delivery; a Lark API failure is logged with the submission reference without exposing credentials.
 
 ## Vercel projects
 
