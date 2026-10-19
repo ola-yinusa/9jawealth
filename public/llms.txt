@@ -1,10 +1,12 @@
 9jawealth
 
-Summary: Trust-first financial clarity assessment for visitors exploring wealth-building paths in money markets and real estate.
+Summary: Trust-first financial clarity assessment for visitors exploring wealth-building paths in Nigerian residential and agro-real estate.
 URL: https://www.9jawealth.com/
 
 Primary page:
 - https://www.9jawealth.com/ : Financial clarity assessment landing page
+- https://signature.9jawealth.com/ : Lekki Avana Signature (Resort Palm Estate in Ibeju-Lekki)
+- https://palmville.9jawealth.com/ : PalmVille Agro Real Estate (Obafemi-Owode, Ogun State)
 
 Notes:
 - Assessment submissions are captured for follow-up.

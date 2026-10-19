@@ -8,6 +8,7 @@ export interface MailConfig {
   password: string;
   from: string;
   replyTo: string;
+  notifyTo: string;
 }
 
 export interface SendMailInput {
@@ -15,6 +16,7 @@ export interface SendMailInput {
   subject: string;
   html: string;
   text: string;
+  replyTo?: string;
 }
 
 function requiredEnv(name: string): string {
@@ -26,22 +28,23 @@ function requiredEnv(name: string): string {
 }
 
 export function getMailConfig(): MailConfig {
-  const port = Number.parseInt(process.env.WHOGOHOST_SMTP_PORT || "587", 10);
+  const port = Number.parseInt(process.env.RESEND_SMTP_PORT || "465", 10);
 
   if (!Number.isInteger(port) || port <= 0) {
-    throw new Error("WHOGOHOST_SMTP_PORT must be a positive integer");
+    throw new Error("RESEND_SMTP_PORT must be a positive integer");
   }
 
-  const user = requiredEnv("WHOGOHOST_SMTP_USER");
+  const user = requiredEnv("RESEND_SMTP_USER");
 
   return {
-    host: process.env.WHOGOHOST_SMTP_HOST?.trim() || "smtp.go54mail.com",
+    host: process.env.RESEND_SMTP_HOST?.trim() || "smtp.resend.com",
     port,
     secure: port === 465,
     user,
-    password: requiredEnv("WHOGOHOST_SMTP_PASSWORD"),
-    from: process.env.WHOGOHOST_MAIL_FROM?.trim() || `9jawealth <${user}>`,
-    replyTo: process.env.WHOGOHOST_REPLY_TO?.trim() || "hello@9jawealth.com",
+    password: requiredEnv("RESEND_SMTP_PASSWORD"),
+    from: process.env.RESEND_MAIL_FROM?.trim() || "9jawealth <assessment@9jawealth.com>",
+    replyTo: process.env.RESEND_REPLY_TO?.trim() || "hello@9jawealth.com",
+    notifyTo: process.env.RESEND_NOTIFY_TO?.trim() || "hello@9jawealth.com",
   };
 }
 
@@ -60,7 +63,7 @@ export async function sendMail(input: SendMailInput): Promise<string> {
   const result = await transporter.sendMail({
     from: config.from,
     to: input.to,
-    replyTo: config.replyTo,
+    replyTo: input.replyTo || config.replyTo,
     subject: input.subject,
     text: input.text,
     html: input.html,

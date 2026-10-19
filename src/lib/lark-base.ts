@@ -32,6 +32,12 @@ export interface LeadRecordInput {
   result: QuizResult;
   reference: string;
   submittedAt: string;
+  phone?: string;
+  plotSize?: string;
+  paymentPlan?: string;
+  message?: string;
+  source?: string;
+  trafficSource?: string;
 }
 
 let cachedToken: {
@@ -108,6 +114,27 @@ export async function createLarkLeadRecord(input: LeadRecordInput): Promise<stri
   const config = getConfig();
   if (!config) return null;
 
+  const parsedTimestamp = Date.parse(input.submittedAt);
+  const submittedAtMs = Number.isFinite(parsedTimestamp) ? parsedTimestamp : Date.now();
+
+  const fields: Record<string, string | number> = {
+    Name: input.name,
+    Email: input.email,
+    Result: input.result.bracket,
+    Summary: input.result.summary,
+    Recommendation: input.result.recommendation,
+    Reference: input.reference,
+    "Submitted At": submittedAtMs,
+    Status: "New",
+    Source: input.source || "Financial Clarity Assessment",
+  };
+
+  if (input.phone) fields.Phone = input.phone;
+  if (input.plotSize) fields["Plot Size"] = input.plotSize;
+  if (input.paymentPlan) fields["Payment Plan"] = input.paymentPlan;
+  if (input.message) fields.Message = input.message;
+  if (input.trafficSource) fields["Traffic Source"] = input.trafficSource;
+
   const tenantAccessToken = await getTenantAccessToken(config);
   const response = await fetch(
     `${config.apiBaseUrl}/open-apis/bitable/v1/apps/${encodeURIComponent(config.baseToken)}/tables/${encodeURIComponent(config.tableId)}/records`,
@@ -117,19 +144,7 @@ export async function createLarkLeadRecord(input: LeadRecordInput): Promise<stri
         Authorization: `Bearer ${tenantAccessToken}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fields: {
-          Name: input.name,
-          Email: input.email,
-          Result: input.result.bracket,
-          Summary: input.result.summary,
-          Recommendation: input.result.recommendation,
-          Reference: input.reference,
-          "Submitted At": input.submittedAt,
-          Status: "New",
-          Source: "Financial Clarity Assessment",
-        },
-      }),
+      body: JSON.stringify({ fields }),
     },
   );
   const payload = await readJson<RecordResponse>(response);

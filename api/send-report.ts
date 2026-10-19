@@ -6,7 +6,9 @@ import { put } from "@vercel/blob";
 import {
   computeQuizResult,
   escapeHtml,
+  isValidEmail,
   maskEmail,
+  normalizeName,
   validateSubmission,
 } from "../src/lib/assessment.js";
 import { buildLeadNotification } from "../src/lib/lead-notification.js";
@@ -22,6 +24,8 @@ import { buildLeadNotification } from "../src/lib/lead-notification.js";
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const rateBuckets = new Map<string, { count: number; resetAt: number }>();
+
+const FALLBACK_OWNER_EMAIL = "ola.yinusa.lanre@gmail.com";
 
 function getClientIp(req: VercelRequest): string {
   const forwarded = req.headers["x-forwarded-for"];
@@ -61,7 +65,12 @@ function getAllowedOrigins(): string[] {
     .filter(Boolean);
   return fromEnv.length > 0
     ? fromEnv
-    : ["https://www.9jawealth.com", "https://9jawealth.com"];
+    : [
+        "https://www.9jawealth.com",
+        "https://9jawealth.com",
+        "https://signature.9jawealth.com",
+        "https://palmville.9jawealth.com",
+      ];
 }
 
 function applyCors(req: VercelRequest, res: VercelResponse): boolean {
@@ -102,6 +111,42 @@ export async function captureLeadInLark(input: LeadRecordInput): Promise<boolean
     const message = error instanceof Error ? error.message : "Unknown Lark error";
     console.error("[send-report] Lark lead capture failed", input.reference, message);
     return false;
+  }
+}
+
+async function sendOwnerNotificationWithFallback(input: {
+  subject: string;
+  html: string;
+  text: string;
+  replyTo: string;
+}): Promise<void> {
+  const mailConfig = getMailConfig();
+  const recipients = Array.from(
+    new Set(
+      [mailConfig.notifyTo, FALLBACK_OWNER_EMAIL]
+        .map((r) => r.trim())
+        .filter(Boolean),
+    ),
+  );
+  let deliveredCount = 0;
+  let lastError: unknown = null;
+  for (const recipient of recipients) {
+    try {
+      await sendMail({
+        to: recipient,
+        subject: input.subject,
+        html: input.html,
+        text: input.text,
+        replyTo: input.replyTo,
+      });
+      deliveredCount += 1;
+    } catch (err) {
+      lastError = err;
+      console.error("[send-report] Notification to", recipient, "failed:", err);
+    }
+  }
+  if (deliveredCount === 0 && lastError) {
+    throw lastError;
   }
 }
 
@@ -173,9 +218,11 @@ function buildEmailHtml(
               <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="padding-right:16px;">
-                    <a href="https://forex.9jawealth.com" style="font-size:13px;color:#b4903a;text-decoration:underline;">Forex education</a>
+                    <a href="https://signature.9jawealth.com/" style="font-size:13px;color:#b4903a;text-decoration:underline;">Lekki Avana Signature</a>
                   </td>
-                  <td style="font-size:13px;color:#677489;">Real estate path coming soon</td>
+                  <td>
+                    <a href="https://palmville.9jawealth.com/" style="font-size:13px;color:#b4903a;text-decoration:underline;">PalmVille Agro Real Estate</a>
+                  </td>
                 </tr>
               </table>
             </td>
@@ -196,6 +243,141 @@ function buildEmailHtml(
   </table>
 </body>
 </html>`.trim();
+}
+
+async function handlePropertyEnquiry(
+  body: Record<string, unknown>,
+  res: VercelResponse,
+) {
+  const honeypot = typeof body._honey === "string" ? body._honey.trim() : "";
+  if (honeypot !== "") {
+    return res.status(200).json({ ok: true, success: true, reference: crypto.randomUUID() });
+  }
+
+  const name = normalizeName(body.name ?? body["Full Name"]);
+  const rawEmail = body.email ?? body.Email ?? body["Email Address"];
+  const email = typeof rawEmail === "string" ? rawEmail.trim().toLowerCase() : "";
+  const rawPhone = body.phone ?? body.Phone ?? body["Phone Number"];
+  const phone = typeof rawPhone === "string" ? rawPhone.trim().slice(0, 40) : "";
+  const rawPlotSize = body.plotSize ?? body["Plot Size"] ?? body["Preferred Land Size"];
+  const plotSize = typeof rawPlotSize === "string" ? rawPlotSize.trim().slice(0, 80) : "";
+  const rawPlan = body.paymentPlan ?? body["Payment Plan"] ?? body["Preferred Payment Plan"];
+  const paymentPlan = typeof rawPlan === "string" ? rawPlan.trim().slice(0, 80) : "";
+  const rawMessage = body.message ?? body.Message;
+  const message = typeof rawMessage === "string" ? rawMessage.trim().slice(0, 1000) : "";
+  const rawSource = body.source;
+  const source =
+    typeof rawSource === "string" && rawSource.trim()
+      ? rawSource.trim().slice(0, 80)
+      : "Property Enquiry";
+  const rawTraffic = body.trafficSource ?? body.landing_page;
+  const trafficSource =
+    typeof rawTraffic === "string" ? rawTraffic.trim().slice(0, 240) : "";
+
+  if (name.length < 2 || !isValidEmail(email)) {
+    return res.status(400).json({ error: "Please provide a valid name and email address" });
+  }
+
+  const reference = crypto.randomUUID();
+  const submittedAt = new Date().toISOString();
+  const summary = [
+    plotSize ? `Plot Size: ${plotSize}` : "",
+    paymentPlan ? `Plan: ${paymentPlan}` : "",
+    phone ? `Phone: ${phone}` : "",
+  ]
+    .filter(Boolean)
+    .join(" · ") || `${source} enquiry`;
+
+  await captureLeadInLark({
+    name,
+    email,
+    phone,
+    plotSize,
+    paymentPlan,
+    message,
+    source,
+    trafficSource,
+    reference,
+    submittedAt,
+    result: {
+      bracket: plotSize || source,
+      summary,
+      recommendation: message || `Follow up on ${source} (${paymentPlan || "standard plan"})`,
+    },
+  });
+
+  const waUrl = source.toLowerCase().includes("palmville")
+    ? "https://wa.link/gv7ic6"
+    : "https://wa.link/6fjyon";
+
+  try {
+    await sendMail({
+      to: email,
+      subject: `We received your ${source} enquiry`,
+      text: [
+        `Hi ${name},`,
+        `Thank you for your interest in ${source}.`,
+        summary,
+        `Our team will reach out shortly with the current brochure, availability, and payment schedule. For an immediate response, chat with us on WhatsApp: ${waUrl}`,
+        `Reference: ${reference} · 9jawealth`,
+      ].join("\n\n"),
+      html: `
+<!DOCTYPE html>
+<html lang="en">
+<body style="font-family:Arial,Helvetica,sans-serif;color:#142133;line-height:1.6;">
+  <h2>Thank you for your interest in ${escapeHtml(source)}</h2>
+  <p>Hi <strong>${escapeHtml(name)}</strong>,</p>
+  <p>We have received your enquiry (${escapeHtml(summary)}). Our team will reach out shortly with availability and payment options.</p>
+  <p><a href="${waUrl}" style="display:inline-block;background:#122A1C;color:#FBF7EE;padding:12px 22px;text-decoration:none;border-radius:6px;font-weight:bold;">Chat with Olanrewaju on WhatsApp</a></p>
+  <p style="font-size:12px;color:#677489;">Reference: ${escapeHtml(reference)} · 9jawealth</p>
+</body>
+</html>`.trim(),
+    });
+  } catch (buyerMailErr) {
+    console.error("[send-report] Buyer confirmation email error:", buyerMailErr);
+  }
+
+  try {
+    await sendOwnerNotificationWithFallback({
+      subject: `New ${source} lead: ${name}${plotSize ? ` — ${plotSize}` : ""}`,
+      replyTo: email,
+      text: [
+        `New ${source} enquiry`,
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone || "N/A"}`,
+        `Plot Size: ${plotSize || "N/A"}`,
+        `Payment Plan: ${paymentPlan || "N/A"}`,
+        `Message: ${message || "N/A"}`,
+        `Traffic Source: ${trafficSource || "Direct"}`,
+        `Reference: ${reference}`,
+      ].join("\n"),
+      html: `
+<!DOCTYPE html>
+<html lang="en">
+<body style="font-family:Arial,Helvetica,sans-serif;color:#142133;line-height:1.6;">
+  <h2>New ${escapeHtml(source)} enquiry</h2>
+  <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+  <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+  <p><strong>Phone:</strong> ${escapeHtml(phone || "N/A")}</p>
+  <p><strong>Plot Size:</strong> ${escapeHtml(plotSize || "N/A")}</p>
+  <p><strong>Payment Plan:</strong> ${escapeHtml(paymentPlan || "N/A")}</p>
+  <p><strong>Message:</strong> ${escapeHtml(message || "N/A")}</p>
+  <p><strong>Traffic Source:</strong> ${escapeHtml(trafficSource || "Direct")}</p>
+  <p><strong>Reference:</strong> ${escapeHtml(reference)}</p>
+</body>
+</html>`.trim(),
+    });
+  } catch (ownerMailErr) {
+    console.error("[send-report] Property owner notification error:", ownerMailErr);
+  }
+
+  return res.status(200).json({
+    ok: true,
+    success: true,
+    reference,
+    message: "Enquiry captured and notification sent",
+  });
 }
 
 /* ------------------------------------------------------------------ */
@@ -224,6 +406,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const body = req.body as Record<string, unknown>;
+
+    if (body && body.type === "property-enquiry") {
+      return await handlePropertyEnquiry(body, res);
+    }
 
     // Honeypot: bots fill `website`; humans never see it. Pretend success.
     if (typeof body.website === "string" && body.website.trim() !== "") {
@@ -283,9 +469,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
       const leadNotification = buildLeadNotification({ name, email, result, reference });
-      const mailConfig = getMailConfig();
-      await sendMail({
-        to: mailConfig.notifyTo,
+      await sendOwnerNotificationWithFallback({
         subject: leadNotification.subject,
         html: leadNotification.html,
         text: leadNotification.text,
@@ -299,10 +483,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await captureLeadInLark({ name, email, result, reference, submittedAt });
 
     // 3. Store a redacted backup in Vercel Blob.
-    // NOTE: @vercel/blob only supports public objects in this SDK version,
-    // so the raw email address is never stored here — only a hash + masked
-    // form. Use the delivered email for follow-up, and migrate to private
-    // storage (or disable Blob via BLOB_ENABLED=false) for stricter needs.
     if (process.env.BLOB_ENABLED !== "false" && process.env.BLOB_READ_WRITE_TOKEN) {
       try {
         await put(

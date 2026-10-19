@@ -89,7 +89,7 @@ test("maps a validated lead to the Assessment Leads fields", async () => {
       Summary: "Summary",
       Recommendation: "Recommendation",
       Reference: "ref-123",
-      "Submitted At": "2026-10-08T10:00:00.000Z",
+      "Submitted At": Date.parse("2026-10-08T10:00:00.000Z"),
       Status: "New",
       Source: "Financial Clarity Assessment",
     },
@@ -178,3 +178,67 @@ test("rejects a non-zero Lark response code", async () => {
     /Lark API returned code 999/,
   );
 });
+
+test("maps optional property enquiry CRM fields when provided", async () => {
+  setLarkEnv({
+    LARK_APP_ID: "app-crm",
+    LARK_APP_SECRET: "secret-crm",
+    LARK_BASE_TOKEN: "base-crm",
+    LARK_TABLE_ID: "table-crm",
+    LARK_API_BASE_URL: "https://lark.test",
+  });
+
+  const requests: Array<{ url: string; init: RequestInit }> = [];
+  globalThis.fetch = async (input, init) => {
+    requests.push({ url: String(input), init: init || {} });
+    if (requests.length === 1) {
+      return new Response(
+        JSON.stringify({ code: 0, tenant_access_token: "tenant-crm", expire: 7200 }),
+        { status: 200 },
+      );
+    }
+    return new Response(
+      JSON.stringify({ code: 0, data: { record: { record_id: "rec-crm-1" } } }),
+      { status: 200 },
+    );
+  };
+
+  const recordId = await createLarkLeadRecord({
+    name: "Chinedu Okafor",
+    email: "chinedu@example.com",
+    phone: "+2348012345678",
+    plotSize: "600 SQM",
+    paymentPlan: "0-6 Months (Interest-Free)",
+    message: "Interested in physical allocation",
+    source: "Lekki Avana Signature",
+    trafficSource: "https://signature.9jawealth.com/?utm_source=meta",
+    result: {
+      bracket: "600 SQM",
+      summary: "Plot Size: 600 SQM · Plan: 0-6 Months (Interest-Free)",
+      recommendation: "Interested in physical allocation",
+    },
+    reference: "ref-crm-1",
+    submittedAt: "2026-10-16T12:00:00.000Z",
+  });
+
+  assert.equal(recordId, "rec-crm-1");
+  assert.deepEqual(JSON.parse(String(requests[1].init.body)), {
+    fields: {
+      Name: "Chinedu Okafor",
+      Email: "chinedu@example.com",
+      Result: "600 SQM",
+      Summary: "Plot Size: 600 SQM · Plan: 0-6 Months (Interest-Free)",
+      Recommendation: "Interested in physical allocation",
+      Reference: "ref-crm-1",
+      "Submitted At": Date.parse("2026-10-16T12:00:00.000Z"),
+      Status: "New",
+      Source: "Lekki Avana Signature",
+      Phone: "+2348012345678",
+      "Plot Size": "600 SQM",
+      "Payment Plan": "0-6 Months (Interest-Free)",
+      Message: "Interested in physical allocation",
+      "Traffic Source": "https://signature.9jawealth.com/?utm_source=meta",
+    },
+  });
+});
+

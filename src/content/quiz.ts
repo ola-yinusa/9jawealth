@@ -66,5 +66,5 @@ export const quizQuestions: QuizQuestion[] = [
   { id: 28, text: "Does your income give you seed money to invest in other streams?", type: "custom", options: ["Yes", "No", "Sometimes"], section: "D" },
   { id: 29, text: "What percentage of your income are you currently saving or investing?", type: "custom", options: ["Less than 5%", "5–15%", "15–30%", "More than 30%"], section: "D" },
   { id: 30, text: "Are you actively working to build additional income streams?", type: "custom", options: ["Yes, actively", "Thinking about it", "Not yet"], section: "D" },
-  { id: 31, text: "What is one realistic stream you could begin exploring in the next 30 days?", type: "custom", options: ["Real estate", "Forex trading", "A side business", "Not sure yet"], section: "D" },
+  { id: 31, text: "What is one realistic stream you could begin exploring in the next 30 days?", type: "custom", options: ["Real estate", "Agro-real estate", "A side business", "Not sure yet"], section: "D" },
 ];

@@ -29,7 +29,7 @@ export interface SocialLink {
 export const navItems: NavItem[] = [
   { label: "Assessment", href: "#quiz" },
   { label: "About Olanrewaju", href: "#about" },
-  { label: "Gold Trading", href: "https://forex.9jawealth.com", external: true },
+  { label: "Wealth Paths", href: "#paths" },
 ];
 
 export const pillars: PillarItem[] = [
@@ -43,7 +43,7 @@ export const pillars: PillarItem[] = [
     number: "02",
     eyebrow: "Disciplined opportunity",
     title: "Structured to educate, not to hype.",
-    body: "Our money-market path is deliberately crafted to educate and keep you consistent — not hype-driven.",
+    body: "Our wealth-building framework is deliberately crafted to educate and keep you consistent — not hype-driven.",
   },
   {
     number: "03",
@@ -56,20 +56,20 @@ export const pillars: PillarItem[] = [
 export const paths: PathItem[] = [
   {
     id: "real-estate",
-    eyebrow: "Property in Ibeju Lekki",
+    eyebrow: "Resort Palm Estate · Ibeju Lekki",
     title: "Explore Lekki Avana Signature plots and payment plans.",
-    body: "Compare published plot sizes and terms, read the developer's documents, and arrange a site inspection before deciding.",
+    body: "Compare 300, 500, 600 and 1,000 SQM plots in a 3,000-palm-tree estate with completed gatehouse infrastructure, physical allocation underway, and 6- to 12-month payment plans.",
     cta: "Review Lekki Avana Signature",
     href: "https://signature.9jawealth.com/",
     image: "/images/olaohms-portrait-suit.webp",
   },
   {
-    id: "gold-trading",
-    eyebrow: "Why Gold?",
-    title: "Gold is the premier, high-liquidity, safe-haven asset of 2026.",
-    body: "Trading gold on Forex is popular due to its superior volatility for profit compared to standard currency pairs. With central banks actively buying and rising geopolitical risks, gold is frequently seen as a more reliable long-term trend vehicle than fiat currencies.",
-    cta: "Visit the gold trading experience",
-    href: "https://forex.9jawealth.com",
+    id: "agro-real-estate",
+    eyebrow: "Agro Real Estate · Ogun State",
+    title: "Own registered oil-palm land that earns for decades at PalmVille.",
+    body: "A plug-and-play oil palm plantation in Obafemi-Owode, Ogun State. Pay once for permanent land ownership with Registered Survey and Deed of Assignment while expert agronomists manage the harvest.",
+    cta: "Explore PalmVille Plantation",
+    href: "https://palmville.9jawealth.com/",
     image: "/images/olaohms-portrait-suit.webp",
   },
 ];
@@ -78,8 +78,9 @@ export const footerLinks = {
   navigation: navItems,
   connect: [
     { label: "WhatsApp conversation", href: "https://wa.link/fz5g34", external: true },
-    { label: "Gold trading experience", href: "https://forex.9jawealth.com", external: true },
-    ],
+    { label: "Lekki Avana Signature", href: "https://signature.9jawealth.com/", external: true },
+    { label: "PalmVille Agro Real Estate", href: "https://palmville.9jawealth.com/", external: true },
+  ],
   legal: [
     { label: "Privacy notice", href: "#privacy" },
     { label: "Terms", href: "#terms" },

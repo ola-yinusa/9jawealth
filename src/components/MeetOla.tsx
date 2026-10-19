@@ -41,7 +41,7 @@ export default function MeetOla() {
               Your guide
             </h2>
             <p className="mb-6 max-w-2xl text-[17px] leading-relaxed text-ink">
-              Olanrewaju has spent 5 years helping Nigerians like you think more deliberately about financial growth. Through gold trading guidance and property investment conversations, he has built a brand that links financial opportunity with plug-and-play structure.
+              Olanrewaju has spent 5 years helping Nigerians like you think more deliberately about financial growth. Through wealth-building guidance and property investment conversations, he has built a brand that links financial opportunity with plug-and-play structure.
             </p>
             <p className="mb-10 max-w-2xl text-[17px] leading-relaxed text-ink">
               Olanrewaju frames wealth through clarity first, then action. This assessment exists as the front door for that philosophy: understand your current position, notice the weak points, and then move into the path that fits you best.

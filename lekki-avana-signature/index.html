@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lekki Avana Signature | Land in Ibeju Lekki, Lagos</title>
-  <meta name="description" content="Compare 300, 500 and 1000 SQM plots, published payment plans and estate documents for Lekki Avana Signature in Ibeju Lekki, Lagos.">
+  <meta name="description" content="Compare 300, 500, 600 and 1000 SQM plots, published payment plans, completed gatehouse and allocation updates for Lekki Avana Signature Resort Palm Estate in Ibeju Lekki, Lagos.">
   <meta name="theme-color" content="#122A1C">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
   <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png?v=2">
@@ -16,12 +16,12 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_NG">
   <meta property="og:title" content="Lekki Avana Signature | Land in Ibeju Lekki, Lagos">
-  <meta property="og:description" content="Compare plot sizes, published payment plans and estate documents in Ibeju Lekki, Lagos.">
+  <meta property="og:description" content="Compare 300, 500, 600 and 1000 SQM plots, published payment plans and allocation updates in Ibeju Lekki, Lagos.">
   <meta property="og:url" content="https://signature.9jawealth.com/">
   <meta property="og:image" content="https://signature.9jawealth.com/site-progress.jpg">
-  <meta property="og:image:alt" content="Lekki Avana Signature estate site image in Ibeju Lekki">
+  <meta property="og:image:alt" content="Completed gatehouse and allocation event at Lekki Avana Signature in Ibeju Lekki">
   <meta property="og:image:width" content="1280">
-  <meta property="og:image:height" content="720">
+  <meta property="og:image:height" content="719">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="fonts/fraunces-roman-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/fraunces-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -39,10 +39,10 @@
     {
       "@type": "WebPage",
       "name": "Lekki Avana Signature",
-      "description": "Published plot sizes and payment plans for Lekki Avana Signature in Elerangbe, Ibeju Lekki, Lagos, with links to the developer's listing and acquisition form.",
+      "description": "Published 300, 500, 600 and 1000 SQM plot sizes, price breakdown and payment plans for Lekki Avana Signature Resort Palm Estate in Elerangbe, Ibeju Lekki, Lagos.",
       "url": "https://signature.9jawealth.com/",
       "inLanguage": "en-NG",
-      "dateModified": "2026-09-29",
+      "dateModified": "2026-10-19",
       "about": {
         "@type": "Place",
         "name": "Lekki Avana Signature",
@@ -234,12 +234,13 @@ html{scroll-behavior:smooth;}
 #las-plots .plot-block:nth-child(even) .media{order:2;}
 #las-plots .plot-block:nth-child(even) .copy{order:1;}
 #las-plots .media{
-  position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3;
+  position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5;
+  max-width:460px; width:100%; justify-self:center;
   background:var(--forest); box-shadow:0 30px 60px -20px rgba(18,42,28,0.35);
 }
-#las-plots .media figure{width:100%; height:100%; position:relative;}
-#las-plots .media img{width:100%; height:100%; object-fit:cover;}
-#las-plots .media figcaption{position:absolute; left:0; right:0; bottom:0; padding:16px 20px; color:var(--cream); font-size:12px; background:linear-gradient(0deg,rgba(18,42,28,.9),transparent);}
+#las-plots .media figure{width:100%; height:100%; position:relative; margin:0;}
+#las-plots .media img{width:100%; height:100%; object-fit:contain; background:#0d2015;}
+#las-plots .media figcaption{position:absolute; left:0; right:0; bottom:0; padding:12px 18px; color:var(--cream); font-size:12px; background:linear-gradient(0deg,rgba(18,42,28,.92),transparent);}
 #las-plots .tag{display:inline-block; background:var(--cream-2); color:var(--forest-2); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; padding:7px 14px; margin-bottom:18px;}
 #las-plots .copy h3{font-size:clamp(26px,3vw,36px);}
 #las-plots .copy .size{color:var(--gold-ink); font-family:'Fraunces',serif; font-style:italic; font-size:20px; display:block; margin-top:6px;}
@@ -259,6 +260,15 @@ html{scroll-behavior:smooth;}
 #las-pricing tr:last-child td{border-bottom:none;}
 #las-pricing .table-note{font-size:13px; color:var(--ink-soft); margin-top:18px; line-height:1.6;}
 #las-pricing .table-scroll-hint{display:none; font-size:13px; color:var(--ink-soft); margin-bottom:12px;}
+#las-pricing .doc-sheet{
+  margin:36px auto 0; max-width:860px; background:#fff; border:1px solid var(--line);
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 50px -30px rgba(18,42,28,0.3);
+}
+#las-pricing .doc-sheet img{width:100%; height:auto; display:block;}
+#las-pricing .doc-sheet figcaption{
+  padding:12px 20px; background:var(--cream); border-top:1px solid var(--line);
+  font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
+}
 
 /* ---------- VIP offer ---------- */
 #las-vip{padding:0; position:relative;}
@@ -276,7 +286,7 @@ html{scroll-behavior:smooth;}
   content:""; position:absolute; bottom:-160px; left:-90px; width:280px; height:280px;
   border:1px solid rgba(201,162,39,0.2); border-radius:50%;
 }
-#las-vip .grid{display:grid; grid-template-columns:1.2fr 1fr; gap:60px; position:relative; z-index:2;}
+#las-vip .grid{display:grid; grid-template-columns:1.2fr 1fr; gap:60px; position:relative; z-index:2; align-items:center;}
 #las-vip .eyebrow{color:var(--gold-light);}
 #las-vip h2{color:var(--cream); font-size:clamp(28px,3.6vw,42px); margin-top:16px;}
 #las-vip h2 em{color:var(--gold-light); font-style:italic;}
@@ -284,11 +294,13 @@ html{scroll-behavior:smooth;}
 #las-vip .perks{margin-top:28px; display:flex; flex-direction:column; gap:14px;}
 #las-vip .perks li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(251,247,238,0.85);}
 #las-vip .perks li::before{content:"—"; color:var(--gold-light); flex-shrink:0;}
-#las-vip .price-card{background:rgba(251,247,238,0.06); border:1px solid rgba(201,162,39,0.3); padding:38px; align-self:start;}
+#las-vip .price-card{background:rgba(251,247,238,0.06); border:1px solid rgba(201,162,39,0.3); padding:32px; align-self:start; border-radius:var(--radius);}
+#las-vip .price-card .flyer-thumb{border-radius:var(--radius); overflow:hidden; margin-bottom:22px; border:1px solid rgba(201,162,39,0.25);}
+#las-vip .price-card .flyer-thumb img{width:100%; height:auto; display:block;}
 #las-vip .price-card .label{font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light);}
-#las-vip .price-card .amount{font-family:'Fraunces',serif; font-size:52px; color:var(--cream); margin:14px 0 6px;}
+#las-vip .price-card .amount{font-family:'Fraunces',serif; font-size:48px; color:var(--cream); margin:10px 0 6px;}
 #las-vip .price-card .amount sup{font-size:20px; vertical-align:super; color:var(--gold-light);}
-#las-vip .price-card .sub{font-size:13px; color:rgba(251,247,238,0.6); margin-bottom:26px;}
+#las-vip .price-card .sub{font-size:13px; color:rgba(251,247,238,0.6); margin-bottom:22px;}
 #las-vip .price-card .btn{width:100%; justify-content:center;}
 
 /* ---------- gallery ---------- */
@@ -366,10 +378,9 @@ html{scroll-behavior:smooth;}
 
 /* ---------- footer ---------- */
 #las-footer{background:#0D2015; color:rgba(251,247,238,0.55); padding:60px 0 30px;}
-#las-footer .wrap{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:50px;}
+#las-footer .wrap{display:grid; grid-template-columns:1.3fr 1fr; gap:50px;}
 #las-footer h2{color:var(--cream); font-family:'Fraunces',serif; font-size:18px; font-weight:400; margin-bottom:16px;}
 #las-footer p, #las-footer li{font-size:13.5px; line-height:1.8;}
-#las-footer .bank{margin-top:10px;}
 #las-footer .legal{
   max-width:1180px; margin:50px auto 0; padding:0 28px 0; border-top:1px solid rgba(251,247,238,0.12); padding-top:30px;
 }
@@ -426,28 +437,28 @@ html{scroll-behavior:smooth;}
 <section id="las-hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">Elerangbe · Lekki–Epe Expressway · Ibeju Lekki</div>
+      <div class="eyebrow">Resort Palm Estate · Elerangbe, Lekki–Epe Expressway · Ibeju Lekki</div>
       <h1>Land for the home you’re planning.</h1>
-      <p class="lede">Lekki Avana Signature has 300, 500 and 1,000 SQM plots in Elerangbe, Ibeju-Lekki, with published 6- and 12-month payment plans.</p>
+      <p class="lede">Lekki Avana Signature is a Resort Palm Estate with <strong>3,000 palm trees to be planted</strong>, offering 300, 500, 600 and 1,000 SQM plots in Elerangbe, Ibeju-Lekki, with completed gatehouse infrastructure, first-batch physical allocation underway, and flexible 6- and 12-month payment plans.</p>
       <div class="hero-actions">
-        <a href="#las-reserve" class="btn btn-gold">Talk About the 500 SQM Plot</a>
-        <a href="#las-gallery" class="btn btn-outline">See the Site</a>
+        <a href="#las-reserve" class="btn btn-gold">Talk About a Plot</a>
+        <a href="#las-gallery" class="btn btn-outline">See Allocation &amp; Gatehouse</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><b>300–1000</b><span>SQM Plot Sizes</span></div>
-        <div class="stat"><b>₦16.2M</b><span>Published Starting Price</span></div>
+        <div class="stat"><b>₦18M</b><span>Starting All-In (300 SQM)</span></div>
+        <div class="stat"><b>3,000</b><span>Palm Trees To Be Planted</span></div>
         <div class="stat"><b>Zylus</b><span>Homes &amp; Property Ltd</span></div>
-        <div class="stat"><b>4</b><span>Build Clusters</span></div>
       </div>
     </div>
     <div id="las-hero-media">
       <button class="video-poster" type="button" aria-label="Play Lekki Avana Signature site overview video">
-        <img src="site-progress.webp" width="1280" height="720" fetchpriority="high" alt="Aerial view of the Lekki Avana Signature estate site in Ibeju Lekki">
+        <img src="site-progress.webp" width="1280" height="719" fetchpriority="high" alt="Aerial view of the completed gatehouse and First Batch Allocation at Lekki Avana Signature in Ibeju Lekki">
       </button>
-      <iframe data-src="https://drive.google.com/file/d/1zh_fn1v0lP_-ZI-nk3yQnEGHeukXudfp/preview"
+      <iframe data-src="https://drive.google.com/file/d/1AtUaFYre8yYUh1huN_OIZALgSaiZKwUN/preview"
         title="Lekki Avana Signature site overview video" allow="encrypted-media; fullscreen" allowfullscreen hidden></iframe>
-      <div class="video-badge">Watch: Site Overview</div>
-      <a class="video-fallback" href="https://drive.google.com/file/d/1zh_fn1v0lP_-ZI-nk3yQnEGHeukXudfp/view" target="_blank" rel="noopener">Open video</a>
+      <div class="video-badge">Watch: Latest Site &amp; Allocation Video</div>
+      <a class="video-fallback" href="https://drive.google.com/file/d/1AtUaFYre8yYUh1huN_OIZALgSaiZKwUN/view" target="_blank" rel="noopener">Open video</a>
     </div>
   </div>
 </section>
@@ -457,21 +468,21 @@ html{scroll-behavior:smooth;}
   <div class="wrap">
     <div class="head">
       <h2>Space for the home you’re planning.</h2>
-      <p style="color:var(--ink-soft); margin-top:16px; line-height:1.7;">Plots range from 300 to 1,000 SQM, with the 500 SQM option in between. Published 6- and 12-month payment plans are available.</p>
+      <p style="color:var(--ink-soft); margin-top:16px; line-height:1.7;">Choose from 300, 500, 600 and 1,000 SQM plots in a Resort Palm Estate designed with 3,000 palm trees to be planted. All published 0–6 month prices are interest-free and all-inclusive of Land, Survey Plan, Legal Fee, and Preliminary Development Fee.</p>
     </div>
 
     <!-- 300sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/site-progress-3.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Aerial view of construction at Lekki Avana Signature"><figcaption>Estate site image · Ibeju Lekki</figcaption></figure>
+        <figure><img src="images/flyer-300sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 300 SQM plot flyer — ₦18M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>300 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">Smallest Published Option</span>
-        <h3>300 SQM<span class="size">A compact homesite</span></h3>
-        <p>The developer lists this size for a 3- or 4-bedroom detached home, subject to the approved design for the estate cluster.</p>
+        <span class="tag">3 / 4 Bedroom Detached Duplex</span>
+        <h3>300 SQM<span class="size">A compact homesite in a 3,000-palm-tree estate</span></h3>
+        <p>Suitable for a 3- or 4-bedroom fully detached duplex. All-inclusive of Land (₦13.4M), Survey Plan (₦700K), Legal Fee (₦300K), and Preliminary Development Fee (₦3.6M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
-          <div><b>From ₦16,200,000</b><span>Total (6-Month Plan)</span></div>
+          <div><b>₦18,000,000</b><span>All-In Total (0–6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -479,15 +490,31 @@ html{scroll-behavior:smooth;}
     <!-- 500sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/site-progress-4.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Aerial view of ongoing work at Lekki Avana Signature"><figcaption>Estate site image · Ibeju Lekki</figcaption></figure>
+        <figure><img src="images/flyer-500sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 500 SQM plot flyer — ₦30M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>500 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">Mid-size option</span>
+        <span class="tag">5 Bedroom Detached Duplex</span>
         <h3>500 SQM<span class="size">Room for a home and outdoor space</span></h3>
-        <p>A middle-sized option with published 6- and 12-month payment plans.</p>
+        <p>Suitable for a 5-bedroom fully detached duplex. All-inclusive of Land (₦22.5M), Survey Plan (₦700K), Legal Fee (₦300K), and Preliminary Development Fee (₦6.5M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
-          <div><b>From ₦27,000,000</b><span>Total (6-Month Plan)</span></div>
+          <div><b>₦30,000,000</b><span>All-In Total (0–6 Months)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 600sqm -->
+    <div class="plot-block">
+      <div class="media">
+        <figure><img src="images/flyer-600sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 600 SQM plot flyer — ₦36M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>600 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
+      </div>
+      <div class="copy">
+        <span class="tag">New Plot Size · Spacious 5 Bedroom Duplex</span>
+        <h3>600 SQM<span class="size">Expanded compound &amp; resort greenery</span></h3>
+        <p>Suitable for a spacious 5-bedroom fully detached duplex with extra compound space. All-inclusive of Land (₦26.8M), Survey Plan (₦1.4M), Legal Fee (₦600K), and Preliminary Development Fee (₦7.2M). Pay ₦5M to get physical allocation.</p>
+        <div class="price-row">
+          <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
+          <div><b>₦36,000,000</b><span>All-In Total (0–6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -495,15 +522,15 @@ html{scroll-behavior:smooth;}
     <!-- 1000sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/site-progress-5.webp" width="1280" height="853" loading="lazy" decoding="async" alt="Lekki Avana Signature site development in Ibeju Lekki"><figcaption>Estate site image · Ibeju Lekki</figcaption></figure>
+        <figure><img src="images/flyer-1000sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 1000 SQM plot flyer — ₦70M, ₦5M initial deposit, 3,000 palm trees to be planted"><figcaption>1000 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">Largest Published Option</span>
-        <h3>1000 SQM<span class="size">Room for a larger home</span></h3>
-        <p>The largest listed option, with published 6- and 12-month plans. Permitted building designs depend on the estate cluster.</p>
+        <span class="tag">Commercial &amp; Apartment</span>
+        <h3>1000 SQM<span class="size">For apartments or commercial development</span></h3>
+        <p>Suitable for commercial or multi-unit apartment development. All-inclusive of Land (₦56M), Survey Plan (₦1.5M), Legal Fee (₦500K), and Preliminary Development Fee (₦12M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦5,000,000</b><span>Initial Deposit</span></div>
-          <div><b>From ₦65,000,000</b><span>Total (6-Month Plan)</span></div>
+          <div><b>₦70,000,000</b><span>All-In Total (0–6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -514,8 +541,8 @@ html{scroll-behavior:smooth;}
 <section id="las-pricing">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" style="color:var(--forest-3)">Published payment terms</div>
-      <h2>Payment structure</h2>
+      <div class="eyebrow" style="color:var(--forest-3)">Updated published payment terms</div>
+      <h2>Payment structure &amp; all-inclusive breakdown</h2>
     </div>
     <p class="table-scroll-hint">Swipe to compare all payment plans →</p>
     <div style="overflow-x:auto;" role="region" aria-label="Payment plans comparison" tabindex="0">
@@ -524,33 +551,94 @@ html{scroll-behavior:smooth;}
         <tr>
           <th>Land Size</th>
           <th>Initial Deposit</th>
-          <th>6-Month Plan<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / Total</span></th>
-          <th>12-Month Plan<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / Total</span></th>
+          <th>0–6 Months (Interest-Free)<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / All-In Total</span></th>
+          <th>7–12 Months Plan<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / All-In Total</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><b>300 SQM</b></td>
           <td>₦1,000,000</td>
-          <td>₦2,533,333 / mo — <b>₦16,200,000</b> total</td>
-          <td>₦1,433,333 / mo — <b>₦18,200,000</b> total</td>
+          <td>₦2,833,333 / mo — <b>₦18,000,000</b> total</td>
+          <td>₦1,583,333 / mo — <b>₦20,000,000</b> total</td>
         </tr>
         <tr>
           <td><b>500 SQM</b></td>
           <td>₦1,000,000</td>
-          <td>₦4,333,333 / mo — <b>₦27,000,000</b> total</td>
-          <td>₦2,333,333 / mo — <b>₦29,000,000</b> total</td>
+          <td>₦4,833,333 / mo — <b>₦30,000,000</b> total</td>
+          <td>₦2,583,333 / mo — <b>₦32,000,000</b> total</td>
+        </tr>
+        <tr>
+          <td><b>600 SQM</b></td>
+          <td>₦1,000,000</td>
+          <td>₦5,833,333 / mo — <b>₦36,000,000</b> total</td>
+          <td>Available on request</td>
         </tr>
         <tr>
           <td><b>1000 SQM</b></td>
           <td>₦5,000,000</td>
-          <td>₦10,000,000 / mo — <b>₦65,000,000</b> total</td>
-          <td>₦5,416,667 / mo — <b>₦70,000,000</b> total</td>
+          <td>₦10,833,333 / mo — <b>₦70,000,000</b> total</td>
+          <td>₦5,833,333 / mo — <b>₦75,000,000</b> total</td>
         </tr>
       </tbody>
     </table>
     </div>
-    <p class="table-note">Figures come from <a href="https://www.zylushomes.com/house/lekki-avana-signature/lekki-avana-signature-form.pdf" target="_blank" rel="noopener">Zylus's published acquisition form</a>, checked 29 September 2026. They include survey, legal and preliminary development fees. A separate infrastructure fee applies before construction. Prices may change; contact us for the current written schedule and complete terms. The form states a 5% monthly charge on overdue amounts and a 35% administrative deduction on certain refunds.</p>
+
+    <div style="overflow-x:auto; margin-top:32px;" role="region" aria-label="All-inclusive fee breakdown" tabindex="0">
+    <table style="min-width:760px;">
+      <thead>
+        <tr>
+          <th>Plot Size</th>
+          <th>Land Price</th>
+          <th>Survey Plan</th>
+          <th>Legal Fee</th>
+          <th>Preliminary Dev. Fee</th>
+          <th>0–6 Months Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>300 SQM</b></td>
+          <td>₦13,400,000</td>
+          <td>₦700,000</td>
+          <td>₦300,000</td>
+          <td>₦3,600,000</td>
+          <td><b>₦18,000,000</b></td>
+        </tr>
+        <tr>
+          <td><b>500 SQM</b></td>
+          <td>₦22,500,000</td>
+          <td>₦700,000</td>
+          <td>₦300,000</td>
+          <td>₦6,500,000</td>
+          <td><b>₦30,000,000</b></td>
+        </tr>
+        <tr>
+          <td><b>600 SQM</b></td>
+          <td>₦26,800,000</td>
+          <td>₦1,400,000</td>
+          <td>₦600,000</td>
+          <td>₦7,200,000</td>
+          <td><b>₦36,000,000</b></td>
+        </tr>
+        <tr>
+          <td><b>1000 SQM</b></td>
+          <td>₦56,000,000</td>
+          <td>₦1,500,000</td>
+          <td>₦500,000</td>
+          <td>₦12,000,000</td>
+          <td><b>₦70,000,000</b></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <figure class="doc-sheet">
+      <img src="images/price-breakdown-faq.webp" width="1179" height="1128" loading="lazy" decoding="async" alt="Official Lekki Avana Signature FAQ payment structure and price breakdown sheet">
+      <figcaption>Official Payment Structure &amp; All-Inclusive Price Breakdown Sheet</figcaption>
+    </figure>
+
+    <p class="table-note">Figures reflect Zylus Homes &amp; Property Ltd's updated schedule (October 2026) and include Land, Survey Plan, Legal Fee, and Preliminary Development Fee. A separate main infrastructure fee applies before construction. Pay ₦5,000,000 to qualify for physical allocation; full possession of the land is subject to full payment.</p>
   </div>
 </section>
 
@@ -559,21 +647,24 @@ html{scroll-behavior:smooth;}
   <div class="inner">
     <div class="grid">
       <div>
-        <div class="eyebrow">500 SQM · Signature Plot</div>
-        <h2>Physical allocation threshold: <em>₦5,000,000</em> for 500 SQM.</h2>
-        <p>Zylus's <a href="https://www.zylushomes.com/house/lekki-avana-signature/lekki-avana-signature-form.pdf" target="_blank" rel="noopener">published acquisition terms</a> set these payment thresholds for physical allocation. The remaining balance, other fees and contract conditions still apply; confirm the current terms before paying.</p>
+        <div class="eyebrow">Resort Palm Estate · Physical Allocation Underway</div>
+        <h2>Pay <em>₦5,000,000</em> for physical allocation in a 3,000-palm-tree estate.</h2>
+        <p>First-batch physical allocations and the estate gatehouse structure are already completed on site. Zylus Homes &amp; Property Ltd is planting <strong>3,000 palm trees</strong> across Lekki Avana Signature to create a serene resort palm estate in Elerangbe, Ibeju-Lekki.</p>
         <ul class="perks">
-          <li>500 SQM plots: physically allocated once payments reach ₦5,000,000</li>
-          <li>300 SQM plots: physically allocated once payments reach ₦3,000,000</li>
-          <li>1000 SQM plots: physically allocated once payments reach ₦7,000,000</li>
-          <li>Full possession follows payment in full and applicable fees</li>
+          <li><strong>3,000 palm trees to be planted</strong> across the Resort Palm Estate</li>
+          <li><strong>Pay ₦5,000,000 and get physical allocation</strong> while spreading the remaining balance on your chosen plan</li>
+          <li>Completed gatehouse structure and perimeter fencing already standing on site</li>
+          <li>First-batch landowners have already received their physical plot allocations on site</li>
         </ul>
       </div>
       <div class="price-card">
-        <div class="label">Allocation Threshold</div>
+        <div class="flyer-thumb">
+          <img src="images/resort-palm-estate.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Introducing Lekki Avana Signature Resort Palm Estate by Zylus Homes">
+        </div>
+        <div class="label">Physical Allocation Deposit</div>
         <div class="amount"><sup>₦</sup>5,000,000</div>
-        <div class="sub">For the 500 SQM Signature Plot — balance continues on your chosen payment plan</div>
-        <a href="#las-reserve" class="btn btn-gold">Ask About the 500 SQM Plan</a>
+        <div class="sub">Qualifies your plot for physical allocation — possession of the land follows full payment</div>
+        <a href="#las-reserve" class="btn btn-gold">Ask About Allocation &amp; Payment Plans</a>
       </div>
     </div>
   </div>
@@ -583,18 +674,20 @@ html{scroll-behavior:smooth;}
 <section id="las-gallery">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" style="color:var(--forest-3)">See it for yourself</div>
-      <h2>Estate site photos</h2>
-      <p>Estate images, with site visits available by arrangement.</p>
+      <div class="eyebrow" style="color:var(--forest-3)">Completed Gatehouse &amp; First Batch Allocation</div>
+      <h2>Site progress &amp; allocation photos</h2>
+      <p>Recent photos from the First Batch Allocation and the completed gatehouse structure on site in Elerangbe, Ibeju-Lekki.</p>
     </div>
-    <div id="las-carousel" role="region" aria-roledescription="carousel" aria-label="Lekki Avana Signature estate site photos">
+    <div id="las-carousel" role="region" aria-roledescription="carousel" aria-label="Lekki Avana Signature allocation and gatehouse photos">
       <div class="track" id="las-track">
-        <div class="slide"><img src="site-progress.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Aerial image of Lekki Avana Signature estate site in Ibeju Lekki"><div class="cap">Estate Site · Ibeju Lekki</div></div>
-        <div class="slide"><img src="images/site-progress-2.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Lekki Avana Signature estate site image in Ibeju Lekki"><div class="cap">Estate Site · Ibeju Lekki</div></div>
-        <div class="slide"><img src="images/site-progress-3.webp" width="1280" height="720" loading="lazy" decoding="async" alt="Lekki Avana Signature estate site image in Ibeju Lekki"><div class="cap">Estate Site · Ibeju Lekki</div></div>
-        <div class="slide"><img src="images/site-progress-4.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Lekki Avana Signature estate site image in Ibeju Lekki"><div class="cap">Estate Site · Ibeju Lekki</div></div>
-        <div class="slide"><img src="images/site-progress-5.webp" width="1280" height="853" loading="lazy" decoding="async" alt="Lekki Avana Signature estate site image in Ibeju Lekki"><div class="cap">Estate Site · Ibeju Lekki</div></div>
-        <div class="slide"><img src="images/site-progress-6.webp" width="1280" height="853" loading="lazy" decoding="async" alt="Lekki Avana Signature estate site image in Ibeju Lekki"><div class="cap">Estate Site · Ibeju Lekki</div></div>
+        <div class="slide"><img src="site-progress.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Aerial view of completed gatehouse structure and First Batch Allocation at Lekki Avana Signature"><div class="cap">Completed Gatehouse &amp; Allocation Event</div></div>
+        <div class="slide"><img src="images/site-progress-2.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Front view of the completed Lekki Avana Signature gatehouse structure"><div class="cap">Completed Gatehouse Structure</div></div>
+        <div class="slide"><img src="images/site-progress-3.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Aerial view of the Lekki Avana Signature gatehouse roof and perimeter fence"><div class="cap">Gatehouse &amp; Perimeter Fence</div></div>
+        <div class="slide"><img src="images/site-progress-4.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Aerial view of First Batch Allocation tents and gatehouse at Lekki Avana Signature"><div class="cap">First Batch Allocation on Site</div></div>
+        <div class="slide"><img src="images/site-progress-5.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Family holding allocation papers at Block 25 Plot 26 during First Batch Allocation"><div class="cap">First Batch Allocation · Block 25</div></div>
+        <div class="slide"><img src="images/site-progress-6.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Landowner with allocation documents at Lekki Avana Signature"><div class="cap">Landowner Allocation Day</div></div>
+        <div class="slide"><img src="images/site-progress-7.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Client and Zylus site engineer at plot beacon during physical allocation"><div class="cap">Physical Plot Beacon Verification</div></div>
+        <div class="slide"><img src="images/site-progress-8.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Landowner holding allocation documents at Block 25 Plot 9 and 10"><div class="cap">First Batch Allocation · Plot 9 &amp; 10</div></div>
       </div>
     </div>
     <div id="las-carousel-dots"></div>
@@ -648,12 +741,12 @@ html{scroll-behavior:smooth;}
   <div class="wrap" id="las-reserve">
     <div>
       <div class="eyebrow">Ask about availability</div>
-      <h2>Let’s talk about the 500 SQM plot.</h2>
-      <p>Share your details and we can discuss availability and payment options.</p>
+      <h2>Let’s talk about your plot at Lekki Avana Signature.</h2>
+      <p>Share your details to receive the updated brochure, availability for 300, 500, 600 or 1,000 SQM plots, and payment options.</p>
       <ul class="mini-facts">
         <li>No obligation — this simply starts the conversation</li>
-        <li>Current availability and payment details shared in response to your enquiry</li>
-        <li>All payments only ever go to Zylus Homes and Property Ltd's official account</li>
+        <li>Updated 0–6 month interest-free and 7–12 month schedules shared directly</li>
+        <li>Pay ₦5,000,000 to qualify for physical allocation in our 3,000-palm-tree estate</li>
       </ul>
     </div>
 
@@ -686,19 +779,19 @@ html{scroll-behavior:smooth;}
         <div>
           <label for="las-size">Plot Size of Interest</label>
           <select id="las-size" name="Plot Size">
-            <option value="500 SQM" selected>500 SQM</option>
-            <option value="300 SQM">300 SQM</option>
-            <option value="1000 SQM">1000 SQM</option>
+            <option value="500 SQM" selected>500 SQM (₦30M · 0–6 Months)</option>
+            <option value="600 SQM">600 SQM (₦36M · 0–6 Months)</option>
+            <option value="300 SQM">300 SQM (₦18M · 0–6 Months)</option>
+            <option value="1000 SQM">1000 SQM (₦70M · 0–6 Months)</option>
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
         <div>
           <label for="las-plan">Preferred Payment Plan</label>
           <select id="las-plan" name="Payment Plan">
-            <option value="Outright (0-3 months)">Outright (0–3 Months)</option>
-            <option value="6 Months">6 Months</option>
-            <option value="12 Months">12 Months</option>
-            <option value="Priority (5M Deposit)">Priority Allocation (₦5M Deposit)</option>
+            <option value="0-6 Months (Interest-Free)">0–6 Months (Interest-Free)</option>
+            <option value="7-12 Months">7–12 Months</option>
+            <option value="Physical Allocation (5M Deposit)">Physical Allocation (₦5M Deposit)</option>
           </select>
         </div>
       </div>
@@ -720,17 +813,7 @@ html{scroll-behavior:smooth;}
   <div class="wrap">
     <div>
       <h2>Lekki Avana Signature</h2>
-      <p>Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A., Lagos.<br>A development by Zylus Homes and Property Ltd, a member of Zylus Group International.</p>
-    </div>
-   <div> 
-      <h2>Payments</h2>
-      <p>Pay only to the developer's designated account. Confirm the current account directly with Zylus before transferring funds.</p>
-      <div class="bank">
-        <p><strong>Bank:</strong> Keystone Bank<br>
-        <strong>Account Name:</strong> Zylus Homes and Property Ltd<br>
-        <strong>Account Number:</strong> 1012423890</p>
-        <p><a href="https://www.zylushomes.com/house/lekki-avana-signature/lekki-avana-signature-form.pdf" target="_blank" rel="noopener">See the developer's published form</a></p>
-      </div> 
+      <p>Resort Palm Estate · Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A., Lagos.<br>A development by Zylus Homes and Property Ltd, a member of Zylus Group International.</p>
     </div>
     <div>
       <h2>Get in touch</h2>
@@ -894,8 +977,8 @@ html{scroll-behavior:smooth;}
     carouselEl?.addEventListener('focusout', startAutoplay);
   }
 
-  // Keep the native POST action as a no-JavaScript fallback; enhance it with
-  // FormSubmit's documented AJAX endpoint for reliable on-page status.
+  // Submit enquiries to 9jawealth CRM (/api/send-report -> Lark Base + Resend)
+  // with FormSubmit AJAX as a fallback.
   var form = document.getElementById('las-form');
   var msg = document.getElementById('las-form-msg');
   if(form && window.fetch){
@@ -907,6 +990,10 @@ html{scroll-behavior:smooth;}
       var fields = Object.fromEntries(new FormData(form).entries());
       fields._replyto = fields.Email;
       Object.assign(fields, attribution);
+      var crmPayload = Object.assign({
+        type: 'property-enquiry',
+        source: 'Lekki Avana Signature'
+      }, fields);
       var controller = new AbortController();
       var timeout = window.setTimeout(function(){ controller.abort(); }, 12000);
       button.disabled = true;
@@ -914,17 +1001,34 @@ html{scroll-behavior:smooth;}
       msg.dataset.state = 'sending';
       msg.textContent = 'Sending your enquiry…';
       try {
-        var response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-          body: JSON.stringify(fields),
-          signal: controller.signal
-        });
-        var result = await response.json();
-        if(!response.ok || !(result.success === true || result.success === 'true')) throw new Error('Enquiry not accepted');
+        var accepted = false;
+        try {
+          var crmRes = await fetch('https://www.9jawealth.com/api/send-report', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify(crmPayload),
+            signal: controller.signal
+          });
+          var crmJson = await crmRes.json();
+          if(crmRes.ok && (crmJson.ok === true || crmJson.success === true)){
+            accepted = true;
+          }
+        } catch(crmErr){}
+
+        if(!accepted){
+          var response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify(fields),
+            signal: controller.signal
+          });
+          var result = await response.json();
+          if(!response.ok || !(result.success === true || result.success === 'true')) throw new Error('Enquiry not accepted');
+        }
+
         trackEvent('Lead', {content_name: fields['Plot Size'] || 'Plot enquiry'});
         msg.dataset.state = 'success';
-        msg.textContent = 'Enquiry submitted. For a direct response, use the WhatsApp link above.';
+        msg.textContent = 'Enquiry received! Check your email for confirmation, or use the WhatsApp link above for an immediate response.';
         form.reset();
       } catch(error){
         msg.dataset.state = 'error';

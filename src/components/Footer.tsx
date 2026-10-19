@@ -83,7 +83,7 @@ export default function Footer() {
             ))}
           </ul>
           <p className="text-[11px] leading-relaxed italic text-white/34">
-            Money-markets guidance is informational only. Trading and investment decisions involve risk and should be approached with independent judgment.
+            Financial and real estate content is informational only. Investment decisions involve risk and should be approached with independent judgment.
           </p>
         </div>
       </div>
