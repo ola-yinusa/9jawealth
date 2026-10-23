@@ -62,7 +62,7 @@ test("computeQuizResult brackets follow gap counts", () => {
 });
 
 test("computeQuizResult ignores section-D custom answers", () => {
-  const answers = fullAnswers({ "27": "Not sure yet", "31": "Forex trading" });
+  const answers = fullAnswers({ "27": "Not sure yet", "31": "Agro-real estate" });
   assert.equal(computeQuizResult(answers).bracket, "Good shape");
   assert.equal(countStandardAnswers(answers), 26);
 });

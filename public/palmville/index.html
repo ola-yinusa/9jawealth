@@ -515,13 +515,42 @@ window.addEventListener('load', function() {
 
 <script>
   const PALMVILLE_VIDEO_URL = "";
-  const palmvilleVideo = document.getElementById("palmville-video");
-  const palmvilleVideoPlaceholder = document.getElementById("palmville-video-placeholder");
-  if (PALMVILLE_VIDEO_URL) {
-    palmvilleVideo.src = PALMVILLE_VIDEO_URL;
-    palmvilleVideo.hidden = false;
-    palmvilleVideoPlaceholder.hidden = true;
-  }
+  (function() {
+    var raw = (PALMVILLE_VIDEO_URL || "").trim();
+    if (!raw) return;
+    var container = document.querySelector(".video-wrap");
+    var placeholder = document.getElementById("palmville-video-placeholder");
+    var videoEl = document.getElementById("palmville-video");
+
+    if (raw.includes("drive.google.com") || raw.includes("youtube.com") || raw.includes("youtu.be") || raw.includes("vimeo.com")) {
+      var embedUrl = raw;
+      if (raw.includes("drive.google.com/file/d/")) {
+        var fileId = raw.split("/d/")[1].split("/")[0];
+        embedUrl = "https://drive.google.com/file/d/" + fileId + "/preview";
+      } else if (raw.includes("youtube.com/watch?v=")) {
+        embedUrl = "https://www.youtube.com/embed/" + raw.split("watch?v=")[1].split("&")[0];
+      } else if (raw.includes("youtu.be/")) {
+        embedUrl = "https://www.youtube.com/embed/" + raw.split("youtu.be/")[1].split("?")[0];
+      } else if (raw.includes("vimeo.com/")) {
+        var vimeoId = raw.split("vimeo.com/")[1].split("?")[0];
+        embedUrl = "https://player.vimeo.com/video/" + vimeoId;
+      }
+      var iframe = document.createElement("iframe");
+      iframe.src = embedUrl;
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.border = "0";
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen");
+      iframe.setAttribute("allowfullscreen", "true");
+      if (placeholder) placeholder.hidden = true;
+      if (videoEl) videoEl.remove();
+      container.insertBefore(iframe, container.firstChild);
+    } else if (videoEl) {
+      videoEl.src = raw;
+      videoEl.hidden = false;
+      if (placeholder) placeholder.hidden = true;
+    }
+  })();
 </script>
 
 <!-- PILLARS -->

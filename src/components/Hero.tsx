@@ -98,32 +98,63 @@ export default function Hero() {
           className="relative md:pl-6"
         >
           <div className="absolute -inset-5 rounded-[2.5rem] border border-white/50 bg-white/55 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/65 bg-white/80 p-4 shadow-[0_36px_80px_rgba(20,33,51,0.18)] backdrop-blur-sm md:p-5">
-            <div className="mb-4 flex items-center justify-between rounded-[1.4rem] border border-border bg-white/85 px-4 py-3">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/65 bg-white/80 p-5 shadow-[0_36px_80px_rgba(20,33,51,0.18)] backdrop-blur-sm md:p-6">
+            <div className="mb-5 flex items-center justify-between rounded-[1.4rem] border border-border bg-white/85 px-4 py-3">
               <div>
-                <p className="eyebrow mb-1">Trust-first framing</p>
-                <p className="text-sm text-ink">Clarity before action.</p>
+                <p className="eyebrow mb-1 text-gold-darker">Trust-first framing</p>
+                <p className="text-sm font-semibold text-navy">Clarity Before Action</p>
               </div>
               <div className="rounded-full bg-cream px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-navy">
-                Preview
+                Diagnosis
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-[1.7rem]">
-              <img
-                src="/images/olaohms-portrait-suit.webp"
-                alt="Olanrewaju standing in a dark suit while holding an award plaque."
-                width="1080"
-                height="1080"
-                className="aspect-[4/5] w-full object-cover"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/66 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="max-w-sm rounded-[1.5rem] border border-white/14 bg-[rgba(20,33,51,0.78)] px-5 py-4 backdrop-blur-md">
-                  <p className="eyebrow mb-2 text-gold-light">A better first impression</p>
-                  <p className="balance-text text-base leading-relaxed text-white/90">
-                    The experience is designed to make you feel guided, respected, and ready to take the next step.
-                  </p>
+
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-2xl border border-navy/10 bg-cream/70 p-4">
+                  <div className="font-serif text-3xl font-semibold text-navy">4 min</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">Assessment Time</div>
+                </div>
+                <div className="rounded-2xl border border-gold/25 bg-gold-pale/50 p-4">
+                  <div className="font-serif text-3xl font-semibold text-gold-darker">₦ ∞</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">Generational Legacy</div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-navy/10 bg-gradient-to-br from-navy via-navy to-navy-soft p-5 text-white shadow-elevated">
+                <div className="mb-2 flex items-center justify-between text-xs">
+                  <span className="font-semibold uppercase tracking-wider text-gold-light">Real Assets · Real Growth</span>
+                  <span className="text-white/65">Stages 01 – 04</span>
+                </div>
+                <p className="font-serif text-lg italic text-white/95">
+                  &ldquo;Wealth is not what you have. It is what you pass on.&rdquo;
+                </p>
+                <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-xs text-white/75">
+                  <span>Land Banking · Off-Plan · Agro Assets</span>
+                  <a href="#quiz" className="font-semibold text-gold-light hover:underline">
+                    Take Quiz →
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-border/80 bg-white/90 p-4">
+                <div className="grid grid-cols-2 gap-2 text-xs text-ink">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold">✓</span>
+                    <span>Clarity before advice</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold">✓</span>
+                    <span>No sales pressure</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold">✓</span>
+                    <span>Personalized roadmap</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gold">✓</span>
+                    <span>Automated delivery</span>
+                  </div>
                 </div>
               </div>
             </div>

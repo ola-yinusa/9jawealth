@@ -451,6 +451,11 @@ html{scroll-behavior:smooth;}
         <div class="stat"><b>Zylus</b><span>Homes &amp; Property Ltd</span></div>
       </div>
     </div>
+    <!-- ================= VIDEO EMBED (EASY UPDATE) =================
+         To update this video when a new one is released:
+         1. Replace the Google Drive, YouTube, or video URL in data-src below.
+         2. Update the fallback link in the "Open video" <a> tag.
+         ================================================================ -->
     <div id="las-hero-media">
       <button class="video-poster" type="button" aria-label="Play Lekki Avana Signature site overview video">
         <img src="site-progress.webp" width="1280" height="719" fetchpriority="high" alt="Aerial view of the completed gatehouse and First Batch Allocation at Lekki Avana Signature in Ibeju Lekki">
@@ -852,7 +857,16 @@ html{scroll-behavior:smooth;}
   var heroPoster = document.querySelector('#las-hero-media .video-poster');
   var heroIframe = document.querySelector('#las-hero-media iframe');
   heroPoster?.addEventListener('click', function(){
-    heroIframe.src = heroIframe.dataset.src;
+    var src = heroIframe.dataset.src || '';
+    if (src.includes('drive.google.com/file/d/') && !src.includes('/preview')) {
+      var match = src.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) src = 'https://drive.google.com/file/d/' + match[1] + '/preview';
+    } else if (src.includes('youtube.com/watch?v=')) {
+      src = 'https://www.youtube.com/embed/' + src.split('watch?v=')[1].split('&')[0];
+    } else if (src.includes('youtu.be/')) {
+      src = 'https://www.youtube.com/embed/' + src.split('youtu.be/')[1].split('?')[0];
+    }
+    heroIframe.src = src;
     heroIframe.hidden = false;
     heroPoster.hidden = true;
     trackEvent('ViewContent', {content_name: 'Site overview video'});

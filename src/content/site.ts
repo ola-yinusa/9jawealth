@@ -30,6 +30,7 @@ export const navItems: NavItem[] = [
   { label: "Assessment", href: "#quiz" },
   { label: "About Olanrewaju", href: "#about" },
   { label: "Wealth Paths", href: "#paths" },
+  { label: "Investment Guide", href: "/education.html" },
 ];
 
 export const pillars: PillarItem[] = [
@@ -61,7 +62,7 @@ export const paths: PathItem[] = [
     body: "Compare 300, 500, 600 and 1,000 SQM plots in a 3,000-palm-tree estate with completed gatehouse infrastructure, physical allocation underway, and 6- to 12-month payment plans.",
     cta: "Review Lekki Avana Signature",
     href: "https://signature.9jawealth.com/",
-    image: "/images/olaohms-portrait-suit.webp",
+    image: "/images/WhatsApp Image 2026-10-16 at 8.56.51 AM.jpeg",
   },
   {
     id: "agro-real-estate",
@@ -70,7 +71,7 @@ export const paths: PathItem[] = [
     body: "A plug-and-play oil palm plantation in Obafemi-Owode, Ogun State. Pay once for permanent land ownership with Registered Survey and Deed of Assignment while expert agronomists manage the harvest.",
     cta: "Explore PalmVille Plantation",
     href: "https://palmville.9jawealth.com/",
-    image: "/images/olaohms-portrait-suit.webp",
+    image: "/palmville/images/hero-harvest.webp",
   },
 ];
 
