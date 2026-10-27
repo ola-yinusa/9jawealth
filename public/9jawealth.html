@@ -17,13 +17,18 @@
 <style>
 :root{
   --navy:#0C3556;--navy-deep:#071E33;--navy-mid:#14426A;
-  --gold:#C88B20;--gold-lt:#E8B44A;--gold-pale:#F6EDD8;
-  --cream:#FAF7F0;--white:#FFFFFF;
-  --text:#1C1C2E;--text-mid:#4E586A;--text-light:#9BA3B0;
+  --gold:#C88B20;--gold-lt:#F3C96A;--gold-accent:#D99B26;--gold-pale:#F6EDD8;
+  --cream:#F8FAFC;--white:#FFFFFF;
+  --text:#1C1C2E;--text-mid:#4E586A;--text-light:#64748B;
   --border:#E5DDD0;
   --r:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+
+::selection{background:var(--gold-lt);color:var(--navy-deep)}
+:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);line-height:1.7}
 img{max-width:100%;height:auto}
@@ -34,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.95
 .nav-logo{display:flex;align-items:center;gap:12px}
 .nav-logo img{height:46px;width:46px;object-fit:contain}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:var(--white);letter-spacing:.03em}
-.nav-logo-text span{color:var(--gold)}
+.nav-logo-text span{color:var(--gold-lt)}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{font-size:.88rem;font-weight:500;color:rgba(255,255,255,.78);letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--gold-lt)}
@@ -45,10 +50,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.95
 /* ── HERO ── */
 .hero{min-height:100svh;background:linear-gradient(145deg,var(--navy-deep) 0%,var(--navy) 55%,#1A4D7A 100%);display:flex;flex-direction:column;justify-content:center;padding:120px 5% 80px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C88B20' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%;padding:0 20px}
 .hero-label{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:22px}
-.hero h1 em{color:var(--gold-lt);font-style:italic}
+.hero h1 em{color:var(--gold-lt);font-style:normal}
 .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:480px;margin-bottom:40px;line-height:1.8}
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
 .btn-gold{background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:.9rem;letter-spacing:.07em;text-transform:uppercase;padding:16px 32px;border-radius:8px;border:none;cursor:pointer;transition:all .2s}
@@ -56,13 +61,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.95
 .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);font-weight:500;font-size:.9rem;padding:16px 28px;border-radius:8px;cursor:pointer;transition:all .2s}
 .btn-outline:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
 .hero-visual{display:flex;flex-direction:column;gap:16px}
-.stat-card{background:rgba(255,255,255,.07);border:1px solid rgba(200,139,32,.2);border-radius:var(--r);padding:22px 26px;backdrop-filter:blur(8px)}
+.stat-card{background:rgba(7,30,51,0.65);border:1px solid rgba(243,201,106,.25);border-radius:var(--r);padding:24px 28px}
 .stat-card-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold-lt);line-height:1}
-.stat-card-label{font-size:.82rem;color:rgba(255,255,255,.65);margin-top:4px;letter-spacing:.04em}
+.stat-card-label{font-size:.84rem;color:rgba(255,255,255,.8);margin-top:6px;line-height:1.6}
 .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 /* ── SECTION BASE ── */
 section{padding:90px 5%}
-.section-inner{max-width:1200px;margin:0 auto}
+.section-inner{max-width:1200px;margin:0 auto;padding:0 20px}
 .section-label{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:20px}
 .section-sub{font-size:1rem;color:var(--text-mid);max-width:560px;line-height:1.8}
@@ -73,7 +78,7 @@ section{padding:90px 5%}
 .assess-trust{display:flex;flex-direction:column;gap:12px;margin-top:32px}
 .trust-item{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--text-mid)}
 .trust-icon{width:32px;height:32px;background:var(--gold-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.95rem}
-.assess-card{background:var(--cream);border:1.5px solid var(--border);border-radius:16px;padding:36px;box-shadow:0 4px 24px rgba(12,53,86,.07)}
+.assess-card{background:var(--cream);border:1.5px solid var(--border);border-radius:16px;padding:36px;box-shadow:0 4px 24px rgba(15,23,42,0.06)}
 /* Progress */
 .progress-bar-wrap{margin-bottom:28px}
 .progress-meta{display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-light);margin-bottom:8px;letter-spacing:.04em}
@@ -128,7 +133,7 @@ section{padding:90px 5%}
 #paths{background:var(--cream)}
 .paths-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:52px}
 .path-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:40px;transition:all .3s;cursor:pointer;display:block}
-.path-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 36px rgba(12,53,86,.12)}
+.path-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 36px rgba(15,23,42,0.08)}
 .path-card-icon{width:56px;height:56px;background:var(--navy);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:22px}
 .path-card-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:10px}
 .path-card-desc{font-size:.9rem;color:var(--text-mid);line-height:1.75;margin-bottom:22px}
@@ -143,9 +148,9 @@ section{padding:90px 5%}
 #contact .section-sub{margin:0 auto 48px;color:rgba(255,255,255,.68)}
 .contact-channels{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
 .channel-btn{display:flex;align-items:center;gap:10px;padding:14px 24px;border-radius:10px;font-weight:600;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;transition:all .2s}
-.ch-whatsapp{background:#25D366;color:#fff}
-.ch-whatsapp:hover{background:#1ebe5d}
-.ch-insta{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff}
+.ch-whatsapp{background:#25D366;color:#06311D;font-weight:700}
+.ch-whatsapp:hover{background:#20ba5a;color:#06311D}
+.ch-insta{background:#C13584;color:#FFFFFF;font-weight:600}
 .ch-insta:hover{opacity:.9}
 .ch-linkedin{background:#0A66C2;color:#fff}
 .ch-linkedin:hover{background:#084fa3}
@@ -155,11 +160,11 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
 .footer-logo{display:flex;align-items:center;gap:10px}
 .footer-logo img{height:36px}
 .footer-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
-.footer-logo-text span{color:var(--gold)}
+.footer-logo-text span{color:var(--gold-lt)}
 .footer-links{display:flex;gap:24px;list-style:none}
-.footer-links a{font-size:.8rem;color:rgba(255,255,255,.5);transition:.2s}
+.footer-links a{font-size:.82rem;color:rgba(255,255,255,.75);transition:.2s}
 .footer-links a:hover{color:var(--gold-lt)}
-.footer-copy{font-size:.78rem;color:rgba(255,255,255,.35)}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.65)}
 /* ── DIVIDER ── */
 .gold-divider{width:60px;height:3px;background:var(--gold);border-radius:2px;margin:24px 0}
 /* ── RESPONSIVE ── */
@@ -212,8 +217,7 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
 <section class="hero" id="home">
   <div class="hero-grid">
     <div>
-      <p class="hero-label">Financial Clarity · Wealth Building · Real Estate</p>
-      <h1>Know where your finances<br><em>truly stand.</em></h1>
+      <h1>Know where your finances<br><span style="color:var(--gold-lt);font-style:normal;">truly stand.</span></h1>
       <p class="hero-sub">A trust-first financial assessment designed to help Nigerians gain clarity, make better decisions, and build the kind of wealth that transcends generations.</p>
       <div class="hero-actions">
         <button class="btn-gold" onclick="document.getElementById('assessment').scrollIntoView({behavior:'smooth'})">Take the Assessment</button>
@@ -233,7 +237,7 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
       </div>
       <div class="stat-card">
         <div class="stat-card-num">Real Estate</div>
-        <div class="stat-card-label">Nigeria's most reliable long-term wealth vehicle — land banking, off-plan, buy to build & more</div>
+        <div class="stat-card-label">Nigeria's most reliable long-term wealth vehicle: land banking, off-plan, buy to build, and agro assets.</div>
       </div>
     </div>
   </div>
@@ -247,12 +251,12 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
         <p class="section-label">Step One</p>
         <h2 class="section-title">Your Financial Clarity Assessment</h2>
         <div class="gold-divider"></div>
-        <p class="section-sub">Four thoughtful questions. Honest answers. A clear picture of where you stand — and where you can go.</p>
+        <p class="section-sub">Four thoughtful questions. Honest answers. A clear picture of where you stand, and where you can go.</p>
         <div class="assess-trust">
-          <div class="trust-item"><div class="trust-icon">🔒</div><span>Your answers are private and never sold</span></div>
-          <div class="trust-item"><div class="trust-icon">⏱</div><span>Takes less than 4 minutes</span></div>
-          <div class="trust-item"><div class="trust-icon">🎯</div><span>Personalised result with a clear next step</span></div>
-          <div class="trust-item"><div class="trust-icon">🌍</div><span>Designed for the Nigerian wealth context</span></div>
+          <div class="trust-item"><div class="trust-icon" style="color:var(--navy)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><span>Your answers are private and never sold</span></div>
+          <div class="trust-item"><div class="trust-icon" style="color:var(--navy)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><span>Takes less than 4 minutes</span></div>
+          <div class="trust-item"><div class="trust-icon" style="color:var(--navy)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><span>Personalised result with a clear next step</span></div>
+          <div class="trust-item"><div class="trust-icon" style="color:var(--navy)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><span>Designed for the Nigerian wealth context</span></div>
         </div>
       </div>
       <div class="assess-card fade-up">
@@ -270,10 +274,10 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
           <p class="q-num">Financial Awareness</p>
           <p class="q-text">How well do you understand your current financial position?</p>
           <div class="q-options">
-            <div class="q-opt" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">I rarely check — it can be stressful to look</span></div>
-            <div class="q-opt" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">I have a rough idea but no clear picture</span></div>
-            <div class="q-opt" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">I track income and expenses regularly</span></div>
-            <div class="q-opt" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">I have a detailed financial plan and net worth figure</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">I rarely check; it can be stressful to look</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">I have a rough idea but no clear picture</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">I track income and expenses regularly</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">I have a detailed financial plan and net worth figure</span></div>
           </div>
           <div class="assess-nav">
             <span></span>
@@ -286,10 +290,10 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
           <p class="q-num">Financial Discipline</p>
           <p class="q-text">How consistent are you with saving or investing each month?</p>
           <div class="q-options">
-            <div class="q-opt" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">Rarely — whatever is left goes to expenses</span></div>
-            <div class="q-opt" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">Sometimes, when I remember or have extra</span></div>
-            <div class="q-opt" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">Most months — it's becoming a habit</span></div>
-            <div class="q-opt" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">Every month without fail — it's automated</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">Rarely, as whatever is left goes to expenses</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">Sometimes, when I remember or have extra</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">Most months: it is becoming a habit</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">Every month without fail: it is automated</span></div>
           </div>
           <div class="assess-nav">
             <button class="btn-prev" onclick="prevQ(2)">← Back</button>
@@ -302,10 +306,10 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
           <p class="q-num">Future Planning</p>
           <p class="q-text">What is your primary financial goal over the next 5–10 years?</p>
           <div class="q-options">
-            <div class="q-opt" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">Stability — getting through month to month</span></div>
-            <div class="q-opt" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">Building an emergency fund and clearing debt</span></div>
-            <div class="q-opt" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">Owning property and growing investments</span></div>
-            <div class="q-opt" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">Creating generational wealth and financial legacy</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">Stability: managing month to month</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">Building an emergency fund and clearing debt</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">Owning property and growing investments</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">Creating generational wealth and financial legacy</span></div>
           </div>
           <div class="assess-nav">
             <button class="btn-prev" onclick="prevQ(3)">← Back</button>
@@ -318,10 +322,10 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
           <p class="q-num">Income Direction</p>
           <p class="q-text">How would you describe your income and earning sources?</p>
           <div class="q-options">
-            <div class="q-opt" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">Single income, inconsistent or irregular</span></div>
-            <div class="q-opt" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">Single income, stable job or profession</span></div>
-            <div class="q-opt" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">Multiple income streams — salary plus side income</span></div>
-            <div class="q-opt" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">Business or investment income — largely passive</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="0"><div class="q-opt-dot"></div><span class="q-opt-text">Single income, inconsistent or irregular</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="1"><div class="q-opt-dot"></div><span class="q-opt-text">Single income, stable job or profession</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="2"><div class="q-opt-dot"></div><span class="q-opt-text">Multiple income streams — salary plus side income</span></div>
+            <div class="q-opt" tabindex="0" role="button" data-val="3"><div class="q-opt-dot"></div><span class="q-opt-text">Business or investment income — largely passive</span></div>
           </div>
           <div class="assess-nav">
             <button class="btn-prev" onclick="prevQ(4)">← Back</button>
@@ -355,25 +359,25 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
           <div class="meaning-pill" style="font-size:2rem;line-height:1;padding-top:6px;color:rgba(255,255,255,.3)">+</div>
           <div class="meaning-pill"><span class="meaning-word">Nrewaju</span><span class="meaning-def">Goes Forward</span></div>
         </div>
-        <p class="about-body">My name has always been my purpose. <em style="color:var(--gold-lt)">Wealth goes forward</em> — not just for me, but for everyone I walk alongside. Born into a culture where generational wealth was rarely spoken of, I chose to make it my life's work to change that narrative.<br><br>9jawealth exists to give Nigerians the financial clarity and investment access they deserve — so that wealth truly does go forward, generation after generation.</p>
+        <p class="about-body">My name has always been my purpose. <em style="color:var(--gold-lt)">Wealth goes forward</em> — not just for me, but for everyone I walk alongside. Born into a culture where generational wealth was rarely spoken of, I chose to make it my life's work to change that narrative.<br><br>9jawealth exists to give Nigerians the financial clarity and investment access they deserve, so that wealth truly moves forward, generation after generation.</p>
       </div>
       <div class="fade-up">
         <div class="about-quote">"Wealth is not what you have. It is what you pass on."</div>
         <div class="about-values">
           <div class="value-item">
-            <div class="value-icon">🧭</div>
+            <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-lt)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
             <div class="value-text"><strong>Clarity Before Action</strong><span>We help you understand your financial reality before recommending any path.</span></div>
           </div>
           <div class="value-item">
-            <div class="value-icon">🏗</div>
-            <div class="value-text"><strong>Real Assets, Real Growth</strong><span>We focus on tangible, appreciating assets — not speculation or shortcuts.</span></div>
+            <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-lt)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l8-4 6 3v15"/><path d="M9 10h1"/><path d="M9 14h1"/><path d="M9 18h1"/><path d="M14 10h1"/><path d="M14 14h1"/><path d="M14 18h1"/></svg></div>
+            <div class="value-text"><strong>Real Assets, Real Growth</strong><span>We focus on tangible, appreciating assets, not speculation or shortcuts.</span></div>
           </div>
           <div class="value-item">
-            <div class="value-icon">🌱</div>
+            <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-lt)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13a5 5 0 0 0 5-5c0-4-5-6-5-6s-5 2-5 6a5 5 0 0 0 5 5z"/><path d="M7 10a7 7 0 0 0-4 6 7 7 0 0 0 9 2"/></svg></div>
             <div class="value-text"><strong>Generational Thinking</strong><span>Every investment decision is made with the next generation in mind.</span></div>
           </div>
           <div class="value-item">
-            <div class="value-icon">🤝</div>
+            <div class="value-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-lt)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <div class="value-text"><strong>Trust First, Always</strong><span>You will never feel pressured here. Our goal is your long-term financial wellbeing.</span></div>
           </div>
         </div>
@@ -390,12 +394,12 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
         <p class="section-label">Investment Pathways</p>
         <h2 class="section-title">Your Next Step Toward Financial Independence</h2>
       </div>
-      <p class="section-sub">After your assessment, the path forward is clear. Nigeria's real estate market offers some of Africa's most compelling wealth-building opportunities — and we are here to help you navigate them.</p>
+      <p class="section-sub">After your assessment, the path forward is clear. Nigeria's real estate market offers some of Africa's most compelling wealth-building opportunities, and we are here to help you navigate them.</p>
     </div>
     <a href="education.html" class="path-card fade-up" style="max-width:700px">
-      <div class="path-card-icon">🏡</div>
+      <div class="path-card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-lt)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <div class="path-card-title">Real Estate Investment in Nigeria</div>
-      <p class="path-card-desc">Explore verified, high-potential property investment strategies tailored for Nigerian investors — from land banking and off-plan properties to buy-to-build programmes and agro-investment opportunities. Your complete guide to building wealth through real assets.</p>
+      <p class="path-card-desc">Explore verified, high-potential property investment strategies tailored for Nigerian investors, covering land banking and off-plan properties to buy-to-build programmes and agro-investment opportunities. Your complete guide to building wealth through real assets.</p>
       <div class="path-tags">
         <span class="path-tag">Land Banking</span>
         <span class="path-tag">Off-Plan</span>
@@ -493,15 +497,15 @@ function showResult(){
   if(total<=3){
     stage='Foundation Stage';
     title='Your Wealth Journey Starts Here';
-    text='Everyone starts somewhere — and clarity is your most powerful first step. Focus on understanding your income, creating a simple budget, and setting a small savings target. Your goal right now: build a foundation strong enough to hold everything else.';
+    text='Everyone starts somewhere, and clarity is your most powerful first step. Focus on understanding your income, creating a simple budget, and setting a small savings target. Your goal right now: build a foundation strong enough to hold everything else.';
   } else if(total<=6){
     stage='Financial Awakening';
     title='You Are Building Momentum';
-    text='You have awareness and some discipline — that combination is powerful. Now it is time to direct that energy toward your first real asset. Land banking and entry-level property investment in Nigeria could be your ideal starting point.';
+    text='You have awareness and some discipline, and that combination is powerful. Now it is time to direct that energy toward your first real asset. Land banking and entry-level property investment in Nigeria could be your ideal starting point.';
   } else if(total<=9){
     stage='Growth Stage';
     title='You Are Ready to Invest';
-    text='Your habits and mindset are aligned for serious wealth building. Real estate — whether off-plan properties, buy-to-build, or agricultural investment — could be the vehicle that multiplies what you have already built.';
+    text='Your habits and mindset are aligned for serious wealth building. Real estate, whether off-plan properties, buy-to-build, or agricultural investment — could be the vehicle that multiplies what you have already built.';
   } else {
     stage='Financial Freedom Stage';
     title='You Think Like a Wealth Builder';

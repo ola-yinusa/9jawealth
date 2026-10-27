@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <!-- SEO -->
-<meta name="description" content="Nigeria Real Estate Investment Guide 2025 — Explore land banking, off-plan properties, buy-to-build and oil palm plantation investment opportunities in Lagos, Abuja and across Nigeria. Book a free consultation with 9jawealth.">
+<meta name="description" content="Nigeria Real Estate Investment Guide 2025: Explore land banking, off-plan properties, buy-to-build and oil palm plantation investment opportunities in Lagos, Abuja and across Nigeria. Book a free consultation with 9jawealth.">
 <meta name="keywords" content="Nigeria real estate investment, land banking Nigeria, off-plan properties Lagos, buy to build Nigeria, oil palm plantation investment Nigeria, real estate investment Lagos, Abuja property investment, 9jawealth, Nigerian real estate opportunities 2025">
 <meta name="robots" content="index,follow">
 <meta name="author" content="9jawealth - Olanrewaju Yinusa">
@@ -28,13 +28,18 @@
 <style>
 :root{
   --navy:#0C3556;--navy-deep:#071E33;--navy-mid:#14426A;
-  --gold:#C88B20;--gold-lt:#E8B44A;--gold-pale:#F6EDD8;
-  --cream:#FAF7F0;--white:#FFFFFF;
-  --text:#1C1C2E;--text-mid:#4E586A;--text-light:#9BA3B0;
+  --gold:#C88B20;--gold-lt:#F3C96A;--gold-dark:#9B6309;--gold-pale:#F6EDD8;
+  --cream:#F8FAFC;--white:#FFFFFF;
+  --text:#1C1C2E;--text-mid:#4E586A;--text-light:#64748B;
   --border:#E5DDD0;--green:#1A7A4A;--green-pale:#E6F4ED;
   --r:12px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+
+::selection{background:var(--gold-lt);color:var(--navy-deep)}
+:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);line-height:1.7}
 a{color:inherit;text-decoration:none}
@@ -44,39 +49,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.96
 .nav-logo{display:flex;align-items:center;gap:12px}
 .nav-logo img{height:44px}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--white)}
-.nav-logo-text span{color:var(--gold)}
+.nav-logo-text span{color:var(--gold-lt)}
 .nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:.06em;text-transform:uppercase;transition:.2s}
+.nav-links a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.75);letter-spacing:normal;text-transform:uppercase;transition:.2s}
 .nav-links a:hover{color:var(--gold-lt)}
-.btn-book-nav{background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:.83rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 22px;border-radius:6px;white-space:nowrap}
+.btn-book-nav{background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:.83rem;letter-spacing:normal;text-transform:uppercase;padding:10px 22px;border-radius:6px;white-space:nowrap}
 .btn-book-nav:hover{background:var(--gold-lt)}
 /* HERO */
 .edu-hero{background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy-mid) 60%,#1A5080 100%);padding:140px 5% 100px;text-align:center;position:relative;overflow:hidden}
 .edu-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,139,32,.12) 0%,transparent 60%)}
-.breadcrumb{font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:20px;letter-spacing:.08em}
+.breadcrumb{font-size:.82rem;color:rgba(255,255,255,.8);margin-bottom:20px}
 .breadcrumb a{color:var(--gold-lt)}
 .edu-hero-label{font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .edu-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:20px;max-width:900px;margin-left:auto;margin-right:auto}
-.edu-hero h1 em{color:var(--gold-lt);font-style:italic}
+.edu-hero h1 em{color:var(--gold-lt);font-style:normal}
 .edu-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:680px;margin:0 auto 40px;line-height:1.85}
 .hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
-.hero-chip{background:rgba(255,255,255,.1);border:1px solid rgba(200,139,32,.3);color:rgba(255,255,255,.82);font-size:.8rem;font-weight:500;letter-spacing:.06em;padding:7px 16px;border-radius:20px}
-.hero-scroll-hint{font-size:.78rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase}
+.hero-chip{background:rgba(255,255,255,.1);border:1px solid rgba(200,139,32,.3);color:rgba(255,255,255,.82);font-size:.8rem;font-weight:500;letter-spacing:normal;padding:7px 16px;border-radius:20px}
+.hero-scroll-hint{font-size:.8rem;color:rgba(255,255,255,.75);text-transform:uppercase}
 /* SECTION */
-section.edu-sec{padding:90px 5%}
-.edu-inner{max-width:1200px;margin:0 auto}
-.sec-label{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+section.edu-sec{padding:90px 6%}
+.edu-inner{max-width:1200px;margin:0 auto;padding:0 20px}
+.sec-label{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:14px}
 .sec-sub{font-size:.98rem;color:var(--text-mid);max-width:640px;line-height:1.85;margin-bottom:52px}
 .gold-line{width:48px;height:3px;background:var(--gold);border-radius:2px;margin:16px 0 24px}
 /* INVEST GRID */
 .invest-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .invest-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s}
-.invest-card:hover{border-color:var(--gold);box-shadow:0 12px 40px rgba(12,53,86,.12);transform:translateY(-4px)}
+.invest-card:hover{border-color:var(--gold);box-shadow:0 12px 40px rgba(15,23,42,0.08);transform:translateY(-4px)}
 .invest-card-top{padding:32px 32px 0}
 .invest-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
 .invest-card-title{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:700;color:var(--navy);margin-bottom:8px}
-.invest-card-tag{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:14px}
+.invest-card-tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dark);background:var(--gold-pale);padding:3px 12px;border-radius:20px;display:inline-block;margin-bottom:14px}
 .invest-card-desc{font-size:.9rem;color:var(--text-mid);line-height:1.8;padding-bottom:24px}
 .invest-card-details{border-top:1px solid var(--border);padding:24px 32px}
 .invest-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
@@ -92,7 +97,7 @@ section.edu-sec{padding:90px 5%}
 .why-card{background:rgba(255,255,255,.06);border:1px solid rgba(200,139,32,.18);border-radius:14px;padding:28px}
 .why-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--gold-lt);line-height:1;margin-bottom:8px}
 .why-label{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:6px}
-.why-desc{font-size:.82rem;color:rgba(255,255,255,.58);line-height:1.7}
+.why-desc{font-size:.84rem;color:rgba(255,255,255,.78);line-height:1.7}
 .why-insight{background:rgba(200,139,32,.12);border:1px solid rgba(200,139,32,.25);border-radius:14px;padding:28px 32px;margin-top:32px}
 .why-insight p{font-size:1rem;color:rgba(255,255,255,.82);line-height:1.85}
 .why-insight strong{color:var(--gold-lt)}
@@ -109,26 +114,26 @@ section.edu-sec{padding:90px 5%}
 /* BOOK */
 .book-sec{background:var(--navy);text-align:center}
 .book-sec .sec-title{color:var(--white);margin:0 auto 14px}
-.book-sec .sec-sub{color:rgba(255,255,255,.68);margin:0 auto 36px}
+.book-sec .sec-sub{color:rgba(255,255,255,.85);margin:0 auto 36px}
 .book-steps{display:flex;justify-content:center;gap:40px;margin-bottom:48px;flex-wrap:wrap}
 .book-step{text-align:center;max-width:180px}
 .book-step-num{width:44px;height:44px;border-radius:50%;background:rgba(200,139,32,.15);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold-lt);margin:0 auto 12px}
 .book-step-title{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:4px}
-.book-step-desc{font-size:.78rem;color:rgba(255,255,255,.5)}
+.book-step-desc{font-size:.82rem;color:rgba(255,255,255,.85)}
 .book-calendar-btn{display:inline-flex;align-items:center;gap:12px;background:var(--gold);color:var(--navy-deep);font-weight:700;font-size:1rem;letter-spacing:.07em;text-transform:uppercase;padding:20px 44px;border-radius:12px;transition:.2s;cursor:pointer;border:none;font-family:'Jost',sans-serif}
 .book-calendar-btn:hover{background:var(--gold-lt);transform:translateY(-2px)}
-.book-note{font-size:.8rem;color:rgba(255,255,255,.4);margin-top:16px;max-width:420px;margin-left:auto;margin-right:auto}
+.book-note{font-size:.84rem;color:rgba(255,255,255,.8);margin-top:16px;max-width:480px;margin-left:auto;margin-right:auto}
 /* FOOTER */
 footer{background:var(--navy-deep);padding:40px 5%}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .footer-logo{display:flex;align-items:center;gap:10px}
 .footer-logo img{height:36px}
 .footer-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--white)}
-.footer-logo-text span{color:var(--gold)}
+.footer-logo-text span{color:var(--gold-lt)}
 .footer-links{display:flex;gap:22px;list-style:none}
-.footer-links a{font-size:.8rem;color:rgba(255,255,255,.5);transition:.2s}
+.footer-links a{font-size:.82rem;color:rgba(255,255,255,.75);transition:.2s}
 .footer-links a:hover{color:var(--gold-lt)}
-.footer-copy{font-size:.78rem;color:rgba(255,255,255,.3)}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.65)}
 /* RESPONSIVE */
 @media(max-width:1000px){.invest-grid,.why-grid{grid-template-columns:1fr}}
 @media(max-width:700px){
@@ -166,15 +171,14 @@ footer{background:var(--navy-deep);padding:40px 5%}
 <!-- HERO -->
 <div class="edu-hero">
   <p class="breadcrumb"><a href="index.html">9jawealth</a> › Nigeria Real Estate Investment Guide</p>
-  <p class="edu-hero-label">Investor Education · Nigeria Real Estate 2025</p>
-  <h1>Build <em>Generational Wealth</em><br>Through Nigerian Real Estate</h1>
-  <p class="edu-hero-sub">A comprehensive, honest guide to the most powerful real estate investment opportunities available to Nigerians today — land banking, off-plan properties, buy-to-build programmes, and done-for-you oil palm plantation. Discover the strategy that fits your goals.</p>
+    <h1>Build <em>Generational Wealth</em><br>Through Nigerian Real Estate</h1>
+  <p class="edu-hero-sub">A comprehensive, honest guide to the most powerful real estate investment opportunities available to Nigerians today: land banking, off-plan properties, buy-to-build programmes, and done-for-you oil palm plantation. Discover the strategy that fits your goals.</p>
   <div class="hero-chips">
-    <span class="hero-chip">🌍 Lagos · Abuja · Nationwide</span>
-    <span class="hero-chip">📈 Long-term Capital Growth</span>
-    <span class="hero-chip">🏗 Tangible Assets</span>
-    <span class="hero-chip">🌿 Agro-Investment</span>
-    <span class="hero-chip">📅 Book a Free Consultation</span>
+    <span class="hero-chip">Lagos · Abuja · Nationwide</span>
+    <span class="hero-chip">Long-term Capital Growth</span>
+    <span class="hero-chip">Tangible Real Assets</span>
+    <span class="hero-chip">Agro-Real Estate</span>
+    <span class="hero-chip">Free Consultation</span>
   </div>
   <p class="hero-scroll-hint">↓ Explore your options below</p>
 </div>
@@ -185,7 +189,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
     <p class="sec-label">Investment Strategies</p>
     <h2 class="sec-title">Four Paths to Real Estate Wealth in Nigeria</h2>
     <div class="gold-line"></div>
-    <p class="sec-sub">Every investor's situation is different. These are the four primary real estate strategies available to you — from entry-level land acquisition to fully managed agricultural investments. Understanding each one is the first step toward making the right choice.</p>
+    <p class="sec-sub">Every investor's situation is different. These are the four primary real estate strategies available to you , from entry-level land acquisition to fully managed agricultural investments. Understanding each one is the first step toward making the right choice.</p>
 
     <div class="invest-grid">
 
@@ -195,16 +199,16 @@ footer{background:var(--navy-deep);padding:40px 5%}
           <div class="invest-icon" style="background:#EBF5FF">🌍</div>
           <span class="invest-card-tag">Lowest Entry Point</span>
           <div class="invest-card-title">Land Banking</div>
-          <p class="invest-card-desc">Land banking is the practice of acquiring land in growth corridors at today's price and holding it until natural appreciation — driven by infrastructure, development and population growth — multiplies its value. It is one of Nigeria's most consistent wealth-building tools.</p>
+          <p class="invest-card-desc">Land banking is the practice of acquiring land in growth corridors at today's price and holding it until natural appreciation , driven by infrastructure, development and population growth , multiplies its value. It is one of Nigeria's most consistent wealth-building tools.</p>
         </div>
         <div class="invest-card-details">
           <ul class="invest-bullets">
             <li>Lowest capital entry point of all real estate strategies</li>
             <li>Ideal for corridors near expanding cities: Lagos–Ibadan Expressway, FCT Abuja outskirts, Ogun State hubs</li>
-            <li>Zero maintenance cost — land requires nothing from you while it appreciates</li>
+            <li>Zero maintenance cost , land requires nothing from you while it appreciates</li>
             <li>Can be sold, developed or used as collateral as value grows</li>
             <li>Medium-to-long holding period (3–10 years) for maximum returns</li>
-            <li>Title verification is critical — C of O, Governor's Consent, or Registered Survey</li>
+            <li>Title verification is critical , C of O, Governor's Consent, or Registered Survey</li>
           </ul>
         </div>
         <div class="invest-cta-row">
@@ -218,7 +222,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
           <div class="invest-icon" style="background:#F0FAF5">🏗</div>
           <span class="invest-card-tag">Build Your Legacy</span>
           <div class="invest-card-title">Buy to Build</div>
-          <p class="invest-card-desc">Buy to build means acquiring land and constructing property to your specification — either as your family home, a rental income property, or a commercial investment. This strategy gives you the most control and the highest potential return for your investment.</p>
+          <p class="invest-card-desc">Buy to build means acquiring land and constructing property to your specification , either as your family home, a rental income property, or a commercial investment. This strategy gives you the most control and the highest potential return for your investment.</p>
         </div>
         <div class="invest-card-details">
           <ul class="invest-bullets">
@@ -227,7 +231,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
             <li>Build to sell: capture development margin plus land appreciation</li>
             <li>Family home: eliminate rent and build a lasting asset</li>
             <li>Works best in established or fast-developing areas with strong rental demand</li>
-            <li>Can be phased — build in stages as funds allow</li>
+            <li>Can be phased , build in stages as funds allow</li>
           </ul>
         </div>
         <div class="invest-cta-row">
@@ -241,16 +245,16 @@ footer{background:var(--navy-deep);padding:40px 5%}
           <div class="invest-icon" style="background:#FFF4E5">🏢</div>
           <span class="invest-card-tag">High Growth Potential</span>
           <div class="invest-card-title">Off-Plan Properties</div>
-          <p class="invest-card-desc">Investing off-plan means purchasing property before — or during — construction at a pre-launch or development price. By the time the property is completed, values typically rise by 20–50%, giving investors significant capital gains in a short period.</p>
+          <p class="invest-card-desc">Investing off-plan means purchasing property before , or during , construction at a pre-launch or development price. By the time the property is completed, values typically rise by 20–50%, giving investors significant capital gains in a short period.</p>
         </div>
         <div class="invest-card-details">
           <ul class="invest-bullets">
             <li>Purchase at below-market prices locked in before completion</li>
-            <li>Flexible payment plans — spread the cost over 12–36 months</li>
+            <li>Flexible payment plans , spread the cost over 12–36 months</li>
             <li>Capital appreciation before you take possession</li>
             <li>Ideal for condominiums, serviced apartments and gated estates</li>
             <li>Suitable for both personal use and rental income strategy</li>
-            <li>Developer due diligence is essential — we guide you through this</li>
+            <li>Developer due diligence is essential , we guide you through this</li>
           </ul>
         </div>
         <div class="invest-cta-row">
@@ -264,7 +268,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
           <div class="invest-icon" style="background:#F0FAF5">🌿</div>
           <span class="invest-card-tag">Done For You · Passive</span>
           <div class="invest-card-title">Oil Palm Plantation</div>
-          <p class="invest-card-desc">Nigeria is Africa's largest consumer of palm oil and one of the world's biggest producers. Investing in a managed oil palm plantation means owning agricultural land with professional cultivation, harvest and sales handled entirely for you — a truly passive wealth-building vehicle.</p>
+          <p class="invest-card-desc">Nigeria is Africa's largest consumer of palm oil and one of the world's biggest producers. Investing in a managed oil palm plantation means owning agricultural land with professional cultivation, harvest and sales handled entirely for you , a truly passive wealth-building vehicle.</p>
         </div>
         <div class="invest-card-details">
           <ul class="invest-bullets">
@@ -272,7 +276,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
             <li>Palm trees begin fruiting from year 3 and produce for 25+ years</li>
             <li>Dual income: land value appreciation plus seasonal harvest revenue</li>
             <li>Strong domestic demand with growing export opportunity</li>
-            <li>Lower correlation to naira volatility — palm oil is priced internationally</li>
+            <li>Lower correlation to naira volatility , palm oil is priced internationally</li>
             <li>Ideal for professionals and diaspora investors wanting true passivity</li>
           </ul>
         </div>
@@ -306,11 +310,11 @@ footer{background:var(--navy-deep);padding:40px 5%}
       <div class="why-card fade-up stagger-2">
         <div class="why-num">3–10×</div>
         <div class="why-label">Land Value Growth (10-Year Corridors)</div>
-        <p class="why-desc">Strategic land acquisitions in verified growth corridors — particularly Lagos peri-urban zones, Ogun, FCT and new industrial hubs — have historically returned 3 to 10 times over a decade.</p>
+        <p class="why-desc">Strategic land acquisitions in verified growth corridors , particularly Lagos peri-urban zones, Ogun, FCT and new industrial hubs , have historically returned 3 to 10 times over a decade.</p>
       </div>
     </div>
     <div class="why-insight fade-up" style="margin-top:28px">
-      <p>The most important insight for any Nigerian investor: <strong>land in Nigeria does not go down in naira terms over the long run</strong>. Every economic shock is eventually followed by an accelerated recovery in property values — driven by population growth, urbanisation and infrastructure spending. The question is not whether to invest in Nigerian real estate. The question is <strong>when and how</strong>.</p>
+      <p>The most important insight for any Nigerian investor: <strong>land in Nigeria does not go down in naira terms over the long run</strong>. Every economic shock is eventually followed by an accelerated recovery in property values , driven by population growth, urbanisation and infrastructure spending. The question is not whether to invest in Nigerian real estate. The question is <strong>when and how</strong>.</p>
     </div>
   </div>
 </section>
@@ -352,7 +356,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
   <div class="edu-inner">
     <p class="sec-label" style="color:var(--gold)">Your Next Step</p>
     <h2 class="sec-title">Book a Free Investment Consultation</h2>
-    <p class="sec-sub">Every investor's path is different. Let us identify which combination of strategies makes the most sense for your specific situation, capital and goals. No pressure — just clarity.</p>
+    <p class="sec-sub">Every investor's path is different. Let us identify which combination of strategies makes the most sense for your specific situation, capital and goals. No pressure , just clarity.</p>
 
     <div class="book-steps">
       <div class="book-step fade-up">
@@ -368,7 +372,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
       <div class="book-step fade-up stagger-2">
         <div class="book-step-num">3</div>
         <div class="book-step-title">Strategy Session</div>
-        <div class="book-step-desc">30-minute call — honest conversation, no sales pressure</div>
+        <div class="book-step-desc">30-minute call: honest conversation, no sales pressure</div>
       </div>
       <div class="book-step fade-up stagger-3">
         <div class="book-step-num">4</div>
@@ -386,7 +390,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
         <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         Email Ola (Google Account)
       </a>
-      <a href="https://wa.link/fz5g34" target="_blank" rel="noopener" class="book-calendar-btn" style="background:#25D366;color:#ffffff;border:none;">
+      <a href="https://wa.link/fz5g34" target="_blank" rel="noopener" class="book-calendar-btn" style="background:#25D366;color:#06311D;font-weight:700;border:none;">
         <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
         WhatsApp Consultation
       </a>
