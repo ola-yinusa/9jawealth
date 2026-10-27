@@ -57,10 +57,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.96
 .btn-book-nav:hover{background:var(--gold-lt)}
 /* HERO */
 .edu-hero{background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy-mid) 60%,#1A5080 100%);padding:140px 5% 100px;text-align:center;position:relative;overflow:hidden}
-.edu-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,139,32,.12) 0%,transparent 60%)}
+.edu-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(200,139,32,.12) 0%,transparent 60%);pointer-events:none}
+.edu-hero > *{position:relative;z-index:2}
 .breadcrumb{font-size:.82rem;color:rgba(255,255,255,.8);margin-bottom:20px}
 .breadcrumb a{color:var(--gold-lt)}
-.edu-hero-label{font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.edu-hero-label{font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:16px}
 .edu-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:20px;max-width:900px;margin-left:auto;margin-right:auto}
 .edu-hero h1 em{color:var(--gold-lt);font-style:normal}
 .edu-hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:680px;margin:0 auto 40px;line-height:1.85}
@@ -69,6 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.96
 .hero-scroll-hint{font-size:.8rem;color:rgba(255,255,255,.75);text-transform:uppercase}
 /* SECTION */
 section.edu-sec{padding:90px 6%}
+section.edu-sec,[id]{scroll-margin-top:80px}
 .edu-inner{max-width:1200px;margin:0 auto;padding:0 20px}
 .sec-label{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:14px}
@@ -196,7 +198,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
       <!-- LAND BANKING -->
       <div class="invest-card fade-up stagger-1">
         <div class="invest-card-top">
-          <div class="invest-icon" style="background:#EBF5FF">🌍</div>
+          <div class="invest-icon" style="background:#EBF5FF"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <span class="invest-card-tag">Lowest Entry Point</span>
           <div class="invest-card-title">Land Banking</div>
           <p class="invest-card-desc">Land banking is the practice of acquiring land in growth corridors at today's price and holding it until natural appreciation , driven by infrastructure, development and population growth , multiplies its value. It is one of Nigeria's most consistent wealth-building tools.</p>
@@ -219,7 +221,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
       <!-- BUY TO BUILD -->
       <div class="invest-card fade-up stagger-2">
         <div class="invest-card-top">
-          <div class="invest-icon" style="background:#F0FAF5">🏗</div>
+          <div class="invest-icon" style="background:#F0FAF5"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
           <span class="invest-card-tag">Build Your Legacy</span>
           <div class="invest-card-title">Buy to Build</div>
           <p class="invest-card-desc">Buy to build means acquiring land and constructing property to your specification , either as your family home, a rental income property, or a commercial investment. This strategy gives you the most control and the highest potential return for your investment.</p>
@@ -242,7 +244,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
       <!-- OFF-PLAN -->
       <div class="invest-card fade-up stagger-3">
         <div class="invest-card-top">
-          <div class="invest-icon" style="background:#FFF4E5">🏢</div>
+          <div class="invest-icon" style="background:#FFF4E5"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="22.01"/><line x1="15" y1="22" x2="15" y2="22.01"/><line x1="8" y1="6" x2="8" y2="6.01"/><line x1="16" y1="6" x2="16" y2="6.01"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="16" y1="18" x2="16" y2="18.01"/></svg></div>
           <span class="invest-card-tag">High Growth Potential</span>
           <div class="invest-card-title">Off-Plan Properties</div>
           <p class="invest-card-desc">Investing off-plan means purchasing property before , or during , construction at a pre-launch or development price. By the time the property is completed, values typically rise by 20–50%, giving investors significant capital gains in a short period.</p>
@@ -265,7 +267,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
       <!-- OIL PALM -->
       <div class="invest-card fade-up stagger-4">
         <div class="invest-card-top">
-          <div class="invest-icon" style="background:#F0FAF5">🌿</div>
+          <div class="invest-icon" style="background:#F0FAF5"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-9"/><path d="M12 13a5 5 0 0 0 5-5c0-4-5-6-5-6s-5 2-5 6a5 5 0 0 0 5 5z"/><path d="M7 10a7 7 0 0 0-4 6 7 7 0 0 0 9 2"/></svg></div>
           <span class="invest-card-tag">Done For You · Passive</span>
           <div class="invest-card-title">Oil Palm Plantation</div>
           <p class="invest-card-desc">Nigeria is Africa's largest consumer of palm oil and one of the world's biggest producers. Investing in a managed oil palm plantation means owning agricultural land with professional cultivation, harvest and sales handled entirely for you , a truly passive wealth-building vehicle.</p>
@@ -292,7 +294,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
 <!-- WHY NIGERIA -->
 <section class="edu-sec why-sec" id="why-nigeria">
   <div class="edu-inner">
-    <p class="sec-label" style="color:var(--gold)">Market Context</p>
+    <p class="sec-label" style="color:var(--gold-lt)">Market Context</p>
     <h2 class="sec-title">Why Nigeria Real Estate Remains Africa's Most Compelling Opportunity</h2>
     <div class="gold-line"></div>
     <p class="sec-sub" style="color:rgba(255,255,255,.68)">Understanding the macro picture is essential before investing. These are the structural drivers that make Nigerian real estate one of the strongest long-term investment cases on the continent.</p>
@@ -354,7 +356,7 @@ footer{background:var(--navy-deep);padding:40px 5%}
 <!-- BOOK APPOINTMENT -->
 <section class="edu-sec book-sec" id="book">
   <div class="edu-inner">
-    <p class="sec-label" style="color:var(--gold)">Your Next Step</p>
+    <p class="sec-label" style="color:var(--gold-lt)">Your Next Step</p>
     <h2 class="sec-title">Book a Free Investment Consultation</h2>
     <p class="sec-sub">Every investor's path is different. Let us identify which combination of strategies makes the most sense for your specific situation, capital and goals. No pressure , just clarity.</p>
 

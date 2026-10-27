@@ -49,16 +49,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.95
 .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
 /* ── HERO ── */
 .hero{min-height:100svh;background:linear-gradient(145deg,var(--navy-deep) 0%,var(--navy) 55%,#1A4D7A 100%);display:flex;flex-direction:column;justify-content:center;padding:120px 5% 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C88B20' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%;padding:0 20px}
-.hero-label{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C88B20' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%;padding:0 20px;position:relative;z-index:2}
+.hero-label{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:18px}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:22px}
 .hero h1 em{color:var(--gold-lt);font-style:normal}
 .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:480px;margin-bottom:40px;line-height:1.8}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
-.btn-gold{background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:.9rem;letter-spacing:.07em;text-transform:uppercase;padding:16px 32px;border-radius:8px;border:none;cursor:pointer;transition:all .2s}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:3}
+.btn-gold{background:var(--gold);color:var(--navy-deep);font-weight:600;font-size:.9rem;letter-spacing:.07em;text-transform:uppercase;padding:16px 32px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;position:relative;z-index:3}
 .btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);font-weight:500;font-size:.9rem;padding:16px 28px;border-radius:8px;cursor:pointer;transition:all .2s}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.4);font-weight:500;font-size:.9rem;padding:16px 28px;border-radius:8px;cursor:pointer;transition:all .2s;position:relative;z-index:3}
 .btn-outline:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
 .hero-visual{display:flex;flex-direction:column;gap:16px}
 .stat-card{background:rgba(7,30,51,0.65);border:1px solid rgba(243,201,106,.25);border-radius:var(--r);padding:24px 28px}
@@ -67,6 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,30,51,0.95
 .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 /* ── SECTION BASE ── */
 section{padding:90px 5%}
+section,[id]{scroll-margin-top:80px}
 .section-inner{max-width:1200px;margin:0 auto;padding:0 20px}
 .section-label{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:20px}
@@ -414,7 +415,7 @@ footer{background:var(--navy-deep);padding:36px 5%;text-align:center}
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <p class="section-label" style="color:var(--gold)">Get In Touch</p>
+    <p class="section-label" style="color:var(--gold-lt)">Get In Touch</p>
     <h2 class="section-title">Start the Conversation</h2>
     <p class="section-sub">Ready to take the next step? Reach out directly via your preferred channel. Every wealth journey begins with a single, honest conversation.</p>
     <div class="contact-channels">
