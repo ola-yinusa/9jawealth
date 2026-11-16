@@ -1,6 +1,13 @@
 export type QuizSection = "A" | "B" | "C" | "D";
 export type StandardAnswer = "YES" | "NO" | "I DON'T KNOW";
 
+export const quizSectionLabels: Record<QuizSection, string> = {
+  A: "Awareness",
+  B: "Daily discipline",
+  C: "Future planning",
+  D: "Income direction",
+};
+
 export interface QuizQuestion {
   id: number;
   text: string;
@@ -22,7 +29,7 @@ export const quizQuestions: QuizQuestion[] = [
   { id: 6, text: "Have you formed the habit of saving?", type: "standard", section: "A" },
   { id: 7, text: "Do you have a well-defined, documented financial goal?", type: "standard", section: "A" },
   { id: 8, text: "Do you have a bank account?", type: "standard", section: "A" },
-  { id: 9, text: "Do you reconcile your bank statement every month?", type: "standard", section: "A" },
+  { id: 9, text: "Do you reconcile your bank statement every month (compare bank transactions with your own records)?", type: "standard", section: "A" },
   {
     id: 10,
     text: "Do you keep a record of your income and expenditure?",
@@ -38,7 +45,7 @@ export const quizQuestions: QuizQuestion[] = [
   { id: 15, text: "Do you take advantage of investment opportunities that come your way?", type: "standard", section: "B" },
   {
     id: 16,
-    text: "Do you have investments that reduce your taxable income?",
+    text: "Do you have investments that reduce your taxable income (such as pension contributions or tax-exempt plans)?",
     type: "standard",
     section: "C",
     sectionTitle: "Section C",

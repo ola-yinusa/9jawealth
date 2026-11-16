@@ -1,13 +1,14 @@
 9jawealth
 
-Summary: Trust-first financial clarity assessment for visitors exploring wealth-building paths in Nigerian residential and agro-real estate.
+Summary: Trust-first financial clarity assessment and Nigeria real estate investment guide for visitors comparing residential plots and agro-real estate ownership.
 URL: https://www.9jawealth.com/
 
-Primary page:
+Primary pages:
 - https://www.9jawealth.com/ : Financial clarity assessment landing page
-- https://signature.9jawealth.com/ : Lekki Avana Signature (Resort Palm Estate in Ibeju-Lekki)
-- https://palmville.9jawealth.com/ : PalmVille Agro Real Estate (Obafemi-Owode, Ogun State)
+- https://www.9jawealth.com/education : Nigeria Real Estate Investment Guide (4 strategies with capital entry realities, Nigerian land title and fee glossary, Lekki Avana Signature vs PalmVille side-by-side comparison matrix, assessment readiness bridge, and 1-on-1 consultation booking with WAT time window)
+- https://signature.9jawealth.com/ : Lekki Avana Signature (Resort Palm Estate in Ibeju-Lekki, Lagos — 300, 500, 600, and 1,000 SQM plots from N18M to N70M on 0 to 6 month plans)
+- https://palmville.9jawealth.com/ : PalmVille Agro Real Estate (Managed oil-palm plantation in Obafemi-Owode, Ogun State — Registered Survey & Deed of Assignment, fruiting Year 4 to 5, projected harvest payouts from Year 6 onward)
 
 Notes:
-- Assessment submissions are captured for follow-up.
-- Assessment report delivery is handled server-side through the configured mail provider.
+- Assessment submissions and Investment Guide consultation requests are captured server-side via /api/send-report for Lark Base CRM tracking and email follow-up.
+- Consultation requests capture preferred West Africa Time (WAT) windows alongside optional notes and strategy selection.

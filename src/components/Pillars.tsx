@@ -1,43 +1,31 @@
-import { motion } from "motion/react";
 import { pillars } from "@/src/content/site";
 
 export default function Pillars() {
   return (
-    <section className="py-20 md:py-24">
+    <section aria-labelledby="pillars-heading" className="border-y border-border bg-cream/45 py-10 md:py-12">
       <div className="section-shell">
-        <div className="mb-12 max-w-3xl">
-          <p className="eyebrow mb-3">Why this page feels different</p>
-          <h2 className="balance-text text-4xl font-medium leading-tight text-navy md:text-5xl">
-            A grounded approach to financial growth begins with clarity.
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <h2 id="pillars-heading" className="balance-text mb-6 max-w-2xl text-2xl font-medium leading-tight text-navy md:text-3xl">
+          Three steps before you invest in land.
+        </h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-0 md:divide-x md:divide-border">
           {pillars.map((pillar, index) => (
-            <motion.div
-              key={pillar.number}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -6, transition: { duration: 0.28 } }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="card-outline group relative overflow-hidden rounded-[2rem] border border-border bg-white/75 p-8 backdrop-blur-sm"
+            <article
+              key={pillar.id}
+              className={
+                index === 0
+                  ? "md:pr-8"
+                  : index === 1
+                    ? "border-t border-border pt-5 md:border-t-0 md:px-8 md:pt-0"
+                    : "border-t border-border pt-5 md:border-t-0 md:pl-8 md:pt-0"
+              }
             >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-gold/10 via-gold/60 to-gold/10" />
-              <span className="absolute right-4 top-4 select-none font-serif text-7xl italic text-navy/8 transition-colors group-hover:text-navy/12">
-                {pillar.number}
-              </span>
-              <div className="relative z-10">
-                <span className="eyebrow mb-4 block">
-                  {pillar.eyebrow}
-                </span>
-                <h3 className="balance-text mb-4 text-2xl font-medium leading-[1.18] text-navy">
-                  {pillar.title}
-                </h3>
-                <p className="text-[16px] leading-relaxed text-ink">
-                  {pillar.body}
-                </p>
-              </div>
-            </motion.div>
+              <h3 className="balance-text mb-2 text-xl font-semibold leading-snug text-navy md:text-[1.35rem]">
+                {pillar.title}
+              </h3>
+              <p className="text-[15px] leading-relaxed text-ink">
+                {pillar.body}
+              </p>
+            </article>
           ))}
         </div>
       </div>

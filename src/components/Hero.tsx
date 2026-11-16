@@ -1,4 +1,11 @@
+import { ArrowRight, BookOpen, Check } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
+
+const clarityPoints = [
+  "4 minutes · 31 questions across 4 financial pillars",
+  "Measures awareness, daily discipline, protection & income readiness",
+  "Gives you a clear 4-section score and recommended next step",
+];
 
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion();
@@ -8,158 +15,111 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.1,
-        delayChildren: prefersReducedMotion ? 0 : 0.18,
+        staggerChildren: prefersReducedMotion ? 0 : 0.08,
+        delayChildren: prefersReducedMotion ? 0 : 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: prefersReducedMotion ? 0.12 : 0.7, ease: [0.16, 1, 0.3, 1] },
+      transition: { duration: prefersReducedMotion ? 0.12 : 0.65, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
   return (
-    <section className="relative overflow-hidden pb-18 pt-28 md:pb-24 md:pt-36">
+    <section className="relative overflow-hidden pb-10 pt-24 md:pb-16 md:pt-32">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(circle_at_top_right,_rgba(20,33,51,0.08),_transparent_36%)]"
+        className="absolute inset-x-0 top-0 h-[30rem] bg-[radial-gradient(circle_at_top_right,_rgba(20,33,51,0.08),_transparent_36%)]"
       />
-      <div className="section-shell grid items-center gap-10 md:grid-cols-[minmax(0,1.05fr)_minmax(22rem,0.95fr)]">
+      <div className="section-shell grid items-center gap-10 md:grid-cols-[minmax(0,1.08fr)_minmax(21rem,0.92fr)]">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="relative z-10 max-w-[42rem]"
         >
-          <motion.div variants={itemVariants} className="mb-6 flex flex-wrap items-center gap-3">
-            <span className="eyebrow rounded-full border border-gold/25 bg-white/75 px-4 py-2">
-              Financial clarity assessment
-            </span>
-            <span className="rounded-full border border-navy/8 bg-white/75 px-4 py-2 text-xs tracking-[0.14em] text-muted uppercase">
-              Live experience
-            </span>
-          </motion.div>
           <motion.h1
             variants={itemVariants}
-            className="balance-text text-soft-shadow mb-6 max-w-[12ch] text-[clamp(3rem,7vw,5.8rem)] font-serif font-semibold italic leading-[0.95] tracking-[-0.04em] text-navy"
+            className="balance-text text-soft-shadow mb-5 max-w-[14ch] text-[clamp(2.8rem,6.4vw,5.2rem)] font-serif font-semibold italic leading-[1.03] tracking-[-0.03em] text-navy"
           >
             Know where your finances truly stand.
           </motion.h1>
           <motion.p
             variants={itemVariants}
-            className="balance-text mb-8 max-w-[38rem] text-lg leading-relaxed text-ink md:text-[1.2rem]"
+            className="balance-text mb-7 max-w-[38rem] text-lg leading-relaxed text-ink md:text-[1.18rem]"
           >
-            Diagnose your financial health with our guided assessment built to help you reflect on readiness, habits, and long-term direction.
+            A 4-minute check of your financial habits, protection, and income direction so your next property investment rests on numbers, not guesswork.
           </motion.p>
-          <motion.div variants={itemVariants} className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <motion.div
+            variants={itemVariants}
+            className="mb-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+          >
             <motion.a
               href="#quiz"
               whileHover={prefersReducedMotion ? undefined : { y: -2 }}
               whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
-              className="focus-ring inline-flex min-h-11 items-center justify-center rounded-full bg-navy px-8 py-4 font-display text-base font-semibold text-white shadow-[0_20px_45px_rgba(20,33,51,0.18)]"
+              className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 font-display text-base font-semibold text-white shadow-[0_18px_40px_rgba(20,33,51,0.18)] hover:bg-navy-soft"
             >
-              Take the 2-minute assessment
+              <span>Take the 4-minute assessment</span>
+              <ArrowRight size={17} strokeWidth={2} aria-hidden="true" />
             </motion.a>
             <a
               href="#paths"
-              className="focus-ring inline-flex min-h-11 items-center rounded-full border border-border-strong px-6 py-4 text-sm font-semibold tracking-[0.08em] text-navy uppercase"
+              className="focus-ring inline-flex min-h-12 items-center justify-center rounded-full border border-border-strong bg-white/85 px-6 py-3.5 text-sm font-semibold text-navy hover:border-navy/45 hover:bg-white"
             >
-              Explore the two paths
+              Explore Signature &amp; PalmVille
             </a>
           </motion.div>
-          <motion.div
-            variants={itemVariants}
-            className="surface-panel card-outline grid max-w-[44rem] gap-4 rounded-[2rem] border border-border px-5 py-5 md:grid-cols-3 md:px-6"
-          >
-            <div className="min-w-0">
-              <p className="eyebrow mb-2">What this is</p>
-              <p className="text-sm leading-relaxed text-ink">A refined assessment experience designed to capture real financial intent and readiness.</p>
-            </div>
-            <div className="min-w-0">
-              <p className="eyebrow mb-2">What it avoids</p>
-              <p className="text-sm leading-relaxed text-ink">No hype, no noise, and no artificial urgency — just a grounded initial diagnosis.</p>
-            </div>
-            <div className="min-w-0">
-              <p className="eyebrow mb-2">What comes next</p>
-              <p className="text-sm leading-relaxed text-ink">Automated report delivery is active, sending your results straight to your inbox.</p>
-            </div>
+          <motion.div variants={itemVariants}>
+            <a
+              href="/education"
+              className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full py-1 text-sm font-medium text-navy underline decoration-gold-darker/55 hover:text-gold-darker hover:decoration-gold-darker"
+            >
+              <BookOpen size={16} strokeWidth={1.75} aria-hidden="true" className="text-gold-darker" />
+              <span>Read the Nigeria Real Estate Investment Guide</span>
+            </a>
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 18 }}
+        <motion.aside
+          aria-label="Advisory overview"
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: prefersReducedMotion ? 0.12 : 0.8, ease: [0.16, 1, 0.3, 1], delay: prefersReducedMotion ? 0 : 0.18 }}
-          className="relative md:pl-6"
+          transition={{ duration: prefersReducedMotion ? 0.12 : 0.7, ease: [0.16, 1, 0.3, 1], delay: prefersReducedMotion ? 0 : 0.14 }}
+          className="deep-panel relative rounded-2xl p-7 text-white shadow-[0_26px_64px_rgba(20,33,51,0.18)] md:p-8"
         >
-          <div className="absolute -inset-5 rounded-[2.5rem] border border-white/50 bg-white/55 blur-2xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/65 bg-white/80 p-5 shadow-[0_36px_80px_rgba(20,33,51,0.18)] backdrop-blur-sm md:p-6">
-            <div className="mb-5 flex items-center justify-between rounded-[1.4rem] border border-border bg-white/85 px-4 py-3">
-              <div>
-                <p className="eyebrow mb-1 text-gold-darker">Trust-first framing</p>
-                <p className="text-sm font-semibold text-navy">Clarity Before Action</p>
-              </div>
-              <div className="rounded-full bg-cream px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-navy">
-                Diagnosis
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-navy/10 bg-cream/70 p-4">
-                  <div className="font-serif text-3xl font-semibold text-navy">4 min</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">Assessment Time</div>
-                </div>
-                <div className="rounded-2xl border border-gold/25 bg-gold-pale/50 p-4">
-                  <div className="font-serif text-3xl font-semibold text-gold-darker">₦ ∞</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted">Generational Legacy</div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-navy/10 bg-gradient-to-br from-navy via-navy to-navy-soft p-5 text-white shadow-elevated">
-                <div className="mb-2 flex items-center justify-between text-xs">
-                  <span className="font-semibold uppercase tracking-wider text-gold-light">Real Assets · Real Growth</span>
-                  <span className="text-white/65">Stages 01 – 04</span>
-                </div>
-                <p className="font-serif text-lg italic text-white/95">
-                  &ldquo;Wealth is not what you have. It is what you pass on.&rdquo;
-                </p>
-                <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-3 text-xs text-white/75">
-                  <span>Land Banking · Off-Plan · Agro Assets</span>
-                  <a href="#quiz" className="font-semibold text-gold-light hover:underline">
-                    Take Quiz →
-                  </a>
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-border/80 bg-white/90 p-4">
-                <div className="grid grid-cols-2 gap-2 text-xs text-ink">
-                  <div className="flex items-center gap-2">
-                    <span className="text-gold">✓</span>
-                    <span>Clarity before advice</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-gold">✓</span>
-                    <span>No sales pressure</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-gold">✓</span>
-                    <span>Personalized roadmap</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-gold">✓</span>
-                    <span>Automated delivery</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h2 className="balance-text mb-4 text-2xl font-medium italic leading-snug text-white md:text-[1.75rem]">
+            &ldquo;Wealth is not just what you earn this year. It is what you structure well enough to pass on.&rdquo;
+          </h2>
+          <p className="mb-6 text-sm leading-relaxed text-white/82">
+            Before committing capital to Lagos residential plots or Ogun agro-assets, see how resilient your cash buffer, monthly discipline, and long-term protection truly are.
+          </p>
+          <p className="mb-6 font-display text-xs font-semibold text-gold-light">
+            Olanrewaju Yinusa · 5 years advising Nigerian &amp; diaspora investors
+          </p>
+          <ul className="space-y-3 border-t border-white/14 pt-5 text-sm text-white/88">
+            {clarityPoints.map((point) => (
+              <li key={point} className="flex items-start gap-2.5">
+                <Check size={16} strokeWidth={2} aria-hidden="true" className="mt-0.5 shrink-0 text-gold-light" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 border-t border-white/14 pt-4">
+            <a
+              href="#quiz"
+              className="focus-ring-dark inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gold-light hover:text-white"
+            >
+              <span>Start the assessment</span>
+              <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
+            </a>
           </div>
-        </motion.div>
+        </motion.aside>
       </div>
     </section>
   );

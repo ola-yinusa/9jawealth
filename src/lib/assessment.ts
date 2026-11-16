@@ -7,11 +7,23 @@
  * client-supplied bracket/summary/recommendation.
  */
 
-export interface QuizResult {
-  bracket: string;
-  summary: string;
-  recommendation: string;
-}
+import { standardOptions } from "../content/quiz.js";
+import {
+  getFirstMissingQuestionId,
+  getQuizBreakdown,
+  getQuizResult,
+  type QuizBreakdown,
+  type QuizResult,
+  type SectionScore,
+} from "./quiz.js";
+
+export {
+  getFirstMissingQuestionId,
+  getQuizBreakdown,
+  type QuizBreakdown,
+  type QuizResult,
+  type SectionScore,
+};
 
 export interface ValidSubmission {
   name: string;
@@ -21,39 +33,10 @@ export interface ValidSubmission {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const CANONICAL_KEY_RE = /^\d+$/;
 const MAX_ANSWER_VALUE_LENGTH = 60;
 const MIN_STANDARD_ANSWERS = 26;
-
-const RESULTS: QuizResult[] = [
-  {
-    bracket: "Good shape",
-    summary:
-      "You already show strong financial awareness and structure in several core areas.",
-    recommendation:
-      "Your next gain is likely in sharpening your strategy, not starting from scratch.",
-  },
-  {
-    bracket: "On the right track",
-    summary:
-      "There is a meaningful base here, but a few habits and planning gaps are limiting momentum.",
-    recommendation:
-      "A clearer system and more disciplined follow-through could materially change your trajectory.",
-  },
-  {
-    bracket: "Weak pulse",
-    summary:
-      "You are carrying enough uncertainty that your financial progress may feel slower or less stable than it should.",
-    recommendation:
-      "The highest-value next step is clarity: know where you stand, what matters most, and what to fix first.",
-  },
-  {
-    bracket: "Needs attention",
-    summary:
-      "Several foundational systems appear underdeveloped, which means opportunity may be getting lost before it compounds.",
-    recommendation:
-      "A guided reset around awareness, discipline, and planning would likely create the biggest improvement.",
-  },
-];
+const STANDARD_ANSWER_SET = new Set<string>(standardOptions);
 
 /** Escape user-controlled text before interpolating into HTML email. */
 export function escapeHtml(value: string): string {
@@ -89,30 +72,22 @@ export function maskEmail(email: string): string {
 export function computeQuizResult(
   answers: Record<string | number, unknown>,
 ): QuizResult {
-  let score = 0;
-  for (const [rawId, value] of Object.entries(answers)) {
-    const questionId = Number.parseInt(rawId, 10);
-    if (
-      Number.isInteger(questionId) &&
-      questionId >= 1 &&
-      questionId <= 26 &&
-      (value === "NO" || value === "I DON'T KNOW")
-    ) {
-      score += 1;
-    }
-  }
-  if (score <= 4) return RESULTS[0];
-  if (score <= 10) return RESULTS[1];
-  if (score <= 12) return RESULTS[2];
-  return RESULTS[3];
+  return getQuizResult(answers);
 }
 
 export function countStandardAnswers(
   answers: Record<string, unknown>,
 ): number {
-  return Object.keys(answers).filter((key) => {
+  return Object.entries(answers).filter(([key, value]) => {
+    if (!CANONICAL_KEY_RE.test(key)) return false;
     const id = Number.parseInt(key, 10);
-    return Number.isInteger(id) && id >= 1 && id <= 26;
+    return (
+      String(id) === key &&
+      id >= 1 &&
+      id <= 26 &&
+      typeof value === "string" &&
+      STANDARD_ANSWER_SET.has(value)
+    );
   }).length;
 }
 
@@ -125,7 +100,7 @@ export interface ValidationOutcome {
 /** Strict runtime validation for untrusted submission JSON. */
 export function validateSubmission(payload: unknown): ValidationOutcome {
   const errors: string[] = [];
-  if (!payload || typeof payload !== "object") {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
     return { ok: false, errors: ["Invalid submission payload"], value: null };
   }
   const body = payload as Record<string, unknown>;
@@ -145,12 +120,16 @@ export function validateSubmission(payload: unknown): ValidationOutcome {
   } else {
     answers = {};
     for (const [key, value] of Object.entries(rawAnswers as Record<string, unknown>)) {
-      const id = Number.parseInt(key, 10);
-      if (!Number.isInteger(id) || id < 1 || id > 31) {
+      if (!CANONICAL_KEY_RE.test(key)) {
         errors.push(`Unknown question id: ${key}`);
         continue;
       }
-      if (typeof value !== "string" || value.length === 0) {
+      const id = Number.parseInt(key, 10);
+      if (String(id) !== key || id < 1 || id > 31) {
+        errors.push(`Unknown question id: ${key}`);
+        continue;
+      }
+      if (typeof value !== "string" || value.trim().length === 0) {
         errors.push(`Missing answer for question ${key}`);
         continue;
       }
@@ -158,7 +137,12 @@ export function validateSubmission(payload: unknown): ValidationOutcome {
         errors.push(`Answer for question ${key} is too long`);
         continue;
       }
-      answers[key] = value;
+      const normalizedValue = value.trim();
+      if (id <= 26 && !STANDARD_ANSWER_SET.has(normalizedValue)) {
+        errors.push(`Invalid answer for question ${key}`);
+        continue;
+      }
+      answers[key] = normalizedValue;
     }
     if (answers && countStandardAnswers(answers) < MIN_STANDARD_ANSWERS) {
       errors.push("Please complete all assessment questions before submitting");

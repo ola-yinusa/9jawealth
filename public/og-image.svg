@@ -1,28 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">9jawealth Financial Clarity Assessment</title>
-  <desc id="desc">A premium, trust-first 9jawealth financial clarity assessment with money-markets and real-estate paths.</desc>
+  <title id="title">9jawealth — Financial Clarity &amp; Nigerian Real Estate Advisory</title>
+  <desc id="desc">Financial clarity assessment and Nigerian residential and agro-real estate advisory from 9jawealth.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#142133" />
-      <stop offset="100%" stop-color="#223652" />
+      <stop offset="100%" stop-color="#1d304a" />
     </linearGradient>
-    <radialGradient id="glow" cx="0.2" cy="0.12" r="0.8">
-      <stop offset="0%" stop-color="#d3b46a" stop-opacity="0.36" />
+    <radialGradient id="glow" cx="0.18" cy="0.14" r="0.75">
+      <stop offset="0%" stop-color="#d3b46a" stop-opacity="0.28" />
       <stop offset="100%" stop-color="#d3b46a" stop-opacity="0" />
     </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)" />
   <rect width="1200" height="630" fill="url(#glow)" />
-  <rect x="70" y="68" width="1060" height="494" rx="34" fill="rgba(253,249,242,0.08)" stroke="rgba(253,249,242,0.16)" />
-  <text x="120" y="180" fill="#d3b46a" font-family="Arial, sans-serif" font-size="24" letter-spacing="8">9JAWEALTH</text>
-  <text x="120" y="300" fill="#fdf9f2" font-family="Georgia, serif" font-size="82" font-style="italic">
+  <rect x="64" y="64" width="1072" height="502" rx="16" fill="#fdf9f2" />
+  <rect x="64" y="64" width="1072" height="8" rx="4" fill="#b4903a" />
+  <text x="120" y="156" fill="#7c5610" font-family="Georgia, serif" font-size="34" font-weight="600">₦ 9jawealth</text>
+  <text x="120" y="274" fill="#142133" font-family="Georgia, serif" font-size="74" font-weight="600" font-style="italic">
     Know where your finances
   </text>
-  <text x="120" y="390" fill="#fdf9f2" font-family="Georgia, serif" font-size="82" font-style="italic">
+  <text x="120" y="360" fill="#142133" font-family="Georgia, serif" font-size="74" font-weight="600" font-style="italic">
     truly stand.
   </text>
-  <text x="120" y="474" fill="#d8deea" font-family="Arial, sans-serif" font-size="28">
-    Trust-first assessment with premium design, real capture flow, and clear next-step wealth paths.
+  <line x1="120" y1="408" x2="260" y2="408" stroke="#b4903a" stroke-width="3" />
+  <text x="120" y="468" fill="#39465a" font-family="Arial, sans-serif" font-size="27">
+    Financial Clarity &amp; Nigerian Real Estate Advisory
   </text>
-  <text x="1040" y="520" text-anchor="end" fill="#b4903a" font-family="Georgia, serif" font-size="88">₦</text>
+  <text x="120" y="512" fill="#546175" font-family="Arial, sans-serif" font-size="22">
+    4-minute financial diagnostic · Lekki Avana Signature · PalmVille Agro Real Estate
+  </text>
 </svg>

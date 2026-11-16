@@ -1,10 +1,22 @@
 {
   "name": "9jawealth",
   "short_name": "9jawealth",
-  "description": "Trust-first financial clarity assessment for 9jawealth with live submission capture.",
+  "description": "Financial clarity assessment and Nigerian real estate advisory from 9jawealth.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fdf9f2",
   "theme_color": "#142133",
-  "icons": []
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
 }

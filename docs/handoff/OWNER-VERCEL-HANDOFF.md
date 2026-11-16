@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This document is the Stage 1 handoff for the complete 9jawealth monorepo: the root Vite/React assessment, Money Markets, PalmVille, and Salaryman. It is written for the owner who will create and control the production Vercel projects, domains, email credentials, storage accounts, and external service accounts.
+This document is the Stage 1 handoff for the complete 9jawealth repository: the root Vite/React application (Financial Clarity Assessment + Lekki Avana Signature & PalmVille wealth paths + `/education.html` Investment Guide), along with the static/nested product directories (`lekki-avana-signature/`, `palmville/`, `salaryman/`, and the optional legacy `moneymarkets/` app). It is written for the owner who will create and control the production Vercel projects, domains, email credentials, storage accounts, and external service accounts.
 
-All four products are included in the source handoff and should be deployed as separate Vercel projects so each product can have its own root directory, domain, and release lifecycle.
+Each standalone product can be deployed as its own Vercel project so it has its own root directory, domain, and release lifecycle.
 
 ## Canonical production project
 
@@ -19,9 +19,13 @@ All four products are included in the source handoff and should be deployed as s
 
 ## What the site does
 
-The site presents a financial clarity assessment with 31 questions. The first 26 questions determine one of four result brackets. After completion, the visitor can submit a name and email address. The server function sends the result through Resend SMTP, sends an owner notification to `RESEND_NOTIFY_TO` with Reply-To set to the visitor, and attempts to store a JSON backup in Vercel Blob.
+The main `9jawealth.com` homepage presents:
 
-The site also contains a WhatsApp CTA, social links, an About section, and a gold-trading destination at `https://forex.9jawealth.com`.
+1. **Financial Clarity Assessment (31 questions)** — the first 26 questions determine one of four result brackets. After completion, visitors submit their name and email address to `/api/send-report`, which persists the lead to Lark Base (`Assessment Leads`) and a redacted JSON backup in Vercel Blob **before** sending the visitor report and owner notification through Resend SMTP (returning `500` if SMTP fails so leads are never lost to an unverified Resend domain or SMTP outage).
+2. **About Olanrewaju, WhatsApp CTA, and social links** (`Instagram`, `LinkedIn`, `WhatsApp`).
+3. **Two Real-Estate Wealth Paths** — **Lekki Avana Signature** (`https://signature.9jawealth.com/`) and **PalmVille Agro Real Estate** (`https://palmville.9jawealth.com/`). Forex / Money Markets has been removed from the main `9jawealth.com` homepage.
+4. **Real Estate Investment Guide (`/education.html`)** — also accessible via `/guide`, `/education`, and `/investment-guide` (via `vercel.json` rewrites), featuring Nigeria real-estate strategies and consultation booking.
+5. **CRM Enquiry & Consultation Capture (`/api/send-report`)** — handles both `property-enquiry` (Signature & PalmVille) and `consultation-booking` (`Investment Guide Consultation`) submissions, persisting to Lark Base and sending confirmation + owner lead notifications via Resend.
 
 ## Owner-controlled services
 
@@ -67,13 +71,48 @@ LARK_APP_SECRET=<owner-copied Lark app secret>
 LARK_BASE_TOKEN=<9jawealth Leads Base token>
 LARK_TABLE_ID=<Assessment Leads table ID>
 BLOB_READ_WRITE_TOKEN=<owner-created Vercel Blob token>
+ALLOWED_ORIGINS=https://www.9jawealth.com,https://9jawealth.com,https://signature.9jawealth.com,https://palmville.9jawealth.com
 ```
 
 Before deployment, verify `9jawealth.com` in Resend and add Resend's SPF/DKIM records. Keep Lark's MX records unchanged so incoming mail and replies continue to reach Lark. The sender domain must be verified before the assessment endpoint can deliver production email.
 
-The Lark Base integration writes to the `Assessment Leads` table after the visitor and owner emails are sent. It does not add external visitors to the employee directory and does not copy the full assessment answer set into Base. The Lark app must have the Base read and record-create permissions, and the actual App Secret must be copied from the Lark developer console; a CLI keychain reference is not a valid Vercel environment value.
+### `LARK_APP_SECRET` & Lark Base (`Assessment Leads`) setup
+
+- **`LARK_APP_SECRET` setup note:** Copy the actual App Secret directly from the Lark Developer Console (**Credentials & Basic Info**) into Vercel Project Settings → Environment Variables. A CLI keychain reference or masked placeholder is **not** a valid Vercel environment value.
+- **Lark permissions:** Ensure the Lark app has Base read and record-create permissions (`bitable:app`) and has been added as an app/collaborator with edit access on the target `9jawealth Leads` Base.
+- **Submission reliability:** For the 31-question assessment, `/api/send-report` persists the lead to Lark Base and Vercel Blob **before** attempting Resend SMTP delivery, then returns `500` if email fails—so no lead is dropped if Resend is unverified or experiencing an outage. It does not add external visitors to the employee directory and does not copy the full 31-question answer set into Base.
+
+**Required core columns in `Assessment Leads` (9 columns):**
+
+| Column name | Recommended Lark field type | Notes |
+|---|---|---|
+| `Name` | Text | Visitor / enquirer full name |
+| `Email` | Text / Email | Lowercased email address |
+| `Result` | Text | Assessment bracket, plot size, or consultation strategy |
+| `Summary` | Text | Score summary or enquiry summary |
+| `Recommendation` | Text | Next-step recommendation or enquiry message |
+| `Reference` | Text | Unique UUID submission reference |
+| `Submitted At` | Date/Time (or Text) | Written as epoch ms, with automatic ISO fallback |
+| `Status` | Text / Single Select | Initialized to `"New"` |
+| `Source` | Text | e.g. `"Financial Clarity Assessment"`, `"Lekki Avana Signature"`, `"PalmVille"`, `"Investment Guide Consultation"` |
+
+**Optional CRM columns for property & consultation enquiries (5 columns):**
+
+| Column name | Recommended Lark field type | Notes |
+|---|---|---|
+| `Phone` | Text | Visitor phone / WhatsApp number |
+| `Plot Size` | Text | Selected plot size or Investment Guide strategy |
+| `Payment Plan` | Text | Selected payment plan |
+| `Message` | Text | Free-text enquiry / consultation notes |
+| `Traffic Source` | Text | Landing page / UTM attribution |
+
+If any optional columns (`Phone`, `Plot Size`, `Payment Plan`, `Message`, `Traffic Source`) have not been created in the live `Assessment Leads` table yet—or reject field conversion—`src/lib/lark-base.ts` automatically folds those values into `Summary` and `Recommendation` and retries with the core 9-column schema so enquiries are never dropped (while preserving real `401`/`403` auth/permission errors).
 
 Create the Vercel Blob store under the owner’s account. Do not reuse a token from another account without explicitly transferring ownership and rotating it.
+
+## Updating videos and consultation calendar URLs
+
+See **`docs/handoff/HOW-TO-UPDATE-VIDEOS.md`** for step-by-step instructions on replacing hosted property/walkthrough video URLs and updating Google Calendar / consultation booking links across the site.
 
 ## DNS and domain checklist
 
@@ -109,7 +148,7 @@ npm ci
 npm run verify:all
 ```
 
-For the nested app alone:
+If deploying the optional legacy `moneymarkets` app separately:
 
 ```bash
 cd moneymarkets
@@ -118,18 +157,18 @@ npm run lint
 npm run build
 ```
 
-
 Then verify on the owner’s Vercel preview and production URLs:
 
-- Main page loads without console errors.
-- Desktop and mobile navigation work.
+- Main page loads without console errors and has no Forex links on the homepage.
+- Desktop and mobile navigation work (including `/education.html`, `/guide`, `/education`, and `/investment-guide`).
 - Assessment completes through all 31 questions.
 - Each result bracket renders correctly.
 - Invalid or missing form values are rejected by the browser.
-- A real submission reaches the configured mailbox.
-- The API returns an assessment reference.
+- A real submission reaches the configured mailbox and creates a record in Lark Base (`Assessment Leads`).
+- Consultation booking (`Investment Guide Consultation`) and property enquiry forms (`Signature` and `PalmVille`) capture to Lark Base and trigger Resend notifications.
+- The API returns an assessment/enquiry reference.
 - The Blob backup is created in the owner’s store.
-- WhatsApp, Instagram, LinkedIn, and gold-trading links work.
+- Lekki Avana Signature, PalmVille, `/education.html` Investment Guide, WhatsApp, Instagram, and LinkedIn links work.
 - `/robots.txt`, `/sitemap.xml`, `/llms.txt`, and `/manifest.webmanifest` load.
 - No environment secret appears in the browser bundle or repository.
 
@@ -139,17 +178,19 @@ All Stage-1 blockers below were resolved in the hardening pass (server-recompute
 results, escaped email HTML, strict validation, allowlisted CORS, per-IP rate
 limiting + honeypot + dwell-time check, redacted Blob backups, `api/` included
 in `tsc`, quiz back-navigation + localStorage resume, code-split below-fold
-sections, non-blocking fonts, CI workflow). Remaining owner actions:
+sections, non-blocking fonts, CI workflow, Lark Base lead-first persistence &
+schema-fallback resilience, and consultation-booking CRM capture). Remaining owner actions:
 
 - Front `/api/send-report` with Vercel Firewall / KV-backed rate limits and add
   Turnstile before high-traffic launch (in-instance limiting is best-effort on
   serverless). Set `ALLOWED_ORIGINS` in production.
+- Verify `9jawealth.com` in Resend (`docs/handoff/RESEND-DNS-RECORDS.txt`) and
+  set the real `LARK_APP_SECRET` from the Lark Developer Console in Vercel.
 - Blob backups store **no raw email** (hash + masked form only) because the
   installed `@vercel/blob` SDK supports public objects only. For stricter needs,
   set `BLOB_ENABLED=false` or migrate to private storage on SDK upgrade.
-- The main page says it has two wealth paths, but the React content currently
-  exposes only the gold-trading path. Real estate is marked as coming soon.
-- The Money Markets course gate is a frontend mock and must not be treated as paid-content security.
+- If the optional standalone `moneymarkets/` app is deployed separately, note
+  that its course gate is a frontend mock and must not be treated as paid-content security.
 
 ## Repository handoff rules
 
@@ -162,22 +203,23 @@ sections, non-blocking fonts, CI workflow). Remaining owner actions:
 
 ## Deployment matrix
 
-Deploy each product as its own Vercel project under the owner account:
+Deploy each active product as its own Vercel project under the owner account:
 
 | Product | Root directory | Build command | Output | Suggested domain |
 |---|---|---|---|---|
-| Main 9jawealth assessment | `/` | `npm run build` | `dist` | `www.9jawealth.com` |
-| Money Markets | `/moneymarkets` | `npm run build` | `dist` | `forex.9jawealth.com` |
+| Main 9jawealth assessment + `/education.html` guide | `/` | `npm run build` | `dist` | `www.9jawealth.com` |
+| Lekki Avana Signature | `/lekki-avana-signature` | No build command | Static files | `signature.9jawealth.com` |
 | PalmVille | `/palmville` | No build command | Static files | `palmville.9jawealth.com` |
 | Salaryman | `/salaryman` | No build command | Static files | `salaryman.9jawealth.com` |
+| Money Markets *(optional/legacy, removed from homepage)* | `/moneymarkets` | `npm run build` | `dist` | `forex.9jawealth.com` |
 
-Money Markets exposes `/` and `/course`. PalmVille and Salaryman are static multi-page sites with local assets and external form or payment destinations. PalmVille's large video is intentionally excluded from GitHub; set PALMVILLE_VIDEO_URL in palmville/index.html to the externally hosted media URL before launch. Review the duplicate top-level snapshot files before choosing whether to deploy them. Each product requires its own domain mapping, content review, and ownership check.
+PalmVille, Lekki Avana Signature, and Salaryman are static multi-page sites with local assets and `/api/send-report` CRM integration (with FormSubmit fallback where configured). PalmVille and Lekki Avana Signature keep all interactive JavaScript in external `app.js` files under strict Content-Security-Policy (`no 'unsafe-inline'` scripts); legacy `lekki-avana-signature/lekki-avana-signature.html` has been removed, and `public/palmville/` stays synced with `palmville/`. See `docs/handoff/HOW-TO-UPDATE-VIDEOS.md` for updating externally hosted video and calendar URLs before launch. Each product requires its own domain mapping, content review, and ownership check.
 
 ## Stage 1 completion criteria
 
 Stage 1 is complete when the owner has:
 
-- A clean repository or release branch identified for all four products.
+- A clean repository or release branch identified for the active products.
 - A Vercel project created under the owner’s account.
 - Production secrets entered directly into Vercel.
 - Domain ownership and DNS access confirmed.

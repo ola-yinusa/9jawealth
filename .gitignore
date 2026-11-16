@@ -8,3 +8,6 @@ coverage/
 !.env.example
 .vercel
 WhatsApp Image*.jpeg
+.agents/
+.impeccable/
+skills-lock.json

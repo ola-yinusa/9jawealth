@@ -4,11 +4,14 @@ import {
   computeQuizResult,
   countStandardAnswers,
   escapeHtml,
+  getFirstMissingQuestionId,
+  getQuizBreakdown,
   isValidEmail,
   maskEmail,
   normalizeName,
   validateSubmission,
 } from "../src/lib/assessment.ts";
+import { getQuizResult } from "../src/lib/quiz.ts";
 
 function fullAnswers(overrides: Record<string, string> = {}): Record<string, string> {
   const answers: Record<string, string> = {};
@@ -19,6 +22,14 @@ function fullAnswers(overrides: Record<string, string> = {}): Record<string, str
   answers["30"] = "Thinking about it";
   answers["31"] = "A side business";
   return { ...answers, ...overrides };
+}
+
+function answersWithGaps(gapCount: number): Record<string, string> {
+  const overrides: Record<string, string> = {};
+  for (let i = 1; i <= gapCount; i++) {
+    overrides[String(i)] = i % 2 === 0 ? "I DON'T KNOW" : "NO";
+  }
+  return fullAnswers(overrides);
 }
 
 test("escapeHtml neutralises markup for email interpolation", () => {
@@ -45,26 +56,78 @@ test("maskEmail hides the local part", () => {
   assert.equal(maskEmail("broken"), "***");
 });
 
-test("computeQuizResult brackets follow gap counts", () => {
-  assert.equal(computeQuizResult(fullAnswers()).bracket, "Good shape");
-
-  const fiveGaps = fullAnswers();
-  for (let i = 1; i <= 5; i++) fiveGaps[String(i)] = "NO";
-  assert.equal(computeQuizResult(fiveGaps).bracket, "On the right track");
-
-  const elevenGaps = fullAnswers();
-  for (let i = 1; i <= 11; i++) elevenGaps[String(i)] = "I DON'T KNOW";
-  assert.equal(computeQuizResult(elevenGaps).bracket, "Weak pulse");
-
-  const thirteenGaps = fullAnswers();
-  for (let i = 1; i <= 13; i++) thirteenGaps[String(i)] = "NO";
-  assert.equal(computeQuizResult(thirteenGaps).bracket, "Needs attention");
+test("computeQuizResult and getQuizResult use balanced brackets across 0-26 gaps", () => {
+  for (const [gaps, expected] of [
+    [0, "Good shape"],
+    [4, "Good shape"],
+    [5, "On the right track"],
+    [10, "On the right track"],
+    [11, "Weak pulse"],
+    [13, "Weak pulse"],
+    [17, "Weak pulse"],
+    [18, "Needs attention"],
+    [26, "Needs attention"],
+  ] as const) {
+    const sample = answersWithGaps(gaps);
+    assert.equal(computeQuizResult(sample).bracket, expected);
+    assert.equal(getQuizResult(sample).bracket, expected);
+  }
 });
 
 test("computeQuizResult ignores section-D custom answers", () => {
   const answers = fullAnswers({ "27": "Not sure yet", "31": "Agro-real estate" });
   assert.equal(computeQuizResult(answers).bracket, "Good shape");
   assert.equal(countStandardAnswers(answers), 26);
+});
+
+test("getQuizBreakdown computes section scores and matched recommended paths", () => {
+  const answers = fullAnswers({
+    "1": "NO",
+    "2": "I DON'T KNOW",
+    "10": "NO",
+    "16": "I DON'T KNOW",
+    "20": "NO",
+    "27": "Career",
+    "31": "Agro-real estate (e.g. PalmVille)",
+  });
+
+  const palmvilleBreakdown = getQuizBreakdown(answers);
+  assert.equal(palmvilleBreakdown.totalScore, 5);
+  assert.equal(palmvilleBreakdown.incomeSource, "Career");
+  assert.equal(palmvilleBreakdown.focusGoal, "Agro-real estate (e.g. PalmVille)");
+  assert.deepEqual(palmvilleBreakdown.sections, [
+    { section: "A", label: "Awareness", answered: 9, total: 9, gaps: 2 },
+    { section: "B", label: "Daily discipline", answered: 6, total: 6, gaps: 1 },
+    { section: "C", label: "Future planning", answered: 11, total: 11, gaps: 2 },
+    { section: "D", label: "Income direction", answered: 5, total: 5, gaps: 0 },
+  ]);
+  assert.equal(palmvilleBreakdown.recommendedPath.id, "palmville");
+  assert.equal(palmvilleBreakdown.recommendedPath.href, "https://palmville.9jawealth.com/");
+  assert.equal(palmvilleBreakdown.recommendedPath.guideHref, "/education#featured-offerings");
+
+  const realEstateBreakdown = getQuizBreakdown(fullAnswers({ "31": "Real estate" }));
+  assert.equal(realEstateBreakdown.recommendedPath.id, "signature");
+  assert.equal(realEstateBreakdown.recommendedPath.href, "https://signature.9jawealth.com/");
+  assert.equal(realEstateBreakdown.recommendedPath.guideHref, "/education#featured-offerings");
+
+  const consultationBreakdown = getQuizBreakdown(fullAnswers({ "31": "Not sure yet" }));
+  assert.equal(consultationBreakdown.recommendedPath.id, "consultation");
+  assert.equal(consultationBreakdown.recommendedPath.href, "/education#book");
+  assert.equal(consultationBreakdown.recommendedPath.guideHref, "/education#book");
+});
+
+test("getFirstMissingQuestionId returns first missing or invalid question ID", () => {
+  assert.equal(getFirstMissingQuestionId(fullAnswers()), null);
+
+  const missingMiddle = fullAnswers();
+  delete missingMiddle["14"];
+  assert.equal(getFirstMissingQuestionId(missingMiddle), 14);
+
+  const invalidStandard = fullAnswers({ "5": "MAYBE" });
+  assert.equal(getFirstMissingQuestionId(invalidStandard), 5);
+
+  const missingSectionD = fullAnswers({ "31": "   " });
+  assert.equal(getFirstMissingQuestionId(missingSectionD), 31);
 });
 
 test("validateSubmission accepts a complete payload", () => {
@@ -91,15 +154,18 @@ test("validateSubmission rejects bad name, email and incomplete answers", () => 
   assert.ok(outcome.errors.length >= 3);
 });
 
-test("validateSubmission rejects unknown ids and oversized values", () => {
-  const answers = fullAnswers({ "99": "YES", "1": "x".repeat(61) });
+test("validateSubmission rejects unknown ids, malformed keys, invalid standard choices, and oversized values", () => {
+  const answers = fullAnswers({ "99": "YES", "1a": "YES", "02": "YES", "3": "MAYBE", "1": "x".repeat(61) });
   const outcome = validateSubmission({
     name: "Ada Obi",
     email: "ada@example.com",
     answers,
   });
   assert.equal(outcome.ok, false);
-  assert.ok(outcome.errors.some((e) => e.includes("Unknown question id")));
+  assert.ok(outcome.errors.some((e) => e.includes("Unknown question id: 99")));
+  assert.ok(outcome.errors.some((e) => e.includes("Unknown question id: 1a")));
+  assert.ok(outcome.errors.some((e) => e.includes("Unknown question id: 02")));
+  assert.ok(outcome.errors.some((e) => e.includes("Invalid answer for question 3")));
   assert.ok(outcome.errors.some((e) => e.includes("too long")));
 });
 

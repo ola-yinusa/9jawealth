@@ -6,10 +6,10 @@
   <title>Lekki Avana Signature | Land in Ibeju Lekki, Lagos</title>
   <meta name="description" content="Compare 300, 500, 600 and 1000 SQM plots, published payment plans, completed gatehouse and allocation updates for Lekki Avana Signature Resort Palm Estate in Ibeju Lekki, Lagos.">
   <meta name="theme-color" content="#122A1C">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
-  <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png?v=2">
-  <link rel="apple-touch-icon" href="/favicon.png?v=2">
-  <link rel="shortcut icon" href="/favicon.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png?v=2">
+  <link rel="icon" type="image/png" sizes="128x128" href="./favicon.png?v=2">
+  <link rel="apple-touch-icon" href="./favicon.png?v=2">
+  <link rel="shortcut icon" href="./favicon.png?v=2">
   <meta name="geo.region" content="NG-LA">
   <meta name="geo.placename" content="Ibeju Lekki, Lagos">
   <link rel="canonical" href="https://signature.9jawealth.com/">
@@ -61,40 +61,11 @@
   ]
 }
 </script>
-
-<!-- Load marketing code after the page is usable or when a visitor engages. -->
-<script>
-(function(){
-  var loaded = false;
-  function loadPixel(){
-    if(loaded) return;
-    loaded = true;
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1806933857388333');
-    fbq('track', 'PageView');
-  }
-  function schedulePixel(){
-    window.addEventListener('pointerdown', loadPixel, {once:true, passive:true});
-    window.addEventListener('keydown', loadPixel, {once:true});
-    window.setTimeout(loadPixel, 8000);
-  }
-  if(document.readyState === 'complete') schedulePixel();
-  else window.addEventListener('load', schedulePixel, {once:true});
-})();
-</script>
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" alt=""
+<noscript><img height="1" width="1" class="sr-only-pixel" alt=""
 src="https://www.facebook.com/tr?id=1806933857388333&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
 
 <div id="las-root">
 <a class="skip-link" href="#las-main">Skip to content</a>
@@ -106,219 +77,324 @@ src="https://www.facebook.com/tr?id=1806933857388333&ev=PageView&noscript=1"
 @font-face{font-family:Fraunces;font-style:italic;font-weight:400;font-display:swap;src:url('fonts/fraunces-italic-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 @font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url('fonts/manrope-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 @font-face{font-family:Manrope;font-style:normal;font-weight:400 800;font-display:swap;src:url('fonts/manrope-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
 html,body{margin:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scrollbar-color:#C9A227 #F1E9D6;scrollbar-width:thin;}
+[hidden]{display:none !important;}
+
 #las-root{
   --forest:#122A1C;
   --forest-2:#1C4029;
   --forest-3:#25532F;
   --gold:#C9A227;
   --gold-light:#E7C766;
-  --gold-ink:#75570B;
+  --gold-ink:#684C07;
   --cream:#FBF7EE;
   --cream-2:#F1E9D6;
   --ink:#1B1A15;
-  --ink-soft:#5B5848;
-  --line: rgba(28,64,41,0.14);
-  --radius: 2px;
+  --ink-soft:#4C493B;
+  --muted-on-dark:rgba(251,247,238,0.82);
+  --wa-green:#14643B;
+  --wa-green-hover:#0F5130;
+  --line:rgba(28,64,41,0.16);
+  --radius:6px;
   font-family:'Manrope',sans-serif;
   color:var(--ink);
   background:var(--cream);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  caret-color:var(--forest-2);
 }
-#las-root *{box-sizing:border-box; margin:0; padding:0;}
+:where(#las-root *){box-sizing:border-box; margin:0; padding:0;}
 #las-root img{max-width:100%; display:block;}
 #las-root h1,#las-root h2,#las-root h3,#las-root h4{
-  font-family:'Fraunces',serif; font-weight:400; line-height:1.08; letter-spacing:-0.01em;
+  font-family:'Fraunces',serif; font-weight:400; line-height:1.08; letter-spacing:-0.015em;
   text-wrap:balance;
 }
-#las-root .eyebrow{
-  font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.22em;
-  text-transform:uppercase; color:var(--gold);
-}
-#las-root .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+#las-root .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
 #las-root section{position:relative;}
-#las-root a{text-decoration:none; color:inherit;}
+#las-root a{text-decoration:none; color:inherit; text-underline-offset:0.22em;}
 #las-root ul{list-style:none;}
+#las-root button, #las-root input, #las-root select, #las-root textarea{font:inherit;}
 #las-root :is(a,button,input,select,textarea):focus-visible{outline:3px solid var(--gold-light); outline-offset:3px;}
+#las-plots :focus-visible,
+#las-pricing :focus-visible,
+#las-gallery :focus-visible,
+#las-delivered :focus-visible,
+#las-form :focus-visible{outline:3px solid var(--forest); outline-offset:3px;}
 #las-root :is(section,.wrap)[id]{scroll-margin-top:90px;}
-#las-root .skip-link{position:absolute; left:16px; top:-80px; z-index:1000; padding:12px 18px; background:var(--cream); color:var(--forest);}
-#las-root .skip-link:focus-visible{top:16px;}
+#las-root .skip-link{
+  position:fixed; left:16px; top:16px; z-index:2000;
+  transform:translateY(-220%);
+  padding:10px 18px; border-radius:100px;
+  background:var(--forest); color:var(--cream);
+  border:1px solid var(--gold-light);
+  font-size:14px; font-weight:700;
+  transition:transform .18s ease;
+}
+#las-root .skip-link:focus{transform:translateY(0);}
 #las-root ::selection{background:var(--gold-light); color:var(--forest);}
 
 /* ---------- buttons ---------- */
 #las-root .btn{
   display:inline-flex; align-items:center; gap:10px;
-  font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.04em;
-  text-transform:uppercase; padding:17px 34px; border-radius:var(--radius);
-  cursor:pointer; border:1px solid transparent; transition:background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+  font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.03em;
+  text-transform:uppercase; padding:16px 30px; border-radius:var(--radius);
+  cursor:pointer; border:1px solid transparent; transition:background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+  white-space:nowrap;
 }
 #las-root .btn-gold{background:var(--gold); color:var(--forest);}
 #las-root .btn-gold:hover{background:var(--gold-light); transform:translateY(-2px);}
-#las-root .btn-outline{border-color:rgba(251,247,238,0.4); color:var(--cream);}
-#las-root .btn-outline:hover{border-color:var(--cream); background:rgba(251,247,238,0.08);}
-#las-root .btn-outline-dark{border-color:var(--forest-2); color:var(--forest);}
-#las-root .btn-outline-dark:hover{background:var(--forest); color:var(--cream);}
+#las-root .btn-outline{border-color:rgba(251,247,238,0.45); color:var(--cream);}
+#las-root .btn-outline:hover{border-color:var(--cream); background:rgba(251,247,238,0.1);}
 
-/* ---------- nav ---------- */
+/* ---------- header & nav ---------- */
 #las-nav{
   position:fixed; top:0; left:0; right:0; z-index:500; background:rgba(18,42,28,0.96);
-  backdrop-filter:blur(6px); border-bottom:1px solid rgba(201,162,39,0.25);
+  backdrop-filter:blur(8px); border-bottom:1px solid rgba(201,162,39,0.28);
 }
-#las-nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
-#las-nav .brand{font-family:'Fraunces',serif; color:var(--cream); font-size:20px; letter-spacing:0.02em;}
-#las-nav .brand span{color:var(--gold); font-style:italic;}
-#las-nav .btn{padding:11px 22px; font-size:12px;}
+#las-nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 24px;}
+#las-nav .brand-lockup{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; min-width:0;}
+#las-nav .brand{font-family:'Fraunces',serif; color:var(--cream); font-size:21px; letter-spacing:0.01em; white-space:nowrap;}
+#las-nav .brand span{color:var(--gold-light); font-style:italic;}
+#las-nav .brand-sep{color:var(--muted-on-dark); font-size:14px;}
+#las-nav .co-brand{font-size:13px; color:var(--muted-on-dark); white-space:nowrap;}
+#las-nav .co-brand:hover{color:var(--gold-light); text-decoration:underline;}
+
+#las-nav .nav-links{display:flex; align-items:center; gap:20px;}
+#las-nav .nav-links a{
+  font-size:13.5px; font-weight:500; color:var(--muted-on-dark); white-space:nowrap; padding:4px 2px;
+  transition:color .18s ease;
+}
+#las-nav .nav-links a:hover{color:var(--gold-light);}
+#las-nav .nav-links a.nav-guide{color:var(--gold-light); font-weight:600;}
+
+#las-nav .nav-actions{display:flex; align-items:center; gap:10px; flex-shrink:0;}
+#las-nav .btn{padding:11px 20px; font-size:12.5px;}
 #las-nav .mobile-label{display:none;}
+#las-nav .nav-toggle{
+  display:none; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:100px;
+  background:transparent; border:1px solid rgba(251,247,238,0.3);
+  color:var(--gold-light); cursor:pointer; flex-shrink:0;
+}
+#las-nav .nav-toggle:hover{border-color:var(--gold-light); background:rgba(231,199,102,0.12);}
+
+/* ---------- Mobile Drawer ---------- */
+.drawer-backdrop{
+  position:fixed; inset:0; z-index:590;
+  background:rgba(10,25,16,0.72); backdrop-filter:blur(4px);
+  opacity:0; transition:opacity .22s ease;
+}
+.drawer-backdrop.is-open{opacity:1;}
+.mobile-drawer{
+  position:fixed; top:0; right:0; bottom:0; z-index:600;
+  width:min(350px,88vw);
+  background:var(--forest);
+  border-left:1px solid rgba(201,162,39,0.28);
+  padding:24px;
+  display:flex; flex-direction:column; gap:20px;
+  overflow-y:auto;
+  transform:translateX(100%);
+  transition:transform .24s ease;
+}
+.mobile-drawer.is-open{transform:translateX(0);}
+.drawer-top{display:flex; align-items:center; justify-content:space-between; gap:12px;}
+.drawer-brand{font-family:'Fraunces',serif; color:var(--cream); font-size:20px;}
+.drawer-brand span{color:var(--gold-light); font-style:italic;}
+.drawer-close{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:100px;
+  background:transparent; border:1px solid rgba(251,247,238,0.3);
+  color:var(--gold-light); cursor:pointer;
+}
+.drawer-nav{display:flex; flex-direction:column; gap:8px;}
+.drawer-nav a{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:13px 16px; border-radius:var(--radius);
+  border:1px solid rgba(251,247,238,0.16);
+  color:var(--cream); font-size:15px; font-weight:500;
+}
+.drawer-nav a:hover{border-color:var(--gold-light); background:rgba(231,199,102,0.08);}
+.drawer-nav a.drawer-guide{color:var(--gold-light);}
+.drawer-cta{width:100%; justify-content:center;}
 
 /* ---------- hero ---------- */
-#las-hero{background:var(--forest); padding-bottom:70px;}
+#las-hero{background:var(--forest); padding-bottom:72px; caret-color:var(--gold-light);}
 #las-hero .hero-grid{
-  display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center;
-  padding-top:170px;
+  display:grid; grid-template-columns:1.05fr 0.95fr; gap:60px; align-items:center;
+  padding-top:148px;
 }
-#las-hero .eyebrow{color:var(--gold-light); display:flex; align-items:center; gap:12px; margin-bottom:22px; font-size:13px; letter-spacing:.04em; text-transform:none;}
-#las-hero .eyebrow::before{content:""; width:36px; height:1px; background:var(--gold-light);}
-#las-hero h1{color:var(--cream); font-size:clamp(34px,4.6vw,58px);}
-#las-hero h1 em{color:var(--gold-light); font-style:italic;}
-#las-hero p.lede{color:rgba(251,247,238,0.78); font-size:17px; max-width:520px; margin-top:24px; line-height:1.6;}
-#las-hero .hero-actions{display:flex; gap:16px; margin-top:36px; flex-wrap:wrap;}
+#las-hero .hero-meta{
+  color:var(--gold-light); font-size:14px; line-height:1.5; margin-bottom:18px;
+}
+#las-hero .hero-meta a{color:var(--cream); text-decoration:underline;}
+#las-hero .hero-meta a:hover{color:var(--gold-light);}
+#las-hero h1{color:var(--cream); font-size:clamp(36px,4.6vw,58px);}
+#las-hero p.lede{color:var(--muted-on-dark); font-size:17px; max-width:64ch; margin-top:22px; line-height:1.65;}
+#las-hero .hero-actions{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
 #las-hero .hero-stats{
-  display:flex; gap:0; margin-top:52px; border-top:1px solid rgba(251,247,238,0.18); padding-top:26px;
-  flex-wrap:wrap;
+  display:flex; gap:0; margin-top:46px; border-top:1px solid rgba(251,247,238,0.2); padding-top:24px;
+  flex-wrap:wrap; row-gap:16px;
 }
-#las-hero .stat{padding-right:36px; margin-right:36px; border-right:1px solid rgba(251,247,238,0.18);}
+#las-hero .stat{padding-right:32px; margin-right:32px; border-right:1px solid rgba(251,247,238,0.2);}
 #las-hero .stat:last-child{border-right:none;}
 #las-hero .stat b{display:block; font-family:'Fraunces',serif; font-size:28px; color:var(--gold-light); font-weight:400;}
-#las-hero .stat span{font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(251,247,238,0.6);}
+#las-hero .stat span{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-on-dark);}
 
-/* hero video card (side-by-side on desktop, stacked below copy on mobile) */
+/* hero video card */
 #las-hero-media{
   position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5;
-  box-shadow:0 40px 90px -30px rgba(0,0,0,0.55); border:1px solid rgba(201,162,39,0.3);
+  box-shadow:0 36px 80px -30px rgba(0,0,0,0.55); border:1px solid rgba(201,162,39,0.32);
   background:#0D2015;
 }
-#las-hero-media iframe{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0;
+#las-hero-media iframe,
+#las-hero-media video{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; background:#0D2015;
 }
 #las-hero-media .video-poster{position:absolute; inset:0; width:100%; height:100%; padding:0; border:0; cursor:pointer; background:var(--forest);}
+#las-hero-media .video-poster:focus-visible{outline:3px solid var(--gold-light); outline-offset:-4px;}
 #las-hero-media .video-poster img{width:100%; height:100%; object-fit:cover; object-position:left center; filter:brightness(.72);}
-#las-hero-media .video-poster::after{content:"▶"; position:absolute; top:50%; left:50%; display:grid; place-items:center; width:68px; height:68px; border-radius:50%; background:var(--gold); color:var(--forest); font-size:25px; transform:translate(-50%,-50%); box-shadow:0 12px 32px rgba(0,0,0,.25);}
+#las-hero-media .video-poster::after{content:"▶"; position:absolute; top:50%; left:50%; display:grid; place-items:center; width:68px; height:68px; border-radius:50%; background:var(--gold); color:var(--forest); font-size:25px; transform:translate(-50%,-50%); box-shadow:0 12px 32px rgba(0,0,0,.28);}
 #las-hero-media .video-poster:hover::after{background:var(--gold-light);}
-#las-hero-media .video-poster[hidden], #las-hero-media iframe[hidden]{display:none;}
 #las-hero-media .video-badge{
   position:absolute; left:16px; bottom:16px; z-index:2; pointer-events:none;
+  max-width:calc(100% - 148px);
   display:flex; align-items:center; gap:8px;
-  background:rgba(18,42,28,0.75); backdrop-filter:blur(4px);
-  color:var(--cream); font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+  background:rgba(18,42,28,0.92); backdrop-filter:blur(4px);
+  color:var(--cream); font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
   padding:9px 14px; border-radius:var(--radius); border:1px solid rgba(201,162,39,0.35);
 }
-#las-hero-media .video-badge::before{content:"▶"; color:var(--gold-light); font-size:9px;}
-#las-hero-media .video-fallback{position:absolute; right:16px; bottom:16px; z-index:3; padding:9px 12px; background:rgba(18,42,28,.85); color:var(--cream); font-size:11px; text-decoration:underline; text-underline-offset:3px;}
+#las-hero-media .video-badge::before{content:"▶"; color:var(--gold-light); font-size:10px; flex-shrink:0;}
+#las-hero-media .video-fallback{
+  position:absolute; right:16px; bottom:16px; z-index:3; padding:9px 12px;
+  background:rgba(18,42,28,.92); color:var(--cream); font-size:12px;
+  text-decoration:underline; text-underline-offset:3px; border-radius:var(--radius);
+  border:1px solid rgba(251,247,238,0.22);
+}
 #las-hero-media .video-fallback:hover{background:var(--forest);}
+#las-hero-media.is-playing .video-badge{display:none;}
+#las-hero-media.is-playing .video-fallback{bottom:54px;}
 @media (max-width:960px){
-  #las-hero .hero-grid{grid-template-columns:1fr; gap:36px; padding-top:130px;}
+  #las-hero .hero-grid{grid-template-columns:1fr; gap:36px; padding-top:112px;}
   #las-hero-media{aspect-ratio:16/10;}
 }
 
 /* ---------- plot showcases ---------- */
-#las-plots{padding:120px 0 60px;}
-#las-plots .eyebrow{color:var(--gold-ink);}
-#las-plots .head{max-width:640px; margin:0 auto 70px; text-align:center;}
-#las-plots .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
+#las-plots{padding:104px 0 60px;}
+#las-plots .head{max-width:64ch; margin:0 auto 64px; text-align:center;}
+#las-plots .head h2{font-size:clamp(30px,4vw,46px);}
+#las-plots .head > p{max-width:64ch; margin:16px auto 0; color:var(--ink-soft); line-height:1.7;}
 #las-plots .plot-block{
   display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
-  padding:70px 0; border-top:1px solid var(--line);
+  padding:64px 0; border-top:1px solid var(--line);
 }
 #las-plots .plot-block:nth-child(even) .media{order:2;}
 #las-plots .plot-block:nth-child(even) .copy{order:1;}
 #las-plots .media{
-  position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/5;
+  position:relative; border-radius:var(--radius); padding:12px;
   max-width:460px; width:100%; justify-self:center;
-  background:var(--forest); box-shadow:0 30px 60px -20px rgba(18,42,28,0.35);
+  background:var(--forest); box-shadow:0 28px 56px -22px rgba(18,42,28,0.35);
 }
-#las-plots .media figure{width:100%; height:100%; position:relative; margin:0;}
-#las-plots .media img{width:100%; height:100%; object-fit:contain; background:#0d2015;}
-#las-plots .media figcaption{position:absolute; left:0; right:0; bottom:0; padding:12px 18px; color:var(--cream); font-size:12px; background:linear-gradient(0deg,rgba(18,42,28,.92),transparent);}
-#las-plots .tag{display:inline-block; background:var(--cream-2); color:var(--forest-2); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; padding:7px 14px; margin-bottom:18px;}
+#las-plots .media figure{width:100%; height:100%; position:relative; margin:0; border-radius:4px; overflow:hidden; background:#0d2015;}
+#las-plots .media img{width:100%; height:auto; display:block;}
+#las-plots .media figcaption{padding:12px 16px; color:var(--cream); font-size:12.5px; background:var(--forest); text-align:center;}
+#las-plots .tag{display:inline-block; background:var(--cream-2); color:var(--forest-2); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; font-weight:700; padding:7px 14px; margin-bottom:18px; border-radius:4px;}
 #las-plots .copy h3{font-size:clamp(26px,3vw,36px);}
 #las-plots .copy .size{color:var(--gold-ink); font-family:'Fraunces',serif; font-style:italic; font-size:20px; display:block; margin-top:6px;}
-#las-plots .copy p{color:var(--ink-soft); line-height:1.75; margin-top:18px;}
-#las-plots .price-row{display:flex; gap:38px; margin-top:26px; flex-wrap:wrap;}
-#las-plots .price-row div b{display:block; font-family:'Fraunces',serif; font-size:22px;}
-#las-plots .price-row div span{font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft);}
+#las-plots .copy p{color:var(--ink-soft); line-height:1.75; margin-top:18px; max-width:64ch;}
+#las-plots .price-row{display:flex; gap:36px; margin-top:24px; flex-wrap:wrap;}
+#las-plots .price-row div b{display:block; font-family:'Fraunces',serif; font-size:24px; color:var(--forest);}
+#las-plots .price-row div span{font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft);}
 
 /* ---------- price / payment tables ---------- */
-#las-pricing{background:var(--cream-2); padding:110px 0;}
-#las-pricing .head{max-width:640px; margin:0 auto 60px; text-align:center;}
-#las-pricing .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
-#las-pricing table{width:100%; border-collapse:collapse; background:var(--cream); box-shadow:0 20px 50px -30px rgba(18,42,28,0.3);}
-#las-pricing th,#las-pricing td{padding:20px 24px; text-align:left; border-bottom:1px solid var(--line); font-size:15px;}
-#las-pricing th{font-family:'Manrope',sans-serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); background:var(--forest); color:var(--gold-light);}
+#las-pricing{background:var(--cream-2); padding:96px 0;}
+#las-pricing .head{max-width:64ch; margin:0 auto 48px; text-align:center;}
+#las-pricing .head h2{font-size:clamp(30px,4vw,46px);}
+#las-pricing .head p{color:var(--ink-soft); margin-top:14px; line-height:1.65;}
+#las-pricing table{
+  width:100%; border-collapse:collapse; background:var(--cream);
+  box-shadow:0 20px 50px -30px rgba(18,42,28,0.3);
+  font-variant-numeric:tabular-nums;
+}
+#las-pricing th,#las-pricing td{padding:18px 22px; text-align:left; border-bottom:1px solid var(--line); font-size:15px;}
+#las-pricing th{font-family:'Manrope',sans-serif; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; background:var(--forest); color:var(--gold-light);}
+#las-pricing th span{letter-spacing:normal; font-weight:400; text-transform:none; color:rgba(251,247,238,0.9); font-size:12.5px; display:inline-block; margin-top:4px;}
 #las-pricing td b{font-family:'Fraunces',serif; font-size:17px; font-weight:400;}
 #las-pricing tr:last-child td{border-bottom:none;}
-#las-pricing .table-note{font-size:13px; color:var(--ink-soft); margin-top:18px; line-height:1.6;}
+#las-pricing .table-note{font-size:14px; color:var(--ink-soft); margin-top:22px; line-height:1.65; max-width:64ch;}
 #las-pricing .table-scroll-hint{display:none; font-size:13px; color:var(--ink-soft); margin-bottom:12px;}
+
+.terms-clarity{
+  margin-top:32px; padding:28px 30px; background:var(--cream);
+  border:1px solid var(--line); border-radius:var(--radius);
+}
+.terms-clarity h3{font-size:24px; color:var(--forest); margin-bottom:14px;}
+.terms-clarity ul{display:grid; gap:10px;}
+.terms-clarity li{font-size:14.5px; line-height:1.6; color:var(--ink); max-width:64ch;}
+.terms-clarity strong{color:var(--forest);}
+
 #las-pricing .doc-sheet{
-  margin:36px auto 0; max-width:860px; background:#fff; border:1px solid var(--line);
+  margin:32px auto 0; max-width:860px; background:#fff; border:1px solid var(--line);
   border-radius:var(--radius); overflow:hidden; box-shadow:0 20px 50px -30px rgba(18,42,28,0.3);
 }
 #las-pricing .doc-sheet img{width:100%; height:auto; display:block;}
 #las-pricing .doc-sheet figcaption{
   padding:12px 20px; background:var(--cream); border-top:1px solid var(--line);
-  font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
+  font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft);
 }
+
+.sr-only-pixel{display:none;}
+.las-honeypot{display:none;}
+.table-scroll{overflow-x:auto;}
+.table-scroll--spaced{overflow-x:auto; margin-top:32px;}
+.las-table-wide{min-width:760px;}
 
 /* ---------- VIP offer ---------- */
-#las-vip{padding:0; position:relative;}
+#las-vip{padding:80px 0 0; position:relative; caret-color:var(--gold-light);}
 #las-vip .inner{
   background:linear-gradient(135deg, var(--forest) 0%, #0D2015 100%);
-  color:var(--cream); border-radius:var(--radius); margin:0 28px; padding:80px 60px;
+  color:var(--cream); border-radius:var(--radius); padding:64px 52px;
   position:relative; overflow:hidden;
-  max-width:1124px; margin-left:auto; margin-right:auto;
+  max-width:1132px; margin-left:auto; margin-right:auto;
 }
-#las-vip .inner::before{
-  content:""; position:absolute; top:-120px; right:-120px; width:340px; height:340px;
-  border:1px solid rgba(201,162,39,0.35); border-radius:50%;
-}
-#las-vip .inner::after{
-  content:""; position:absolute; bottom:-160px; left:-90px; width:280px; height:280px;
-  border:1px solid rgba(201,162,39,0.2); border-radius:50%;
-}
-#las-vip .grid{display:grid; grid-template-columns:1.2fr 1fr; gap:60px; position:relative; z-index:2; align-items:center;}
-#las-vip .eyebrow{color:var(--gold-light);}
-#las-vip h2{color:var(--cream); font-size:clamp(28px,3.6vw,42px); margin-top:16px;}
+#las-vip .grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; position:relative; z-index:2; align-items:center;}
+#las-vip h2{color:var(--cream); font-size:clamp(28px,3.6vw,42px);}
 #las-vip h2 em{color:var(--gold-light); font-style:italic;}
-#las-vip p{color:rgba(251,247,238,0.72); margin-top:18px; line-height:1.75;}
-#las-vip .perks{margin-top:28px; display:flex; flex-direction:column; gap:14px;}
-#las-vip .perks li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:rgba(251,247,238,0.85);}
+#las-vip p{color:var(--muted-on-dark); margin-top:18px; line-height:1.75; max-width:64ch;}
+#las-vip .perks{margin-top:24px; display:flex; flex-direction:column; gap:14px;}
+#las-vip .perks li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--cream); line-height:1.55;}
 #las-vip .perks li::before{content:"—"; color:var(--gold-light); flex-shrink:0;}
-#las-vip .price-card{background:rgba(251,247,238,0.06); border:1px solid rgba(201,162,39,0.3); padding:32px; align-self:start; border-radius:var(--radius);}
-#las-vip .price-card .flyer-thumb{border-radius:var(--radius); overflow:hidden; margin-bottom:22px; border:1px solid rgba(201,162,39,0.25);}
-#las-vip .price-card .flyer-thumb img{width:100%; height:auto; display:block;}
-#las-vip .price-card .label{font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light);}
-#las-vip .price-card .amount{font-family:'Fraunces',serif; font-size:48px; color:var(--cream); margin:10px 0 6px;}
-#las-vip .price-card .amount sup{font-size:20px; vertical-align:super; color:var(--gold-light);}
-#las-vip .price-card .sub{font-size:13px; color:rgba(251,247,238,0.6); margin-bottom:22px;}
-#las-vip .price-card .btn{width:100%; justify-content:center;}
+#las-vip .vip-aside{
+  border-left:1px solid rgba(201,162,39,0.35);
+  padding-left:36px; align-self:start;
+}
+#las-vip .vip-aside .flyer-preview{width:100%; height:auto; display:block; margin-bottom:22px; border-radius:4px;}
+#las-vip .vip-aside .label{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold-light); font-weight:600;}
+#las-vip .vip-aside .amount{font-family:'Fraunces',serif; font-size:46px; color:var(--cream); margin:8px 0 6px;}
+#las-vip .vip-aside .amount sup{font-size:20px; vertical-align:super; color:var(--gold-light);}
+#las-vip .vip-aside .sub{font-size:13.5px; color:var(--muted-on-dark); margin-bottom:22px; line-height:1.55;}
+#las-vip .vip-aside .btn{width:100%; justify-content:center; white-space:normal; text-align:center;}
+@media (max-width:960px){
+  #las-vip .vip-aside{border-left:none; padding-left:0; border-top:1px solid rgba(201,162,39,0.35); padding-top:28px;}
+}
 
 /* ---------- gallery ---------- */
-#las-gallery{padding:110px 0;}
-#las-gallery .head{max-width:640px; margin:0 auto 50px; text-align:center;}
-#las-gallery .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
-#las-gallery .head p{color:var(--ink-soft); margin-top:14px; line-height:1.7;}
+#las-gallery{padding:96px 0;}
+#las-gallery .head{max-width:64ch; margin:0 auto 44px; text-align:center;}
+#las-gallery .head h2{font-size:clamp(30px,4vw,46px);}
+#las-gallery .head p{color:var(--ink-soft); margin-top:14px; line-height:1.7; max-width:64ch; margin-left:auto; margin-right:auto;}
 #las-carousel{position:relative; overflow:hidden;}
 #las-carousel .track{display:flex; gap:24px; transition:transform .6s cubic-bezier(.65,0,.35,1);}
 #las-carousel .slide{flex:0 0 calc(50% - 12px); aspect-ratio:16/11; overflow:hidden; border-radius:var(--radius); background:var(--cream-2); position:relative;}
 #las-carousel .slide img{width:100%; height:100%; object-fit:cover; transition:opacity .6s ease, transform 6s ease;}
 #las-carousel .slide.is-active img{transform:scale(1.04);}
-#las-carousel .slide .cap{position:absolute; bottom:0; left:0; right:0; padding:18px 20px; background:linear-gradient(0deg, rgba(18,42,28,0.85), transparent); color:var(--cream); font-size:12px; letter-spacing:0.05em; text-transform:uppercase;}
-#las-carousel-dots{display:flex; justify-content:center; gap:8px; margin-top:22px;}
+#las-carousel .slide .cap{position:absolute; bottom:0; left:0; right:0; padding:18px 20px; background:linear-gradient(0deg, rgba(18,42,28,0.9), transparent); color:var(--cream); font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase;}
+#las-carousel-dots{display:flex; justify-content:center; gap:8px; margin-top:20px;}
 #las-carousel-dots button{width:36px; height:36px; padding:0; border:0; background:transparent; cursor:pointer; display:grid; place-items:center;}
 #las-carousel-dots button::after{content:""; width:8px; height:8px; border-radius:50%; background:var(--forest-2); transition:width .25s ease, background-color .25s ease;}
 #las-carousel-dots button.is-active::after{background:var(--gold-ink); width:22px; border-radius:5px;}
-#las-carousel-nav{display:flex; justify-content:center; gap:14px; margin-top:34px;}
+#las-carousel-nav{display:flex; justify-content:center; gap:14px; margin-top:24px;}
 #las-carousel-nav button{
   width:44px; height:44px; border-radius:50%; border:1px solid var(--forest-2); background:transparent;
   cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--forest-2); transition:.2s;
@@ -328,73 +404,75 @@ html{scroll-behavior:smooth;}
 @media (max-width:820px){#las-carousel .slide{flex:0 0 calc(88% - 12px); aspect-ratio:4/3;}}
 
 /* ---------- delivered projects ---------- */
-#las-delivered{padding:20px 0 110px;}
-#las-delivered .head{max-width:640px; margin:0 auto 50px; text-align:center;}
-#las-delivered .head h2{font-size:clamp(30px,4vw,46px); margin-top:16px;}
-#las-delivered .head p{color:var(--ink-soft); margin-top:14px; line-height:1.7;}
+#las-delivered{padding:16px 0 96px;}
+#las-delivered .head{max-width:64ch; margin:0 auto 44px; text-align:center;}
+#las-delivered .head h2{font-size:clamp(30px,4vw,46px);}
+#las-delivered .head p{color:var(--ink-soft); margin-top:14px; line-height:1.7; max-width:64ch; margin-left:auto; margin-right:auto;}
 #las-delivered .delivered-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
 }
 #las-delivered .delivered-card{
   background:var(--cream); border:1px solid var(--line); border-radius:var(--radius);
-  overflow:hidden; box-shadow:0 20px 45px -30px rgba(18,42,28,0.3);
+  overflow:hidden; box-shadow:0 20px 45px -30px rgba(18,42,28,0.28);
 }
 #las-delivered .delivered-media{aspect-ratio:4/3; overflow:hidden; background:var(--cream-2);}
 #las-delivered .delivered-media img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
-#las-delivered .delivered-card:hover .delivered-media img{transform:scale(1.05);}
-#las-delivered .delivered-info{padding:16px 18px;}
-#las-delivered .delivered-info h3{font-size:17px; font-weight:400;}
-#las-delivered .delivered-info span{display:block; margin-top:4px; font-size:13px; letter-spacing:0.02em; color:var(--ink-soft);}
+#las-delivered .delivered-card:hover .delivered-media img{transform:scale(1.04);}
+#las-delivered .delivered-info{padding:18px 20px;}
+#las-delivered .delivered-info h3{font-size:20px; font-weight:400; color:var(--forest);}
+#las-delivered .delivered-info span{display:block; margin-top:4px; font-size:13.5px; color:var(--ink-soft);}
 @media (max-width:960px){#las-delivered .delivered-grid{grid-template-columns:repeat(2,1fr);}}
 @media (max-width:600px){#las-delivered .delivered-grid{grid-template-columns:1fr;}}
 
 /* ---------- lead form ---------- */
-#las-form-section{padding:110px 0; background:var(--forest); position:relative;}
-#las-form-section .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
-#las-form-section .eyebrow{color:var(--gold-light);}
-#las-form-section h2{color:var(--cream); font-size:clamp(28px,3.6vw,44px); margin-top:16px;}
-#las-form-section h2 em{color:var(--gold-light); font-style:italic;}
-#las-form-section p{color:rgba(251,247,238,0.7); margin-top:18px; line-height:1.75;}
-#las-form-section .mini-facts{margin-top:34px; display:flex; flex-direction:column; gap:14px;}
-#las-form-section .mini-facts li{color:rgba(251,247,238,0.82); font-size:14.5px; display:flex; gap:12px;}
-#las-form-section .mini-facts li::before{content:"✓"; color:var(--gold-light);}
-#las-form{background:var(--cream); padding:44px; border-radius:var(--radius);}
+#las-form-section{padding:96px 0; background:var(--forest); position:relative; caret-color:var(--forest);}
+#las-form-section .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; align-items:center;}
+#las-form-section h2{color:var(--cream); font-size:clamp(28px,3.6vw,44px);}
+#las-form-section p{color:var(--muted-on-dark); margin-top:18px; line-height:1.75; max-width:64ch;}
+#las-form-section .mini-facts{margin-top:30px; display:flex; flex-direction:column; gap:14px;}
+#las-form-section .mini-facts li{color:var(--cream); font-size:14.5px; display:flex; gap:12px; line-height:1.5;}
+#las-form-section .mini-facts li::before{content:"✓"; color:var(--gold-light); flex-shrink:0;}
+#las-form{background:var(--cream); padding:40px; border-radius:var(--radius);}
+@media (max-width:540px){#las-form{padding:26px 20px;}}
 #las-form .row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-#las-form label{display:block; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; margin-top:18px;}
+#las-form label{display:block; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; margin-top:18px; font-weight:600;}
 #las-form input, #las-form select, #las-form textarea{
-  width:100%; padding:14px 16px; border:1px solid var(--line); background:var(--cream-2);
+  width:100%; padding:13px 15px; border:1px solid rgba(28,64,41,0.24); background:#fff;
   font-family:'Manrope',sans-serif; font-size:15px; color:var(--ink); border-radius:var(--radius);
 }
-#las-form input:focus-visible, #las-form select:focus-visible, #las-form textarea:focus-visible{border-color:var(--gold-ink);}
-#las-form input::placeholder, #las-form textarea::placeholder{color:var(--ink-soft); opacity:1;}
-#las-form button{margin-top:28px; width:100%; justify-content:center; border:none;}
+#las-form input::placeholder, #las-form textarea::placeholder{color:#555244; opacity:1;}
+#las-form button{margin-top:26px; width:100%; justify-content:center; border:none;}
 #las-form button:disabled{cursor:wait; opacity:.72;}
-#las-form .form-note{font-size:12px; color:var(--ink-soft); margin-top:14px; text-align:center;}
-#las-form-msg{display:none; margin-top:18px; font-size:14px; padding:14px 16px; border-radius:var(--radius);}
+#las-form .form-note{font-size:13px; color:var(--ink-soft); margin-top:14px; text-align:center; line-height:1.55;}
+#las-form-msg{display:none; margin-top:18px; font-size:14px; padding:14px 16px; border-radius:var(--radius); line-height:1.55;}
 #las-form-msg[data-state="sending"]{display:block; background:var(--cream-2); color:var(--forest);}
 #las-form-msg[data-state="success"]{display:block; background:#DCEFE0; color:#1C4029;}
 #las-form-msg[data-state="error"]{display:block; background:#F9E3DE; color:#743126;}
-#las-form .form-direct{display:block; margin-top:16px; text-align:center; font-size:13px; color:var(--forest-2); text-decoration:underline; text-underline-offset:3px;}
+#las-form-msg a{font-weight:700; text-decoration:underline; color:inherit;}
+#las-form .form-direct{display:block; margin-top:16px; text-align:center; font-size:13.5px; color:var(--forest-2); text-decoration:underline; text-underline-offset:3px; font-weight:600;}
 
 /* ---------- footer ---------- */
-#las-footer{background:#0D2015; color:rgba(251,247,238,0.55); padding:60px 0 30px;}
-#las-footer .wrap{display:grid; grid-template-columns:1.3fr 1fr; gap:50px;}
-#las-footer h2{color:var(--cream); font-family:'Fraunces',serif; font-size:18px; font-weight:400; margin-bottom:16px;}
-#las-footer p, #las-footer li{font-size:13.5px; line-height:1.8;}
+#las-footer{background:#0D2015; color:var(--muted-on-dark); padding:56px 0 32px;}
+#las-footer .wrap{display:grid; grid-template-columns:1.1fr .9fr .9fr; gap:36px;}
+#las-footer .footer-heading{color:var(--cream); font-family:'Fraunces',serif; font-size:20px; font-weight:400; margin-bottom:12px;}
+#las-footer p, #las-footer li{font-size:14px; line-height:1.75;}
+#las-footer a{color:var(--cream); text-decoration:underline;}
+#las-footer a:hover{color:var(--gold-light);}
 #las-footer .legal{
-  max-width:1180px; margin:50px auto 0; padding:0 28px 0; border-top:1px solid rgba(251,247,238,0.12); padding-top:30px;
+  max-width:1180px; margin:40px auto 0; padding:26px 24px 0; border-top:1px solid rgba(251,247,238,0.16);
 }
-#las-footer .legal p{font-size:12px; line-height:1.8; color:rgba(251,247,238,0.7);}
+#las-footer .legal p{font-size:13px; line-height:1.75; color:var(--muted-on-dark); max-width:72ch;}
 
-/* ---------- floating whatsapp ---------- */
+/* ---------- floating whatsapp (end of DOM order) ---------- */
 #las-whatsapp{
-  position:fixed; bottom:26px; right:26px; z-index:900;
-  width:60px; height:60px; border-radius:50%; background:#25D366;
+  position:fixed; bottom:24px; right:24px; z-index:450;
+  width:56px; height:56px; border-radius:50%; background:var(--wa-green);
+  border:1px solid rgba(251,247,238,0.28);
   display:flex; align-items:center; justify-content:center;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3); transition:transform .2s ease;
+  box-shadow:0 10px 26px rgba(0,0,0,0.34); transition:transform .2s ease, background-color .2s ease;
 }
-#las-whatsapp:hover{transform:scale(1.08);}
-#las-whatsapp svg{width:30px; height:30px;}
+#las-whatsapp:hover{background:var(--wa-green-hover); transform:translateY(-2px);}
+#las-whatsapp svg{width:28px; height:28px;}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
@@ -402,42 +480,100 @@ html{scroll-behavior:smooth;}
 }
 
 /* ---------- responsive ---------- */
+@media (max-width:960px){
+  #las-nav .nav-links{display:none;}
+  #las-nav .nav-toggle{display:inline-flex;}
+  #las-vip .inner{margin:0 24px; padding:48px 32px;}
+}
 @media (max-width:900px){
   #las-plots .plot-block, #las-vip .grid, #las-form-section .wrap, #las-footer .wrap{
     grid-template-columns:1fr !important;
   }
   #las-plots .plot-block:nth-child(even) .media, #las-plots .plot-block:nth-child(even) .copy{order:initial;}
   #las-form .row{grid-template-columns:1fr;}
-  #las-vip .inner{padding:50px 28px; margin:0 16px;}
+  #las-vip .inner{padding:44px 24px; margin:0 16px;}
   #las-nav .wrap{padding:12px 16px; gap:10px;}
-  #las-nav .brand{font-size:clamp(16px,4vw,20px); white-space:nowrap;}
-  #las-nav .btn{padding:10px 12px; font-size:12px; flex-shrink:0;}
+  #las-nav .brand{font-size:clamp(16px,4vw,20px);}
+  #las-nav .btn{padding:10px 14px; font-size:12px;}
   #las-nav .desktop-label{display:none;}
   #las-nav .mobile-label{display:inline;}
 }
+@media (max-width:480px){
+  #las-nav .brand-sep, #las-nav .co-brand{display:none;}
+}
 @media (max-width:800px){#las-pricing .table-scroll-hint{display:block;}}
-@media (max-width:600px){#las-hero .hero-grid{padding-top:90px;}}
+@media (max-width:600px){#las-hero .hero-grid{padding-top:96px;}}
 </style>
 
-<!-- ================= FLOATING WHATSAPP ================= -->
-<a id="las-whatsapp" href="https://wa.link/6fjyon" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 32 32" fill="white" aria-hidden="true" focusable="false"><path d="M16.001 3C9.376 3 4 8.373 4 15c0 2.393.703 4.62 1.912 6.49L4 29l7.69-1.877A11.93 11.93 0 0 0 16.001 27C22.627 27 28 21.627 28 15S22.627 3 16.001 3zm0 21.75c-2.02 0-3.906-.573-5.507-1.566l-.395-.235-4.564 1.114 1.157-4.44-.257-.408A9.71 9.71 0 0 1 5.25 15c0-5.936 4.815-10.75 10.751-10.75 5.935 0 10.75 4.814 10.75 10.75S21.936 24.75 16.001 24.75zm5.895-8.05c-.323-.162-1.912-.943-2.208-1.05-.296-.108-.512-.162-.727.162-.216.323-.836 1.05-1.025 1.267-.188.216-.377.243-.7.081-.323-.162-1.364-.503-2.598-1.603-.96-.856-1.609-1.914-1.797-2.237-.188-.323-.02-.497.142-.658.146-.145.324-.377.485-.566.162-.19.216-.323.324-.539.108-.216.054-.404-.027-.566-.081-.162-.727-1.752-.996-2.4-.262-.63-.529-.545-.727-.555-.188-.009-.404-.011-.62-.011-.216 0-.566.081-.862.404-.296.323-1.13 1.104-1.13 2.693 0 1.589 1.157 3.124 1.318 3.34.162.216 2.278 3.477 5.519 4.875.771.333 1.372.532 1.841.68.774.246 1.478.211 2.035.128.621-.093 1.912-.782 2.182-1.537.27-.755.27-1.402.189-1.537-.081-.135-.297-.216-.62-.378z"/></svg>
-</a>
-
-<!-- ================= NAV ================= -->
-<nav id="las-nav">
+<!-- ================= HEADER / NAV ================= -->
+<header id="las-nav">
   <div class="wrap">
-    <div class="brand">Lekki Avana <span>Signature</span></div>
-    <a href="#las-reserve" class="btn btn-gold"><span class="desktop-label">Ask About a Plot</span><span class="mobile-label">Ask Now</span></a>
+    <div class="brand-lockup">
+      <a href="#las-hero" class="brand">Lekki Avana <span>Signature</span></a>
+      <span class="brand-sep" aria-hidden="true">&middot;</span>
+      <a href="https://www.9jawealth.com/" class="co-brand">9jawealth Advisory</a>
+    </div>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#las-plots">Plots</a>
+      <a href="#las-pricing">Payment Schedule</a>
+      <a href="#las-gallery">Site Progress</a>
+      <a href="#las-reserve">Reserve</a>
+      <a href="https://www.9jawealth.com/education" class="nav-guide">&larr; 9jawealth Guide</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#las-reserve" class="btn btn-gold"><span class="desktop-label">Ask About a Plot</span><span class="mobile-label">Ask Now</span></a>
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        aria-label="Open navigation menu"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
   </div>
-</nav>
+</header>
+
+<div id="mobile-drawer-backdrop" class="drawer-backdrop" hidden></div>
+<aside
+  id="mobile-drawer"
+  class="mobile-drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile navigation"
+  hidden
+>
+  <div class="drawer-top">
+    <span class="drawer-brand">Lekki Avana <span>Signature</span></span>
+    <button type="button" id="nav-close" class="drawer-close" aria-label="Close navigation menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <ul class="drawer-nav">
+    <li><a href="#las-plots">Plots (300&#8211;1,000 SQM)</a></li>
+    <li><a href="#las-pricing">Payment Schedule &amp; Terms</a></li>
+    <li><a href="#las-gallery">Site Progress</a></li>
+    <li><a href="#las-reserve">Reserve / Enquire</a></li>
+    <li><a href="https://www.9jawealth.com/education" class="drawer-guide">&larr; 9jawealth Investment Guide</a></li>
+  </ul>
+  <a href="#las-reserve" class="btn btn-gold drawer-cta">Ask About a Plot</a>
+</aside>
 
 <main id="las-main">
 <!-- ================= HERO ================= -->
 <section id="las-hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow">Resort Palm Estate · Elerangbe, Lekki–Epe Expressway · Ibeju Lekki</div>
+      <p class="hero-meta">Resort Palm Estate &middot; Elerangbe, Lekki&#8211;Epe Expressway &middot; Ibeju Lekki &middot; Presented with <a href="https://www.9jawealth.com/education">9jawealth Advisory</a></p>
       <h1>Land for the home you’re planning.</h1>
       <p class="lede">Lekki Avana Signature is a Resort Palm Estate with <strong>3,000 palm trees to be planted</strong>, offering 300, 500, 600 and 1,000 SQM plots in Elerangbe, Ibeju-Lekki, with completed gatehouse infrastructure, first-batch physical allocation underway, and flexible 6- and 12-month payment plans.</p>
       <div class="hero-actions">
@@ -445,25 +581,26 @@ html{scroll-behavior:smooth;}
         <a href="#las-gallery" class="btn btn-outline">See Allocation &amp; Gatehouse</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><b>300–1000</b><span>SQM Plot Sizes</span></div>
+        <div class="stat"><b>300&#8211;1000</b><span>SQM Plot Sizes</span></div>
         <div class="stat"><b>₦18M</b><span>Starting All-In (300 SQM)</span></div>
         <div class="stat"><b>3,000</b><span>Palm Trees To Be Planted</span></div>
         <div class="stat"><b>Zylus</b><span>Homes &amp; Property Ltd</span></div>
       </div>
     </div>
-    <!-- ================= VIDEO EMBED (EASY UPDATE) =================
-         To update this video when a new one is released:
-         1. Replace the Google Drive, YouTube, or video URL in data-src below.
-         2. Update the fallback link in the "Open video" <a> tag.
+    <!-- ================= VIDEO EMBED (JSON-CONFIGURED) =================
+         To update this video when a new one is released, edit video-config.json
+         in this folder (no HTML edit needed). Supports Google Drive, YouTube,
+         Vimeo, or direct .mp4/.webm links.
          ================================================================ -->
     <div id="las-hero-media">
       <button class="video-poster" type="button" aria-label="Play Lekki Avana Signature site overview video">
         <img src="site-progress.webp" width="1280" height="719" fetchpriority="high" alt="Aerial view of the completed gatehouse and First Batch Allocation at Lekki Avana Signature in Ibeju Lekki">
       </button>
       <iframe data-src="https://drive.google.com/file/d/1AtUaFYre8yYUh1huN_OIZALgSaiZKwUN/preview"
-        title="Lekki Avana Signature site overview video" allow="encrypted-media; fullscreen" allowfullscreen hidden></iframe>
+        title="Lekki Avana Signature site overview video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" hidden></iframe>
+      <video id="las-hero-video" controls playsinline preload="metadata" aria-label="Lekki Avana Signature site overview video" hidden></video>
       <div class="video-badge">Watch: Latest Site &amp; Allocation Video</div>
-      <a class="video-fallback" href="https://drive.google.com/file/d/1AtUaFYre8yYUh1huN_OIZALgSaiZKwUN/view" target="_blank" rel="noopener">Open video</a>
+      <a class="video-fallback" href="https://drive.google.com/file/d/1AtUaFYre8yYUh1huN_OIZALgSaiZKwUN/view" target="_blank" rel="noopener noreferrer">Open video</a>
     </div>
   </div>
 </section>
@@ -473,21 +610,20 @@ html{scroll-behavior:smooth;}
   <div class="wrap">
     <div class="head">
       <h2>Space for the home you’re planning.</h2>
-      <p style="color:var(--ink-soft); margin-top:16px; line-height:1.7;">Choose from 300, 500, 600 and 1,000 SQM plots in a Resort Palm Estate designed with 3,000 palm trees to be planted. All published 0–6 month prices are interest-free and all-inclusive of Land, Survey Plan, Legal Fee, and Preliminary Development Fee.</p>
+      <p>Choose from 300, 500, 600, and 1,000 SQM plots in a Resort Palm Estate with 3,000 palm trees to be planted. All 0&#8211;6 month prices are interest-free and include Land, Survey Plan, Legal Fee, and Preliminary Development Fee.</p>
     </div>
 
     <!-- 300sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/flyer-300sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 300 SQM plot flyer — ₦18M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>300 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
+        <figure><img src="images/flyer-300sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 300 SQM plot flyer, ₦18M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>300 SQM Official Flyer &middot; 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">3 / 4 Bedroom Detached Duplex</span>
-        <h3>300 SQM<span class="size">A compact homesite in a 3,000-palm-tree estate</span></h3>
+        <h3>300 SQM<span class="size">3 / 4 Bedroom Detached Duplex &middot; Compact homesite in a 3,000-palm-tree estate</span></h3>
         <p>Suitable for a 3- or 4-bedroom fully detached duplex. All-inclusive of Land (₦13.4M), Survey Plan (₦700K), Legal Fee (₦300K), and Preliminary Development Fee (₦3.6M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
-          <div><b>₦18,000,000</b><span>All-In Total (0–6 Months)</span></div>
+          <div><b>₦18,000,000</b><span>All-In Total (0&#8211;6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -495,15 +631,14 @@ html{scroll-behavior:smooth;}
     <!-- 500sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/flyer-500sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 500 SQM plot flyer — ₦30M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>500 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
+        <figure><img src="images/flyer-500sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 500 SQM plot flyer, ₦30M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>500 SQM Official Flyer &middot; 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">5 Bedroom Detached Duplex</span>
-        <h3>500 SQM<span class="size">Room for a home and outdoor space</span></h3>
+        <h3>500 SQM<span class="size">5 Bedroom Detached Duplex &middot; Room for a home and outdoor space</span></h3>
         <p>Suitable for a 5-bedroom fully detached duplex. All-inclusive of Land (₦22.5M), Survey Plan (₦700K), Legal Fee (₦300K), and Preliminary Development Fee (₦6.5M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
-          <div><b>₦30,000,000</b><span>All-In Total (0–6 Months)</span></div>
+          <div><b>₦30,000,000</b><span>All-In Total (0&#8211;6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -511,15 +646,14 @@ html{scroll-behavior:smooth;}
     <!-- 600sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/flyer-600sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 600 SQM plot flyer — ₦36M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>600 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
+        <figure><img src="images/flyer-600sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 600 SQM plot flyer, ₦36M, ₦1M initial deposit, 3,000 palm trees to be planted"><figcaption>600 SQM Official Flyer &middot; 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">New Plot Size · Spacious 5 Bedroom Duplex</span>
-        <h3>600 SQM<span class="size">Expanded compound &amp; resort greenery</span></h3>
+        <h3>600 SQM<span class="size">Spacious 5 Bedroom Duplex &middot; Expanded compound &amp; resort greenery</span></h3>
         <p>Suitable for a spacious 5-bedroom fully detached duplex with extra compound space. All-inclusive of Land (₦26.8M), Survey Plan (₦1.4M), Legal Fee (₦600K), and Preliminary Development Fee (₦7.2M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦1,000,000</b><span>Initial Deposit</span></div>
-          <div><b>₦36,000,000</b><span>All-In Total (0–6 Months)</span></div>
+          <div><b>₦36,000,000</b><span>All-In Total (0&#8211;6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -527,15 +661,14 @@ html{scroll-behavior:smooth;}
     <!-- 1000sqm -->
     <div class="plot-block">
       <div class="media">
-        <figure><img src="images/flyer-1000sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 1000 SQM plot flyer — ₦70M, ₦5M initial deposit, 3,000 palm trees to be planted"><figcaption>1000 SQM Official Flyer · 3,000 Palm Trees Estate</figcaption></figure>
+        <figure><img src="images/flyer-1000sqm.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Lekki Avana Signature 1000 SQM plot flyer, ₦70M, ₦5M initial deposit, 3,000 palm trees to be planted"><figcaption>1000 SQM Official Flyer &middot; 3,000 Palm Trees Estate</figcaption></figure>
       </div>
       <div class="copy">
-        <span class="tag">Commercial &amp; Apartment</span>
-        <h3>1000 SQM<span class="size">For apartments or commercial development</span></h3>
+        <h3>1000 SQM<span class="size">Commercial &amp; Apartment &middot; Multi-unit or commercial development</span></h3>
         <p>Suitable for commercial or multi-unit apartment development. All-inclusive of Land (₦56M), Survey Plan (₦1.5M), Legal Fee (₦500K), and Preliminary Development Fee (₦12M). Pay ₦5M to get physical allocation.</p>
         <div class="price-row">
           <div><b>₦5,000,000</b><span>Initial Deposit</span></div>
-          <div><b>₦70,000,000</b><span>All-In Total (0–6 Months)</span></div>
+          <div><b>₦70,000,000</b><span>All-In Total (0&#8211;6 Months)</span></div>
         </div>
       </div>
     </div>
@@ -546,59 +679,59 @@ html{scroll-behavior:smooth;}
 <section id="las-pricing">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" style="color:var(--forest-3)">Updated published payment terms</div>
       <h2>Payment structure &amp; all-inclusive breakdown</h2>
+      <p>Payment terms across 300, 500, 600, and 1,000 SQM plots.</p>
     </div>
-    <p class="table-scroll-hint">Swipe to compare all payment plans →</p>
-    <div style="overflow-x:auto;" role="region" aria-label="Payment plans comparison" tabindex="0">
-    <table style="min-width:760px;">
+    <p class="table-scroll-hint">Scroll sideways on mobile to see all columns &rarr;</p>
+    <div class="table-scroll" role="region" aria-label="Payment plans comparison" tabindex="0">
+    <table class="las-table-wide">
       <thead>
         <tr>
-          <th>Land Size</th>
-          <th>Initial Deposit</th>
-          <th>0–6 Months (Interest-Free)<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / All-In Total</span></th>
-          <th>7–12 Months Plan<br><span style="font-weight:400; text-transform:none; opacity:0.8;">Monthly / All-In Total</span></th>
+          <th scope="col">Land Size</th>
+          <th scope="col">Initial Deposit</th>
+          <th scope="col">0&#8211;6 Months (Interest-Free)<br><span>Monthly / All-In Total</span></th>
+          <th scope="col">7&#8211;12 Months Plan<br><span>Monthly / All-In Total</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><b>300 SQM</b></td>
           <td>₦1,000,000</td>
-          <td>₦2,833,333 / mo — <b>₦18,000,000</b> total</td>
-          <td>₦1,583,333 / mo — <b>₦20,000,000</b> total</td>
+          <td>₦2,833,333 / mo &middot; <b>₦18,000,000</b> total</td>
+          <td>₦1,583,333 / mo &middot; <b>₦20,000,000</b> total</td>
         </tr>
         <tr>
           <td><b>500 SQM</b></td>
           <td>₦1,000,000</td>
-          <td>₦4,833,333 / mo — <b>₦30,000,000</b> total</td>
-          <td>₦2,583,333 / mo — <b>₦32,000,000</b> total</td>
+          <td>₦4,833,333 / mo &middot; <b>₦30,000,000</b> total</td>
+          <td>₦2,583,333 / mo &middot; <b>₦32,000,000</b> total</td>
         </tr>
         <tr>
           <td><b>600 SQM</b></td>
           <td>₦1,000,000</td>
-          <td>₦5,833,333 / mo — <b>₦36,000,000</b> total</td>
+          <td>₦5,833,333 / mo &middot; <b>₦36,000,000</b> total</td>
           <td>Available on request</td>
         </tr>
         <tr>
           <td><b>1000 SQM</b></td>
           <td>₦5,000,000</td>
-          <td>₦10,833,333 / mo — <b>₦70,000,000</b> total</td>
-          <td>₦5,833,333 / mo — <b>₦75,000,000</b> total</td>
+          <td>₦10,833,333 / mo &middot; <b>₦70,000,000</b> total</td>
+          <td>₦5,833,333 / mo &middot; <b>₦75,000,000</b> total</td>
         </tr>
       </tbody>
     </table>
     </div>
 
-    <div style="overflow-x:auto; margin-top:32px;" role="region" aria-label="All-inclusive fee breakdown" tabindex="0">
-    <table style="min-width:760px;">
+    <div class="table-scroll--spaced" role="region" aria-label="All-inclusive fee breakdown" tabindex="0">
+    <table class="las-table-wide">
       <thead>
         <tr>
-          <th>Plot Size</th>
-          <th>Land Price</th>
-          <th>Survey Plan</th>
-          <th>Legal Fee</th>
-          <th>Preliminary Dev. Fee</th>
-          <th>0–6 Months Total</th>
+          <th scope="col">Plot Size</th>
+          <th scope="col">Land Price</th>
+          <th scope="col">Survey Plan</th>
+          <th scope="col">Legal Fee</th>
+          <th scope="col">Preliminary Dev. Fee</th>
+          <th scope="col">0&#8211;6 Months Total</th>
         </tr>
       </thead>
       <tbody>
@@ -638,12 +771,23 @@ html{scroll-behavior:smooth;}
     </table>
     </div>
 
+    <div id="las-terms-clarity" class="terms-clarity">
+      <h3>Title, Allocation &amp; Terms Clarity</h3>
+      <ul>
+        <li><strong>Included in 0&#8211;6 month prices:</strong> Land + Survey Plan + Legal Fee + Preliminary Development Fee.</li>
+        <li><strong>Separate fee before building:</strong> A Main Infrastructure Fee applies before construction commences; the written Main Infrastructure Fee schedule is provided prior to commitment.</li>
+        <li><strong>Title verification before deposit:</strong> The estate title and survey documents and current allocation details are shared with you in writing before any deposit.</li>
+        <li><strong>Physical allocation vs. possession:</strong> Pay ₦5,000,000 to qualify for physical plot allocation; full legal possession of the land follows completion of full payment.</li>
+        <li><strong>Provisional allotment &amp; refund deduction policy:</strong> Allotments are provisional until the formal sales agreement is executed. Approved refunds are subject to a 35% administrative deduction payable within six months under the contract terms.</li>
+      </ul>
+    </div>
+
     <figure class="doc-sheet">
       <img src="images/price-breakdown-faq.webp" width="1179" height="1128" loading="lazy" decoding="async" alt="Official Lekki Avana Signature FAQ payment structure and price breakdown sheet">
       <figcaption>Official Payment Structure &amp; All-Inclusive Price Breakdown Sheet</figcaption>
     </figure>
 
-    <p class="table-note">Figures reflect Zylus Homes &amp; Property Ltd's updated schedule (October 2026) and include Land, Survey Plan, Legal Fee, and Preliminary Development Fee. A separate main infrastructure fee applies before construction. Pay ₦5,000,000 to qualify for physical allocation; full possession of the land is subject to full payment.</p>
+    <p class="table-note">Figures reflect Zylus Homes &amp; Property Ltd's updated schedule (October 2026) and include Land, Survey Plan, Legal Fee, and Preliminary Development Fee. A separate Main Infrastructure Fee applies before construction. Pay ₦5,000,000 to qualify for physical allocation; full possession of the land is subject to full payment.</p>
   </div>
 </section>
 
@@ -652,7 +796,6 @@ html{scroll-behavior:smooth;}
   <div class="inner">
     <div class="grid">
       <div>
-        <div class="eyebrow">Resort Palm Estate · Physical Allocation Underway</div>
         <h2>Pay <em>₦5,000,000</em> for physical allocation in a 3,000-palm-tree estate.</h2>
         <p>First-batch physical allocations and the estate gatehouse structure are already completed on site. Zylus Homes &amp; Property Ltd is planting <strong>3,000 palm trees</strong> across Lekki Avana Signature to create a serene resort palm estate in Elerangbe, Ibeju-Lekki.</p>
         <ul class="perks">
@@ -662,13 +805,11 @@ html{scroll-behavior:smooth;}
           <li>First-batch landowners have already received their physical plot allocations on site</li>
         </ul>
       </div>
-      <div class="price-card">
-        <div class="flyer-thumb">
-          <img src="images/resort-palm-estate.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Introducing Lekki Avana Signature Resort Palm Estate by Zylus Homes">
-        </div>
+      <div class="vip-aside">
+        <img class="flyer-preview" src="images/resort-palm-estate.webp" width="1024" height="1280" loading="lazy" decoding="async" alt="Introducing Lekki Avana Signature Resort Palm Estate by Zylus Homes">
         <div class="label">Physical Allocation Deposit</div>
         <div class="amount"><sup>₦</sup>5,000,000</div>
-        <div class="sub">Qualifies your plot for physical allocation — possession of the land follows full payment</div>
+        <div class="sub">Qualifies your plot for physical allocation &middot; full possession of the land follows full payment</div>
         <a href="#las-reserve" class="btn btn-gold">Ask About Allocation &amp; Payment Plans</a>
       </div>
     </div>
@@ -679,7 +820,6 @@ html{scroll-behavior:smooth;}
 <section id="las-gallery">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" style="color:var(--forest-3)">Completed Gatehouse &amp; First Batch Allocation</div>
       <h2>Site progress &amp; allocation photos</h2>
       <p>Recent photos from the First Batch Allocation and the completed gatehouse structure on site in Elerangbe, Ibeju-Lekki.</p>
     </div>
@@ -689,17 +829,17 @@ html{scroll-behavior:smooth;}
         <div class="slide"><img src="images/site-progress-2.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Front view of the completed Lekki Avana Signature gatehouse structure"><div class="cap">Completed Gatehouse Structure</div></div>
         <div class="slide"><img src="images/site-progress-3.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Aerial view of the Lekki Avana Signature gatehouse roof and perimeter fence"><div class="cap">Gatehouse &amp; Perimeter Fence</div></div>
         <div class="slide"><img src="images/site-progress-4.webp" width="1280" height="719" loading="lazy" decoding="async" alt="Aerial view of First Batch Allocation tents and gatehouse at Lekki Avana Signature"><div class="cap">First Batch Allocation on Site</div></div>
-        <div class="slide"><img src="images/site-progress-5.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Family holding allocation papers at Block 25 Plot 26 during First Batch Allocation"><div class="cap">First Batch Allocation · Block 25</div></div>
+        <div class="slide"><img src="images/site-progress-5.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Family holding allocation papers at Block 25 Plot 26 during First Batch Allocation"><div class="cap">First Batch Allocation &middot; Block 25</div></div>
         <div class="slide"><img src="images/site-progress-6.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Landowner with allocation documents at Lekki Avana Signature"><div class="cap">Landowner Allocation Day</div></div>
         <div class="slide"><img src="images/site-progress-7.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Client and Zylus site engineer at plot beacon during physical allocation"><div class="cap">Physical Plot Beacon Verification</div></div>
-        <div class="slide"><img src="images/site-progress-8.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Landowner holding allocation documents at Block 25 Plot 9 and 10"><div class="cap">First Batch Allocation · Plot 9 &amp; 10</div></div>
+        <div class="slide"><img src="images/site-progress-8.webp" width="1280" height="854" loading="lazy" decoding="async" alt="Landowner holding allocation documents at Block 25 Plot 9 and 10"><div class="cap">First Batch Allocation &middot; Plot 9 &amp; 10</div></div>
       </div>
     </div>
     <div id="las-carousel-dots"></div>
     <div id="las-carousel-nav">
-      <button id="las-prev" type="button" aria-label="Previous site photo">←</button>
+      <button id="las-prev" type="button" aria-label="Previous site photo">&larr;</button>
       <button id="las-toggle-autoplay" type="button" aria-label="Pause photo slideshow">Pause slideshow</button>
-      <button id="las-next" type="button" aria-label="Next site photo">→</button>
+      <button id="las-next" type="button" aria-label="Next site photo">&rarr;</button>
     </div>
   </div>
 </section>
@@ -708,7 +848,6 @@ html{scroll-behavior:smooth;}
 <section id="las-delivered">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow" style="color:var(--forest-3)">Track record</div>
       <h2>Other Zylus projects in Lagos</h2>
       <p>Explore other named developments by Zylus Homes and Property Ltd across Lagos.</p>
     </div>
@@ -745,26 +884,20 @@ html{scroll-behavior:smooth;}
 <section id="las-form-section">
   <div class="wrap" id="las-reserve">
     <div>
-      <div class="eyebrow">Ask about availability</div>
       <h2>Let’s talk about your plot at Lekki Avana Signature.</h2>
-      <p>Share your details to receive the updated brochure, availability for 300, 500, 600 or 1,000 SQM plots, and payment options.</p>
+      <p>Share your details to receive the brochure, current availability for 300, 500, 600, or 1,000 SQM plots, the Main Infrastructure Fee and title documents, and payment options.</p>
       <ul class="mini-facts">
-        <li>No obligation — this simply starts the conversation</li>
-        <li>Updated 0–6 month interest-free and 7–12 month schedules shared directly</li>
+        <li>No obligation &middot; this simply starts the conversation</li>
+        <li>0&#8211;6 month interest-free and 7&#8211;12 month schedules shared directly</li>
         <li>Pay ₦5,000,000 to qualify for physical allocation in our 3,000-palm-tree estate</li>
       </ul>
     </div>
 
-    <!--
-      FormSubmit requires activation from the recipient inbox after the first submission.
-      Delivery has not been independently verified; the owner should activate the address
-      and test receipt before relying on this form for live enquiries.
-    -->
     <form id="las-form" action="https://formsubmit.co/ola.yinusa.lanre@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New Lekki Avana Signature Enquiry">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="text" name="_honey" class="las-honeypot" aria-hidden="true" tabindex="-1" autocomplete="off">
 
       <label for="las-name">Full Name</label>
       <input id="las-name" type="text" name="Full Name" autocomplete="name" placeholder="e.g. Adaeze Okonkwo" required>
@@ -776,7 +909,7 @@ html{scroll-behavior:smooth;}
         </div>
         <div>
           <label for="las-phone">Phone Number</label>
-          <input id="las-phone" type="tel" name="Phone" autocomplete="tel" inputmode="tel" placeholder="e.g. +234 801 234 5678" required>
+          <input id="las-phone" type="tel" name="Phone" autocomplete="tel" inputmode="tel" placeholder="e.g. +234 803 000 0000, +44 7700 900077, or +1 555 0199" required>
         </div>
       </div>
 
@@ -784,18 +917,18 @@ html{scroll-behavior:smooth;}
         <div>
           <label for="las-size">Plot Size of Interest</label>
           <select id="las-size" name="Plot Size">
-            <option value="500 SQM" selected>500 SQM (₦30M · 0–6 Months)</option>
-            <option value="600 SQM">600 SQM (₦36M · 0–6 Months)</option>
-            <option value="300 SQM">300 SQM (₦18M · 0–6 Months)</option>
-            <option value="1000 SQM">1000 SQM (₦70M · 0–6 Months)</option>
-            <option value="Not sure yet">Not sure yet</option>
+            <option value="Not sure yet" selected>Not sure yet</option>
+            <option value="300 SQM">300 SQM (₦18M &middot; 0&#8211;6 Months)</option>
+            <option value="500 SQM">500 SQM (₦30M &middot; 0&#8211;6 Months)</option>
+            <option value="600 SQM">600 SQM (₦36M &middot; 0&#8211;6 Months)</option>
+            <option value="1000 SQM">1000 SQM (₦70M &middot; 0&#8211;6 Months)</option>
           </select>
         </div>
         <div>
           <label for="las-plan">Preferred Payment Plan</label>
           <select id="las-plan" name="Payment Plan">
-            <option value="0-6 Months (Interest-Free)">0–6 Months (Interest-Free)</option>
-            <option value="7-12 Months">7–12 Months</option>
+            <option value="0-6 Months (Interest-Free)">0&#8211;6 Months (Interest-Free)</option>
+            <option value="7-12 Months">7&#8211;12 Months</option>
             <option value="Physical Allocation (5M Deposit)">Physical Allocation (₦5M Deposit)</option>
           </select>
         </div>
@@ -805,8 +938,8 @@ html{scroll-behavior:smooth;}
       <textarea id="las-msg" name="Message" rows="3" placeholder="Questions, timelines, budget notes…"></textarea>
 
       <button type="submit" class="btn btn-gold">Send Enquiry</button>
-      <div class="form-note">Your details are sent to the 9jawealth property contact through FormSubmit so they can respond to this enquiry.</div>
-      <a class="form-direct" href="https://wa.link/6fjyon" target="_blank" rel="noopener">Prefer a direct conversation? Message Olanrewaju on WhatsApp</a>
+      <div class="form-note">Olanrewaju will reply directly with current plot availability and documentation.</div>
+      <a class="form-direct" href="https://wa.link/6fjyon" target="_blank" rel="noopener noreferrer">Prefer a direct conversation? Message Olanrewaju on WhatsApp</a>
       <div id="las-form-msg" role="status" aria-live="polite"></div>
     </form>
   </div>
@@ -817,244 +950,39 @@ html{scroll-behavior:smooth;}
 <footer id="las-footer">
   <div class="wrap">
     <div>
-      <h2>Lekki Avana Signature</h2>
-      <p>Resort Palm Estate · Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A., Lagos.<br>A development by Zylus Homes and Property Ltd, a member of Zylus Group International.</p>
+      <p class="footer-heading">Lekki Avana Signature</p>
+      <p>Resort Palm Estate &middot; Elerangbe, Lekki-Epe Expressway, Ibeju Lekki L.G.A., Lagos.<br>A development by Zylus Homes and Property Ltd, a member of Zylus Group International.</p>
     </div>
     <div>
-      <h2>Get in touch</h2>
+      <p class="footer-heading">Advisory Partner</p>
+      <p><strong>Presented by Olanrewaju Yinusa &middot; 9jawealth</strong></p>
       <ul>
-        <li><a href="https://wa.link/6fjyon" target="_blank" rel="noopener">WhatsApp Olanrewaju: +234 701 846 4025</a></li>
+        <li><a href="https://www.9jawealth.com/education">Nigeria Real Estate Investment Guide</a></li>
+        <li><a href="https://www.9jawealth.com/education#book">Book a 1-on-1 Consultation</a></li>
+        <li><a href="https://www.9jawealth.com/">9jawealth Home</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-heading">Get in touch</p>
+      <ul>
+        <li><a href="https://wa.link/6fjyon" target="_blank" rel="noopener noreferrer">WhatsApp Olanrewaju: +234 701 846 4025</a></li>
+        <li><a href="mailto:ola.yinusa.lanre@gmail.com">ola.yinusa.lanre@gmail.com</a></li>
         <li><a href="#las-reserve">Ask about a plot</a></li>
       </ul>
     </div>
   </div>
   <div class="legal">
-    <p>This page is for informational purposes and does not constitute financial or investment advice; please make your own enquiries before committing to any payment plan. Land banking and real estate carry inherent market risk, and property values can rise or fall. All allotments are provisional until the purchaser executes the formal sales agreement. No refund of any money paid is made at any stage of the transaction except as set out in the terms of contract, which include a 35% administrative charge on approved refunds, payable within six months. Full terms of contract are provided in the official application form and are binding on execution.</p>
+    <p>This page is for informational purposes and does not constitute financial or investment advice; please make your own enquiries and review the estate title and survey documents and Main Infrastructure Fee schedule before committing to any payment plan. Land banking and real estate carry inherent market risk, and property values can rise or fall. All allotments are provisional until the purchaser executes the formal sales agreement. No refund of any money paid is made at any stage of the transaction except as set out in the terms of contract, which include a 35% administrative charge on approved refunds, payable within six months. Full terms of contract are provided in the official application form and are binding on execution.</p>
   </div>
 </footer>
 
+<!-- Floating WhatsApp (end of DOM order so keyboard navigation reaches content first) -->
+<a id="las-whatsapp" href="https://wa.link/6fjyon" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" aria-hidden="true" focusable="false"><path d="M16.001 3C9.376 3 4 8.373 4 15c0 2.393.703 4.62 1.912 6.49L4 29l7.69-1.877A11.93 11.93 0 0 0 16.001 27C22.627 27 28 21.627 28 15S22.627 3 16.001 3zm0 21.75c-2.02 0-3.906-.573-5.507-1.566l-.395-.235-4.564 1.114 1.157-4.44-.257-.408A9.71 9.71 0 0 1 5.25 15c0-5.936 4.815-10.75 10.751-10.75 5.935 0 10.75 4.814 10.75 10.75S21.936 24.75 16.001 24.75zm5.895-8.05c-.323-.162-1.912-.943-2.208-1.05-.296-.108-.512-.162-.727.162-.216.323-.836 1.05-1.025 1.267-.188.216-.377.243-.7.081-.323-.162-1.364-.503-2.598-1.603-.96-.856-1.609-1.914-1.797-2.237-.188-.323-.02-.497.142-.658.146-.145.324-.377.485-.566.162-.19.216-.323.324-.539.108-.216.054-.404-.027-.566-.081-.162-.727-1.752-.996-2.4-.262-.63-.529-.545-.727-.555-.188-.009-.404-.011-.62-.011-.216 0-.566.081-.862.404-.296.323-1.13 1.104-1.13 2.693 0 1.589 1.157 3.124 1.318 3.34.162.216 2.278 3.477 5.519 4.875.771.333 1.372.532 1.841.68.774.246 1.478.211 2.035.128.621-.093 1.912-.782 2.182-1.537.27-.755.27-1.402.189-1.537-.081-.135-.297-.216-.62-.378z"/></svg>
+</a>
+
 </div>
 
-<script>
-(function(){
-  document.documentElement.classList.add('las-js');
-  // Fire-and-forget Meta Pixel events; safe when the deferred pixel hasn't loaded yet.
-  function trackEvent(name, params){
-    try { if(typeof window.fbq === 'function') window.fbq('track', name, params || {}); }
-    catch(ignore){}
-  }
-  // Capture paid/organic attribution once so enquiries carry their traffic source.
-  var attribution = {};
-  try {
-    var qs = new URLSearchParams(window.location.search);
-    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){
-      var v = qs.get(k);
-      if(v) attribution[k] = v;
-    });
-    if(document.referrer) attribution.referrer = document.referrer;
-    attribution.landing_page = window.location.href;
-  } catch(ignore){}
-  var heroPoster = document.querySelector('#las-hero-media .video-poster');
-  var heroIframe = document.querySelector('#las-hero-media iframe');
-  heroPoster?.addEventListener('click', function(){
-    var src = heroIframe.dataset.src || '';
-    if (src.includes('drive.google.com/file/d/') && !src.includes('/preview')) {
-      var match = src.match(/\/d\/([a-zA-Z0-9_-]+)/);
-      if (match && match[1]) src = 'https://drive.google.com/file/d/' + match[1] + '/preview';
-    } else if (src.includes('youtube.com/watch?v=')) {
-      src = 'https://www.youtube.com/embed/' + src.split('watch?v=')[1].split('&')[0];
-    } else if (src.includes('youtu.be/')) {
-      src = 'https://www.youtube.com/embed/' + src.split('youtu.be/')[1].split('?')[0];
-    }
-    heroIframe.src = src;
-    heroIframe.hidden = false;
-    heroPoster.hidden = true;
-    trackEvent('ViewContent', {content_name: 'Site overview video'});
-  });
-  // WhatsApp taps are the page's main direct-response action.
-  document.querySelectorAll('a[href*="wa.link"], a[href*="wa.me"]').forEach(function(a){
-    a.addEventListener('click', function(){
-      trackEvent('Contact', {content_name: a.textContent.trim().slice(0, 80) || 'WhatsApp'});
-    });
-  });
-  // Carousel (2-up on desktop, 1-up on mobile, looping autoplay + dots)
-  var track = document.getElementById('las-track');
-  var dotsWrap = document.getElementById('las-carousel-dots');
-  var slideEls = track ? Array.prototype.slice.call(track.children) : [];
-  var slides = slideEls.length;
-  var index = 0;
-  var autoplayTimer = null;
-  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var isPaused = reducedMotion.matches;
-  var autoplayButton = document.getElementById('las-toggle-autoplay');
-
-  function updateAutoplayButton(){
-    if(!autoplayButton) return;
-    autoplayButton.textContent = isPaused ? 'Play slideshow' : 'Pause slideshow';
-    autoplayButton.setAttribute('aria-label', autoplayButton.textContent);
-  }
-
-  function perView(){
-    return window.innerWidth <= 820 ? 1 : 2;
-  }
-  function maxIndex(){
-    return Math.max(0, slides - perView());
-  }
-  function renderDots(){
-    if(!dotsWrap) return;
-    var count = maxIndex() + 1;
-    if(dotsWrap.children.length !== count){
-      dotsWrap.replaceChildren();
-      for(var i = 0; i < count; i++){
-        var d = document.createElement('button');
-        d.type = 'button';
-        d.setAttribute('aria-label', 'Go to site photo ' + (i + 1));
-        (function(pos){
-          d.addEventListener('click', function(){
-            goTo(pos);
-            pauseAutoplay();
-          });
-        })(i);
-        dotsWrap.appendChild(d);
-      }
-    }
-    Array.prototype.forEach.call(dotsWrap.children, function(d, i){
-      d.classList.toggle('is-active', i === index);
-      if(i === index) d.setAttribute('aria-current', 'true');
-      else d.removeAttribute('aria-current');
-    });
-  }
-  function update(){
-    if(!track || !slides) return;
-    var mi = maxIndex();
-    if(index > mi) index = mi;
-    var slideEl = track.children[0];
-    var slideWidth = slideEl.getBoundingClientRect().width + 24;
-    track.style.transform = 'translateX(-' + (index * slideWidth) + 'px)';
-    var pv = perView();
-    slideEls.forEach(function(s, i){
-      s.classList.toggle('is-active', i >= index && i < index + pv);
-    });
-    renderDots();
-  }
-  function goTo(i){
-    index = Math.max(0, Math.min(i, maxIndex()));
-    update();
-  }
-  function next(){
-    var mi = maxIndex();
-    index = index >= mi ? 0 : index + 1; // loop back to start
-    update();
-  }
-  function prev(){
-    var mi = maxIndex();
-    index = index <= 0 ? mi : index - 1;
-    update();
-  }
-  function startAutoplay(){
-    if(!track || slides <= perView() || isPaused || autoplayTimer || document.hidden) return;
-    autoplayTimer = window.setInterval(next, 4500);
-  }
-  function stopAutoplay(){
-    if(autoplayTimer){ window.clearInterval(autoplayTimer); autoplayTimer = null; }
-  }
-  function pauseAutoplay(){
-    isPaused = true;
-    stopAutoplay();
-    updateAutoplayButton();
-  }
-  document.getElementById('las-next')?.addEventListener('click', function(){ next(); pauseAutoplay(); });
-  document.getElementById('las-prev')?.addEventListener('click', function(){ prev(); pauseAutoplay(); });
-  autoplayButton?.addEventListener('click', function(){
-    isPaused = !isPaused;
-    updateAutoplayButton();
-    if(isPaused) stopAutoplay();
-    else startAutoplay();
-  });
-  window.addEventListener('resize', update);
-  document.addEventListener('visibilitychange', function(){
-    if(document.hidden) stopAutoplay();
-    else startAutoplay();
-  });
-  reducedMotion.addEventListener('change', function(event){
-    if(event.matches) pauseAutoplay();
-  });
-  if(track){
-    update();
-    updateAutoplayButton();
-    startAutoplay();
-    var carouselEl = document.getElementById('las-carousel');
-    carouselEl?.addEventListener('mouseenter', stopAutoplay);
-    carouselEl?.addEventListener('mouseleave', startAutoplay);
-    carouselEl?.addEventListener('touchstart', stopAutoplay, {passive:true});
-    carouselEl?.addEventListener('focusin', stopAutoplay);
-    carouselEl?.addEventListener('focusout', startAutoplay);
-  }
-
-  // Submit enquiries to 9jawealth CRM (/api/send-report -> Lark Base + Resend)
-  // with FormSubmit AJAX as a fallback.
-  var form = document.getElementById('las-form');
-  var msg = document.getElementById('las-form-msg');
-  if(form && window.fetch){
-    form.addEventListener('submit', async function(event){
-      event.preventDefault();
-      var button = form.querySelector('button[type="submit"]');
-      if(button.disabled) return;
-      var originalLabel = button.textContent;
-      var fields = Object.fromEntries(new FormData(form).entries());
-      fields._replyto = fields.Email;
-      Object.assign(fields, attribution);
-      var crmPayload = Object.assign({
-        type: 'property-enquiry',
-        source: 'Lekki Avana Signature'
-      }, fields);
-      var controller = new AbortController();
-      var timeout = window.setTimeout(function(){ controller.abort(); }, 12000);
-      button.disabled = true;
-      button.textContent = 'Sending enquiry…';
-      msg.dataset.state = 'sending';
-      msg.textContent = 'Sending your enquiry…';
-      try {
-        var accepted = false;
-        try {
-          var crmRes = await fetch('https://www.9jawealth.com/api/send-report', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-            body: JSON.stringify(crmPayload),
-            signal: controller.signal
-          });
-          var crmJson = await crmRes.json();
-          if(crmRes.ok && (crmJson.ok === true || crmJson.success === true)){
-            accepted = true;
-          }
-        } catch(crmErr){}
-
-        if(!accepted){
-          var response = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-            body: JSON.stringify(fields),
-            signal: controller.signal
-          });
-          var result = await response.json();
-          if(!response.ok || !(result.success === true || result.success === 'true')) throw new Error('Enquiry not accepted');
-        }
-
-        trackEvent('Lead', {content_name: fields['Plot Size'] || 'Plot enquiry'});
-        msg.dataset.state = 'success';
-        msg.textContent = 'Enquiry received! Check your email for confirmation, or use the WhatsApp link above for an immediate response.';
-        form.reset();
-      } catch(error){
-        msg.dataset.state = 'error';
-        msg.textContent = 'We couldn’t submit your enquiry. Please try again or use the WhatsApp link above.';
-      } finally {
-        window.clearTimeout(timeout);
-        button.disabled = false;
-        button.textContent = originalLabel;
-      }
-    });
-  }
-})();
-</script>
+<script src="./app.js" defer></script>
 </body>
 </html>

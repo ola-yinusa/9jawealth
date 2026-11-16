@@ -18,7 +18,17 @@ export interface AssessmentSubmissionResponse {
   ok: boolean;
   reference: string;
   message: string;
+  result?: {
+    bracket: string;
+    summary: string;
+    recommendation: string;
+  };
+  larkCaptured?: boolean;
+  emailSent?: boolean;
+  warning?: string;
 }
+
+export type SubmissionResponse = AssessmentSubmissionResponse;
 
 export async function submitAssessment(
   payload: AssessmentSubmissionPayload,
