@@ -75,7 +75,7 @@ export const paths: PathItem[] = [
     body: "A fully managed oil palm plantation in Obafemi-Owode, Ogun State. Pay once for permanent land ownership with Registered Survey and Deed of Assignment while expert agronomists manage the harvest.",
     cta: "Explore PalmVille Plantation",
     href: "https://palmville.9jawealth.com/",
-    image: "/palmville/images/onsite.webp",
+    image: "/images/onsite.webp",
     imageWidth: 900,
     imageHeight: 1200,
     imageAlt: "Olanrewaju holding freshly harvested oil palm fruit bunches on site at PalmVille in Ogun State",
